@@ -1,0 +1,172 @@
+/* Page Container */
+.roundtables-page-container {
+    padding: 0 40px 32px 40px;
+    background: #fff;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* ===========================
+   ACCESSIBILITY: Skip Link
+   =========================== */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    background: #0078D4;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    z-index: 10000;
+    text-decoration: none;
+    transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+    top: 8px;
+    outline: 3px solid #FFB900;
+    outline-offset: 2px;
+}
+
+/* ===========================
+   ACCESSIBILITY: Screen Reader Only
+   =========================== */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ===========================
+   ACCESSIBILITY: Focus Indicators
+   =========================== */
+*:focus-visible {
+    outline: 3px solid #0078D4;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+/* High contrast focus for buttons */
+button:focus-visible,
+[role="button"]:focus-visible {
+    outline: 3px solid #0078D4;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 4px #0078D4;
+}
+
+/* Focus for input fields */
+input:focus-visible {
+    outline: 3px solid #0078D4;
+    outline-offset: 0;
+    border-color: #0078D4;
+}
+
+/* Focus for table header sort */
+th:focus-visible {
+    outline: 3px solid #0078D4;
+    outline-offset: -2px;
+}
+
+:host ::ng-deep .p-datatable {
+    margin-top: 40px;
+}
+
+
+/* Custom Add Button */
+.add-btn-custom {
+    width: auto;
+    margin-bottom: 15;
+    /* Moves button UP from the bottom alignment */
+    align-self: flex-end;
+    /* Ensure it stays at the bottom to allow margin to push it up */
+}
+
+/* ===========================
+   Edit Roundtable Button (semantic <button>)
+   =========================== */
+.edit-roundtable-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.edit-roundtable-btn:hover {
+    background-color: #E6EFF6;
+}
+
+.edit-roundtable-icon {
+    font-size: 16px;
+    color: #6b7280;
+}
+
+.edit-roundtable-btn:focus-visible {
+    outline: 3px solid #0078D4;
+    outline-offset: 2px;
+    box-shadow: 0 0 0 1px #fff, 0 0 0 4px #0078D4;
+}
+
+/* ===========================
+   Table Row Focus
+   =========================== */
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr:focus-within {
+    outline: 2px solid #0078D4;
+    outline-offset: -2px;
+}
+
+/* Responsive Padding for Mobile */
+@media screen and (max-width: 960px) {
+    .roundtables-page-container {
+        padding: 0 16px 16px 16px;
+    }
+
+    .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .filter-bar {
+        grid-template-columns: 1fr;
+    }
+
+    .action-item {
+        justify-content: flex-start;
+    }
+
+    .add-roundtable-btn {
+        width: 100%;
+    }
+}
+
+/* ===========================
+   ACCESSIBILITY: High Contrast Mode Support
+   =========================== */
+@media (forced-colors: active) {
+    .skip-link:focus {
+        outline: 3px solid LinkText;
+    }
+
+    button:focus-visible,
+    [role="button"]:focus-visible {
+        outline: 3px solid LinkText;
+    }
+
+    .edit-roundtable-btn:focus-visible {
+        outline: 3px solid LinkText;
+    }
+}

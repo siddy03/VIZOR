@@ -1,0 +1,92 @@
+<main class="community-page" aria-label="Community discussion">
+  <p-card styleClass="community-card">
+    <!-- Custom Tabs Header -->
+    <div class="tabs-header">
+      <div class="tabs-nav" role="tablist" aria-label="Community sections">
+        <button class="tab-button"
+                role="tab"
+                [class.active]="activeTab === 'discussion'"
+                [attr.aria-selected]="activeTab === 'discussion'"
+                [attr.tabindex]="activeTab === 'discussion' ? 0 : -1"
+                id="community-tab-discussion"
+                aria-controls="community-panel-discussion"
+                (click)="setActiveTab('discussion')">
+          Discussion Board
+        </button>
+        <button class="tab-button"
+                role="tab"
+                [class.active]="activeTab === 'chat'"
+                [attr.aria-selected]="activeTab === 'chat'"
+                [attr.tabindex]="activeTab === 'chat' ? 0 : -1"
+                id="community-tab-chat"
+                aria-controls="community-panel-chat"
+                (click)="setActiveTab('chat')">
+          Chat
+        </button>
+        <button class="tab-button"
+                role="tab"
+                [class.active]="activeTab === 'poll'"
+                [attr.aria-selected]="activeTab === 'poll'"
+                [attr.tabindex]="activeTab === 'poll' ? 0 : -1"
+                id="community-tab-poll"
+                aria-controls="community-panel-poll"
+                (click)="setActiveTab('poll')">
+          Poll
+        </button>
+      </div>
+
+      <!-- Participants Counter -->
+      <div class="participants-badge" role="status" [attr.aria-label]="'Participants: ' + participants">
+        <i class="pi pi-users" aria-hidden="true"></i>
+        <span>Participants ({{ participants }})</span>
+      </div>
+    </div>
+
+    <!-- Tab Content -->
+    <div class="tab-content">
+      <div *ngIf="activeTab === 'discussion'" class="tab-panel"
+           role="tabpanel"
+           id="community-panel-discussion"
+           aria-labelledby="community-tab-discussion"
+           tabindex="0">
+        <div class="empty-state" role="status">
+          <i class="pi pi-comments" style="font-size: 3rem; color: #dee2e6;" aria-hidden="true"></i>
+          <p>No discussions yet. Start a conversation!</p>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'chat'" class="tab-panel"
+           role="tabpanel"
+           id="community-panel-chat"
+           aria-labelledby="community-tab-chat"
+           tabindex="0">
+        <div class="empty-state" role="status">
+          <i class="pi pi-comment" style="font-size: 3rem; color: #dee2e6;" aria-hidden="true"></i>
+          <p>No messages yet. Start chatting!</p>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'poll'" class="tab-panel"
+           role="tabpanel"
+           id="community-panel-poll"
+           aria-labelledby="community-tab-poll"
+           tabindex="0">
+        <div class="empty-state" role="status">
+          <i class="pi pi-chart-bar" style="font-size: 3rem; color: #dee2e6;" aria-hidden="true"></i>
+          <p>No polls available. Create a poll!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message Input Area -->
+    <div class="message-input-section" role="form" aria-label="Send a message">
+      <p-inputGroup styleClass="message-input-group">
+        <label for="community-message-input" class="sr-only">Message</label>
+        <input id="community-message-input" type="text" pInputText placeholder="Send a message" class="message-input"
+               aria-label="Type a message" />
+        <p-button icon="pi pi-send" styleClass="send-button" [rounded]="true" [attr.aria-label]="'Send message'">
+        </p-button>
+      </p-inputGroup>
+    </div>
+  </p-card>
+</main>

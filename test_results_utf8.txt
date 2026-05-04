@@ -1,0 +1,74 @@
+﻿[33mΓ¥»[39m Building...
+[32mΓ£ö[39m Building...
+Application bundle generation failed. [4.689 seconds] - 2026-02-23T06:42:21.231Z
+
+node.exe : [1m[31m[31mX 
+[41;31m[[41;97mERROR[41;31m][0m 
+[1mTS2305: Module '"./app"' has no 
+exported member 'App'.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+At C:\Program 
+Files\nodejs\npx.ps1:29 char:3
++   & $NODE_EXE $NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSp 
+   ecified: ([1m[31m[31mX...r-c  
+  ompiler][0m:String) [], Remote   
+ Exception
+    + FullyQualifiedErrorId : Nativ 
+   eCommandError
+ 
+
+    src/app/app.spec.ts:2:9:
+[37m      2 Γöé import { 
+[32mApp[37m } from './app';
+        Γò╡          [32m~~~[0m
+
+
+[31mX 
+[41;31m[[41;97mERROR[41;31m][0m 
+[1mTS2305: Module '"./community"' 
+has no exported member 
+'Community'.[0m [1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/pages/community/communit
+y.spec.ts:3:9:
+[37m      3 Γöé import { 
+[32mCommunity[37m } from 
+'./community';
+        Γò╡          
+[32m~~~~~~~~~[0m
+
+
+[31mX 
+[41;31m[[41;97mERROR[41;31m][0m 
+[1mTS2305: Module '"./meetings"' 
+has no exported member 
+'Meetings'.[0m [1m[35m[plugin 
+angular-compiler][0m
+
+    src/app/pages/meetings/meetings.
+spec.ts:3:9:
+[37m      3 Γöé import { 
+[32mMeetings[37m } from 
+'./meetings';
+        Γò╡          
+[32m~~~~~~~~[0m
+
+
+[31mX 
+[41;31m[[41;97mERROR[41;31m][0m 
+[1mTS2305: Module '"./layout"' has 
+no exported member 'Layout'.[0m 
+[1m[35m[plugin 
+angular-compiler][0m
+
+    
+src/app/services/layout.spec.ts:3:9:
+[37m      3 Γöé import { 
+[32mLayout[37m } from './layout';
+        Γò╡          [32m~~~~~~[0m
+
+[39m[22m

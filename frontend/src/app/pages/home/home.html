@@ -1,0 +1,63 @@
+<div class="page-container" role="region" aria-labelledby="home-page-heading">
+  <h2 id="home-page-heading">Home Page</h2>
+  <p>Welcome to VIZOR! This is the home page.</p>
+
+  <hr class="divider" aria-hidden="true">
+
+  <section class="api-demo-section" aria-labelledby="api-demo-heading">
+    <div class="demo-header">
+      <h3 id="api-demo-heading">API Sequential Fetch Demo</h3>
+      <button 
+        class="viz-btn primary" 
+        (click)="startSequentialFetch()" 
+        [disabled]="isFetching"
+        [attr.aria-busy]="isFetching"
+        [attr.aria-label]="isFetching ? 'Fetching data, please wait' : 'Start sequential fetch'">
+        <i class="pi pi-play" *ngIf="!isFetching" aria-hidden="true"></i>
+        <i class="pi pi-spin pi-spinner" *ngIf="isFetching" aria-hidden="true"></i>
+        {{ isFetching ? 'Fetching...' : 'Start Sequential Fetch' }}
+      </button>
+    </div>
+
+    <div class="demo-content">
+      
+      <!-- Logs Section -->
+      <section class="logs-panel" aria-labelledby="logs-heading">
+        <h4 id="logs-heading"><i class="pi pi-list" aria-hidden="true"></i> Real-Time Logs</h4>
+        <div class="log-container"
+             role="log"
+             aria-live="polite"
+             aria-atomic="false"
+             aria-relevant="additions"
+             aria-label="Real-time fetch logs">
+          <div *ngIf="logs.length === 0" class="empty-state">
+            Click the button above to begin the fetch sequence.
+          </div>
+          <div *ngFor="let log of logs" class="log-entry" [ngClass]="log.type" role="listitem">
+            <span class="log-time" aria-label="Timestamp">[{{ log.timestamp | date:'HH:mm:ss.SSS' }}]</span>
+            <span class="log-message">{{ log.message }}</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Results Section -->
+      <section class="results-panel" aria-labelledby="results-heading">
+        <h4 id="results-heading"><i class="pi pi-database" aria-hidden="true"></i> Fetched Results</h4>
+        <div class="results-container" role="region" aria-live="polite" aria-label="Fetched results">
+          @defer (when posts.length > 0) {
+            <article class="post-card" *ngFor="let post of posts" [attr.aria-labelledby]="'post-title-' + post.id">
+              <div class="post-id">Post ID: {{ post.id }}</div>
+              <h5 class="post-title" [id]="'post-title-' + post.id">{{ post.title }}</h5>
+              <p class="post-body">{{ post.body }}</p>
+            </article>
+          } @placeholder {
+            <div class="empty-state">
+              Fetched posts will appear here.
+            </div>
+          }
+        </div>
+      </section>
+
+    </div>
+  </section>
+</div>

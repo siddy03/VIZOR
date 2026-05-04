@@ -1,0 +1,45 @@
+{
+    "success": true,
+    "statusCode": 200,
+    "message": "Request successful",
+    "data": {
+        "records": [
+            {
+                "userId": 5,
+                "email": "user@t3.com",
+                "firstName": "test",
+                "lastName": "one",
+                "phone": "5344534543",
+                "title": "",
+                "salesforceCode": null,
+                "countryCode": null,
+                "primaryContact": 0,
+                "ext": 5345,
+                "isConfigurationManager": false,
+                "isEmailNotificationsEnable": false,
+                "isActive": false,
+                "isLocked": false,
+                "isSuspended": false,
+                "expiryDate": null,
+                "status": "Requested",
+                "clientId": 4,
+                "roleId": 4,
+                "roleName": "Client",
+                "clientName": "c3",
+                "roundtables": null,
+                "projects": null,
+                "abbrList": [
+                    "RTHIRD"
+                ],
+                "requesteStatus": "Requested",
+                "requestedBy": "Test User Third",
+                "lastAccessed": null
+            }
+        ],
+        "totalCount": 1,
+        "pageNumber": 1,
+        "pageSize": 10,
+        "totalPages": 1,
+        "abbrList": []
+    }
+}

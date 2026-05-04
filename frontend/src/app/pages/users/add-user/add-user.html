@@ -1,0 +1,253 @@
+<main class="add-user-container" aria-labelledby="add-user-form-heading">
+    <!-- Breadcrumb -->
+    <app-breadcrumb [items]="breadcrumbItems" (itemClick)="navigateToUsersList()"></app-breadcrumb>
+
+    <h2 id="add-user-form-heading" class="sr-only">Add New User</h2>
+
+    <!-- Form Container -->
+    <div class="form-container"
+         role="group"
+         aria-labelledby="add-user-form-heading"
+         aria-describedby="add-user-required-hint">
+        <p id="add-user-required-hint" class="sr-only">Required fields are marked with an asterisk.</p>
+
+        <!-- Row 1: Email, First Name, Last Name -->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <label for="email">Email*</label>
+                <input id="email" type="text" pInputText [(ngModel)]="email" name="email"
+                    autocomplete="email"
+                    aria-required="true"
+                    [attr.aria-invalid]="submitted && !email ? 'true' : null"
+                    [attr.aria-describedby]="submitted && !email ? 'email-error' : null"
+                    [ngClass]="{'ng-invalid ng-dirty': submitted && !email}" />
+                <small id="email-error" class="p-error" role="alert" aria-live="polite"
+                    *ngIf="submitted && !email" style="display: block; margin-top: 4px; color: #dc3545;">Email is required</small>
+            </div>
+            <div class="form-field">
+                <label for="firstName">First Name*</label>
+                <input id="firstName" type="text" pInputText [(ngModel)]="firstName" name="firstName"
+                    autocomplete="given-name"
+                    aria-required="true"
+                    [attr.aria-invalid]="submitted && !firstName ? 'true' : null"
+                    [attr.aria-describedby]="submitted && !firstName ? 'firstName-error' : null"
+                    [ngClass]="{'ng-invalid ng-dirty': submitted && !firstName}" />
+                <small id="firstName-error" class="p-error" role="alert" aria-live="polite"
+                    *ngIf="submitted && !firstName" style="display: block; margin-top: 4px; color: #dc3545;">First name is required</small>
+            </div>
+            <div class="form-field">
+                <label for="lastName">Last Name*</label>
+                <input id="lastName" type="text" pInputText [(ngModel)]="lastName" name="lastName"
+                    autocomplete="family-name"
+                    aria-required="true"
+                    [attr.aria-invalid]="submitted && !lastName ? 'true' : null"
+                    [attr.aria-describedby]="submitted && !lastName ? 'lastName-error' : null"
+                    [ngClass]="{'ng-invalid ng-dirty': submitted && !lastName}" />
+                <small id="lastName-error" class="p-error" role="alert" aria-live="polite"
+                    *ngIf="submitted && !lastName" style="display: block; margin-top: 4px; color: #dc3545;">Last name is required</small>
+            </div>
+        </div>
+
+        <!-- Row 2: Title, Country/Phone, Salesforce Code -->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <label for="title">Title</label>
+                <input id="title" type="text" pInputText [(ngModel)]="title" name="title"
+                    autocomplete="organization-title"
+                    aria-label="Job title" />
+            </div>
+            <div class="form-field phone-group" role="group" aria-label="Country code and phone number">
+                <app-shared-dropdown
+                    label="Country*"
+                    id="country"
+                    [options]="countryOptions"
+                    [value]="countryCode"
+                    (valueChange)="countryCode = $event"
+                    optionLabel="code"
+                    [filter]="true"
+                    [required]="true">
+                    <ng-template #selectedItem>
+                        <div class="flex align-items-center gap-2" *ngIf="countryCode">
+                            <img [src]="'https://flagcdn.com/w20/' + countryCode.flag + '.png'"
+                                [class]="'flag flag-' + countryCode.flag"
+                                [alt]="countryCode.name + ' flag'"
+                                style="width: 18px" />
+                            <div>{{countryCode.code}}</div>
+                        </div>
+                    </ng-template>
+                    <ng-template #item let-country>
+                        <div class="flex align-items-center gap-2">
+                            <img [src]="'https://flagcdn.com/w20/' + country.flag + '.png'"
+                                [class]="'flag flag-' + country.flag"
+                                [alt]="country.name + ' flag'"
+                                style="width: 18px" />
+                            <div>{{country.name}} ({{country.code}})</div>
+                        </div>
+                    </ng-template>
+                </app-shared-dropdown>
+                <div class="phone-input">
+                    <label for="phone">Phone*</label>
+                    <input id="phone" type="tel" pInputText [(ngModel)]="phone" name="phone"
+                        autocomplete="tel"
+                        aria-required="true"
+                        [attr.aria-invalid]="submitted && !phone ? 'true' : null"
+                        [attr.aria-describedby]="submitted && !phone ? 'phone-error' : null"
+                        [ngClass]="{'ng-invalid ng-dirty': submitted && !phone}" />
+                    <small id="phone-error" class="p-error" role="alert" aria-live="polite"
+                        *ngIf="submitted && !phone" style="display: block; margin-top: 4px; color: #dc3545;">Phone is required</small>
+                </div>
+            </div>
+            <div class="form-field">
+                <app-shared-dropdown
+                    label="Salesforce Code"
+                    id="salesforceCode"
+                    [options]="[]"
+                    [value]="salesforceCode"
+                    (valueChange)="salesforceCode = $event"
+                    [filter]="true"
+                    placeholder="Select">
+                </app-shared-dropdown>
+            </div>
+        </div>
+
+        <!-- Row 3: Primary Contact, Role, Expiry Date -->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <app-shared-dropdown
+                    label="Primary Contact"
+                    id="primaryContact"
+                    [options]="primaryContactOptions"
+                    [value]="primaryContact"
+                    (valueChange)="primaryContact = $event"
+                    [filter]="true"
+                    placeholder="Select">
+                </app-shared-dropdown>
+            </div>
+            <div class="form-field">
+                <app-shared-dropdown
+                    label="Role*"
+                    id="role"
+                    [options]="roleOptions"
+                    [value]="role"
+                    (valueChange)="role = $event"
+                    [filter]="true"
+                    [required]="true"
+                    [isInvalid]="submitted && !role"
+                    placeholder="Select">
+                </app-shared-dropdown>
+            </div>
+            <div class="form-field">
+                <label for="expiryDate">Expiry Date</label>
+                <p-datepicker id="expiryDate" [(ngModel)]="expiryDate" name="expiryDate"
+                    [showIcon]="true" iconDisplay="input" appendTo="body"
+                    styleClass="w-full"
+                    [attr.aria-label]="'Account expiry date'"></p-datepicker>
+            </div>
+        </div>
+
+        <!-- Row 4: Status Checkboxes -->
+        <div class="form-row status-row" role="group" aria-labelledby="status-group-label">
+            <span class="status-label" id="status-group-label">Status:</span>
+            <div class="checkbox-group">
+                <p-checkbox [(ngModel)]="isActive" name="isActive" [binary]="true" inputId="active"
+                    [attr.aria-label]="'Active status'"></p-checkbox>
+                <label for="active">Active</label>
+            </div>
+            <div class="checkbox-group">
+                <p-checkbox [(ngModel)]="isLocked" name="isLocked" [binary]="true" inputId="locked"
+                    [attr.aria-label]="'Locked status'"></p-checkbox>
+                <label for="locked">Locked</label>
+            </div>
+            <div class="checkbox-group">
+                <p-checkbox [(ngModel)]="isSuspended" name="isSuspended" [binary]="true" inputId="suspended"
+                    [attr.aria-label]="'Suspended status'"></p-checkbox>
+                <label for="suspended">Suspended</label>
+            </div>
+        </div>
+
+        <!-- Row 5: Enable Notifications -->
+        <div class="form-row">
+            <div class="checkbox-group">
+                <p-checkbox [(ngModel)]="enableNotifications" name="enableNotifications" [binary]="true" inputId="notifications"
+                    [attr.aria-label]="'Enable email notifications'"></p-checkbox>
+                <label for="notifications">Enable email notifications</label>
+            </div>
+        </div>
+
+        <!-- Roundtables Permissions -->
+        <section class="permissions-section" aria-labelledby="roundtables-permissions-heading">
+            <div class="section-header">
+                <h3 id="roundtables-permissions-heading">Roundtables*</h3>
+                <button pButton label="Add Permissions" class="p-button-outlined p-button-sm"
+                    aria-label="Add roundtable permissions"></button>
+            </div>
+            <p-table [value]="roundtablePermissions" styleClass="p-datatable-striped permission-table"
+                role="region" aria-label="Roundtable permissions list">
+                <ng-template pTemplate="header">
+                    <tr role="row">
+                        <th style="width: 50px;" scope="col" role="columnheader">#</th>
+                        <th scope="col" role="columnheader">Roundtable</th>
+                        <th scope="col" role="columnheader">Permissions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-perm>
+                    <tr role="row">
+                        <td role="cell">{{perm.id}}</td>
+                        <td role="cell">{{perm.name}}</td>
+                        <td role="cell">{{perm.permissions}}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr role="row">
+                        <td colspan="3" class="text-center" role="cell">
+                            <span role="status" aria-live="polite">No Permissions added yet</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </section>
+
+        <!-- Projects Permissions -->
+        <section class="permissions-section" aria-labelledby="projects-permissions-heading">
+            <div class="section-header">
+                <h3 id="projects-permissions-heading">Projects*</h3>
+                <button pButton label="Add Permissions" class="p-button-outlined p-button-sm"
+                    aria-label="Add project permissions"></button>
+            </div>
+            <p-table [value]="projectPermissions" styleClass="p-datatable-striped permission-table"
+                role="region" aria-label="Project permissions list">
+                <ng-template pTemplate="header">
+                    <tr role="row">
+                        <th style="width: 50px;" scope="col" role="columnheader">#</th>
+                        <th scope="col" role="columnheader">Project</th>
+                        <th scope="col" role="columnheader">Permissions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-perm>
+                    <tr role="row">
+                        <td role="cell">{{perm.id}}</td>
+                        <td role="cell">{{perm.name}}</td>
+                        <td role="cell">{{perm.permissions}}</td>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr role="row">
+                        <td colspan="3" class="text-center" role="cell">
+                            <span role="status" aria-live="polite">No Permissions added yet</span>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </section>
+
+        <!-- Footer Actions -->
+        <div class="action-buttons" role="group" aria-label="Form actions">
+            <button pButton label="Cancel" class="p-button-outlined p-button-secondary"
+                aria-label="Cancel and discard changes"
+                (click)="onCancel()"></button>
+            <button pButton label="Save" class="p-button-primary"
+                aria-label="Save user"
+                (click)="onSave()"></button>
+        </div>
+    </div>
+</main>

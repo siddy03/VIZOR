@@ -1,0 +1,192 @@
+<main class="add-project-container" aria-labelledby="add-project-form-heading">
+    <!-- Breadcrumb -->
+    <app-breadcrumb [items]="breadcrumbItems()" (itemClick)="navigateToProjectsList()"></app-breadcrumb>
+
+    <h2 id="add-project-form-heading" class="sr-only">{{ isEditMode() ? 'Edit Project' : 'Add New Project' }}</h2>
+
+    <!-- Form -->
+    <div class="form-container"
+         role="group"
+         aria-labelledby="add-project-form-heading"
+         aria-describedby="add-project-required-hint">
+        <p id="add-project-required-hint" class="sr-only">Required fields are marked with an asterisk.</p>
+
+        <!-- Row 1: Project Name | Project Abbreviation | Project Type -->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <label for="project-name" class="sr-only">Project Name</label>
+                <input id="project-name" type="text" pInputText [ngModel]="projectName()" (ngModelChange)="projectName.set($event)" placeholder="Project Name*"
+                    name="projectName"
+                    aria-required="true"
+                    [attr.aria-invalid]="submitted() && !projectName() ? 'true' : null"
+                    [attr.aria-describedby]="submitted() && !projectName() ? 'project-name-error' : null"
+                    [ngClass]="{'ng-invalid ng-dirty': submitted() && !projectName()}" />
+                <small id="project-name-error" class="p-error" role="alert" aria-live="polite" style="display: block; margin-top: 4px; color: #dc3545;"
+                    *ngIf="submitted() && !projectName()">This field is required</small>
+            </div>
+
+            <div class="form-field">
+                <label for="project-abbreviation" class="sr-only">Project Abbreviation</label>
+                <input id="project-abbreviation" type="text" pInputText [ngModel]="projectAbbreviation()" (ngModelChange)="projectAbbreviation.set($event)"
+                    placeholder="Project Abbreviation*"
+                    name="projectAbbreviation"
+                    aria-required="true"
+                    [attr.aria-invalid]="submitted() && !projectAbbreviation() ? 'true' : null"
+                    [attr.aria-describedby]="submitted() && !projectAbbreviation() ? 'project-abbreviation-error' : null"
+                    [ngClass]="{'ng-invalid ng-dirty': submitted() && !projectAbbreviation()}" />
+                <small id="project-abbreviation-error" class="p-error" role="alert" aria-live="polite" style="display: block; margin-top: 4px; color: #dc3545;"
+                    *ngIf="submitted() && !projectAbbreviation()">This field is required</small>
+            </div>
+
+            <div class="form-field">
+                <app-shared-dropdown
+                    label="Project Type*"
+                    id="project-type"
+                    [options]="projectTypeOptions"
+                    [value]="selectedProjectType()"
+                    (valueChange)="selectedProjectType.set($event)"
+                    [filter]="true"
+                    [required]="true"
+                    [isInvalid]="submitted() && !selectedProjectType()"
+                    placeholder="Select...">
+                </app-shared-dropdown>
+                <small class="p-error" role="alert" aria-live="polite" style="display: block; margin-top: 4px; color: #dc3545;"
+                    *ngIf="submitted() && !selectedProjectType()">This field is required</small>
+            </div>
+        </div>
+
+        <!-- Row 2: Select Client(s) | Select Director(s) | Primary Director -->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <div class="custom-fieldset" role="group" aria-labelledby="select-clients-label">
+                    <label class="custom-legend" id="select-clients-label" for="select-clients-wrap">Select Client(s)</label>
+                    <p-multiSelect id="select-clients-wrap" inputId="select-clients" [options]="clientOptions" [ngModel]="selectedClients()" (ngModelChange)="selectedClients.set($event)"
+                        styleClass="w-full border-none shadow-none bg-transparent" [showClear]="true" [filter]="true"
+                        optionValue="value" appendTo="body" placeholder="Select..."
+                        [attr.aria-label]="'Select clients'">
+                        <ng-template #dropdownicon>
+                            <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                        </ng-template>
+                    </p-multiSelect>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <div class="custom-fieldset" role="group" aria-labelledby="select-directors-label">
+                    <label class="custom-legend" id="select-directors-label" for="select-directors-wrap">Select Director(s)*</label>
+                    <p-multiSelect id="select-directors-wrap" inputId="select-directors" [options]="directorOptions" [ngModel]="selectedDirectors()" (ngModelChange)="selectedDirectors.set($event)"
+                        styleClass="w-full border-none shadow-none bg-transparent" [showClear]="true" [filter]="true"
+                        (onChange)="onDirectorsChange()" optionValue="value" appendTo="body" placeholder="Select..."
+                        [attr.aria-label]="'Select directors'"
+                        [attr.aria-required]="'true'">
+                        <ng-template #dropdownicon>
+                            <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                        </ng-template>
+                    </p-multiSelect>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <app-shared-dropdown
+                    label="Primary Director*"
+                    id="primary-director"
+                    [options]="primaryDirectorOptions()"
+                    [value]="primaryDirector()"
+                    (valueChange)="primaryDirector.set($event)"
+                    [filter]="true"
+                    [required]="true"
+                    placeholder="Select...">
+                </app-shared-dropdown>
+            </div>
+        </div>
+
+        <!-- Row 3: Select Associate(s) | Primary Associate | (empty) -->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <div class="custom-fieldset" role="group" aria-labelledby="select-associates-label">
+                    <label class="custom-legend" id="select-associates-label" for="select-associates-wrap">Select Associate(s)</label>
+                    <p-multiSelect id="select-associates-wrap" inputId="select-associates" [options]="associateOptions" [ngModel]="selectedAssociates()" (ngModelChange)="selectedAssociates.set($event)"
+                        styleClass="w-full border-none shadow-none bg-transparent" [showClear]="true" [filter]="true"
+                        (onChange)="onAssociatesChange()" optionValue="value" appendTo="body" placeholder="Select..."
+                        [attr.aria-label]="'Select associates'">
+                        <ng-template #dropdownicon>
+                            <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                        </ng-template>
+                    </p-multiSelect>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <app-shared-dropdown
+                    label="Primary Associate"
+                    id="primary-associate"
+                    [options]="primaryAssociateOptions()"
+                    [value]="primaryAssociate()"
+                    (valueChange)="primaryAssociate.set($event)"
+                    [filter]="true"
+                    placeholder="Select...">
+                </app-shared-dropdown>
+            </div>
+
+            <div class="form-field" aria-hidden="true"></div>
+        </div>
+
+        <!-- Row 4: Project Description (full width) -->
+        <div class="form-row">
+            <div class="form-field full-width">
+                <label for="description" class="sr-only">Project Description</label>
+                <textarea id="description" [ngModel]="description()" (ngModelChange)="description.set($event)" placeholder="Project Description" rows="5"
+                    name="description"
+                    aria-label="Project description">
+                </textarea>
+            </div>
+        </div>
+
+        <!-- Active Checkbox -->
+        <div class="form-row">
+            <div class="checkbox-group">
+                <p-checkbox [ngModel]="isActive()" (ngModelChange)="isActive.set($event)" [binary]="true" inputId="active-checkbox"
+                    name="isActive"
+                    [attr.aria-label]="'Set project as active'">
+                </p-checkbox>
+                <label for="active-checkbox">Active</label>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons" role="group" aria-label="Form actions">
+            <button pButton type="button" label="Cancel" title="Cancel" class="p-button-secondary"
+                aria-label="Cancel and discard changes"
+                (click)="onCancel()"></button>
+            <button pButton type="button" [label]="isEditMode() ? 'Update' : 'Save'"
+                [title]="isEditMode() ? 'Update Project' : 'Save Project'" class="p-button-primary"
+                [attr.aria-label]="isEditMode() ? 'Update project' : 'Save project'"
+                [disabled]="!projectName() || !projectAbbreviation() || !selectedProjectType()"
+                (click)="onSave()"></button>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    @defer (when showCancelDialog()) {
+        <p-dialog [visible]="showCancelDialog()" (visibleChange)="showCancelDialog.set($event)" [modal]="true" [closable]="false" [resizable]="false" [draggable]="false"
+            styleClass="custom-cancel-dialog" [style]="{width: '560px', borderRadius: '12px', boxShadow: 'none'}"
+            appendTo="body"
+            [attr.aria-labelledby]="'cancel-dialog-title'"
+            [attr.aria-describedby]="'cancel-dialog-message'"
+            role="alertdialog">
+            <div class="cancel-dialog-content">
+                <div class="dialog-icon-container" aria-hidden="true">
+                    <i class="pi pi-exclamation-triangle dialog-icon"></i>
+                </div>
+                <h2 class="dialog-title" id="cancel-dialog-title">Unsaved Changes</h2>
+                <p class="dialog-message" id="cancel-dialog-message">You have unsaved changes, do you want to leave without saving?</p>
+                <div class="dialog-actions" role="group" aria-label="Confirmation actions">
+                    <button pButton type="button" label="No" class="dialog-button-no"
+                        aria-label="Stay and keep editing" (click)="onKeepEditing()"></button>
+                    <button pButton type="button" label="Yes" class="dialog-button-yes"
+                        aria-label="Leave without saving" (click)="onConfirmLeave()"></button>
+                </div>
+            </div>
+        </p-dialog>
+    }
+</main>

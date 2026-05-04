@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./mvnw.cmd compile *)",
+      "Bash(./mvnw.cmd clean *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8080/api/clients)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8080/api/roundtables)",
+      "Bash(netstat -ano)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "Bash(./mvnw.cmd spring-boot:run *)",
+      "Bash(curl -s -o /dev/null -w \"\" http://localhost:8080/api/auth/health)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8080/api/clients)",
+      "Bash(curl *)"
+    ]
+  }
+}

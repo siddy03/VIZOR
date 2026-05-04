@@ -1,0 +1,163 @@
+.community-page {
+  max-width: 100%;
+  margin: 0;
+}
+
+/* Card Customization */
+:host ::ng-deep .community-card {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+:host ::ng-deep .community-card .p-card-body {
+  padding: 0;
+}
+
+:host ::ng-deep .community-card .p-card-content {
+  padding: 0;
+}
+
+/* Tabs Header */
+.tabs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e0e0e0;
+  background: white;
+  padding: 0 24px;
+}
+
+.tabs-nav {
+  display: flex;
+}
+
+.tab-button {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 16px 24px;
+  color: #5f6368;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  outline: none;
+  margin-bottom: -2px;
+}
+
+.tab-button:hover {
+  color: #202124;
+}
+
+.tab-button.active {
+  color: #1976d2;
+  border-bottom-color: #1976d2;
+  font-weight: 500;
+}
+
+/* Participants Badge */
+.participants-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #5f6368;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.participants-badge i {
+  font-size: 16px;
+}
+
+/* Tab Content */
+.tab-content {
+  min-height: calc(100vh - 250px);
+  background: white;
+}
+
+.tab-panel {
+  padding: 32px 24px;
+  animation: fadeIn 0.2s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  gap: 16px;
+  color: #9aa0a6;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 15px;
+  color: #5f6368;
+}
+
+/* Message Input Section */
+.message-input-section {
+  padding: 16px 24px;
+  background: white;
+  border-top: 1px solid #e0e0e0;
+  position: sticky;
+  bottom: 0;
+}
+
+:host ::ng-deep .message-input-group {
+  width: 100%;
+  gap: 12px;
+  display: flex;
+  align-items: center;
+}
+
+:host ::ng-deep .message-input-group .p-inputtext {
+  flex: 1;
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: 1px solid #dadce0;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+:host ::ng-deep .message-input-group .p-inputtext:focus {
+  border-color: #1976d2;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(25, 118, 210, 0.1);
+}
+
+:host ::ng-deep .message-input-group .p-inputtext::placeholder {
+  color: #9aa0a6;
+}
+
+:host ::ng-deep .send-button {
+  background: #1976d2;
+  border: none;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  padding: 0;
+  transition: all 0.2s;
+  flex-shrink: 0;
+  border-radius: 4px;
+}
+
+:host ::ng-deep .send-button:hover {
+  background: #1565c0;
+}
+
+:host ::ng-deep .send-button .p-button-icon {
+  font-size: 16px;
+}

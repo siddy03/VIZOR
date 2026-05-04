@@ -1,0 +1,39 @@
+<div class="custom-fieldset" [class.invalid-field]="isInvalid"
+  role="group"
+  [attr.aria-labelledby]="id ? id + '-label' : null"
+  [attr.aria-invalid]="isInvalid ? 'true' : null">
+  <label class="custom-legend" [for]="id + '-wrap'" [id]="id ? id + '-label' : null">{{ label }}</label>
+  <p-select
+    [id]="id + '-wrap'"
+    [inputId]="id"
+    [options]="options"
+    [optionLabel]="optionLabel"
+    [optionValue]="optionValue" 
+    [placeholder]="placeholder" 
+    [filter]="filter"
+    styleClass="w-full border-none shadow-none bg-transparent" 
+    [appendTo]="appendTo"
+    [ngModel]="value" 
+    (ngModelChange)="onSelectChange($event)"
+    (onChange)="onNativeChange($event)"
+    [disabled]="disabled"
+    [attr.aria-label]="ariaLabel || label"
+    [attr.aria-required]="required ? 'true' : null"
+    [attr.aria-invalid]="isInvalid ? 'true' : null"
+    [attr.aria-disabled]="disabled ? 'true' : null">
+    
+    <ng-container *ngIf="selectedItemTemplate">
+      <ng-template pTemplate="selectedItem" let-item>
+        <ng-container *ngTemplateOutlet="selectedItemTemplate; context: {$implicit: item}"></ng-container>
+      </ng-template>
+    </ng-container>
+
+    <ng-container *ngIf="itemTemplate">
+      <ng-template pTemplate="item" let-item>
+        <ng-container *ngTemplateOutlet="itemTemplate; context: {$implicit: item}"></ng-container>
+      </ng-template>
+    </ng-container>
+
+    <ng-template #dropdownicon><i class="pi pi-sort-down-fill" aria-hidden="true"></i></ng-template>
+  </p-select>
+</div>

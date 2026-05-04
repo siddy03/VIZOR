@@ -1,0 +1,170 @@
+.view-survey-page-container {
+    padding: 0 var(--page-gutter, 40px) var(--space-5, 32px);
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.main-card {
+    background: transparent;
+    margin-top: 1rem;
+}
+
+/* Tab row */
+.tab-row {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    /* Both tabs align at the TOP — same position */
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+}
+
+/* Base tab button (INACTIVE) — normal height, gap appears below it naturally */
+.tab-btn {
+    padding: 0.75rem 2rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    /* All corners rounded for inactive tab */
+    font-size: 14px;
+    font-weight: 600;
+    color: #5f6368;
+    cursor: pointer;
+    transition: color 0.2s, background-color 0.2s;
+    position: relative;
+}
+
+.tab-btn:hover {
+    background-color: #eef0f2;
+}
+
+/* Active tab — taller, flat bottom corners to connect with content */
+.tab-btn.active {
+    color: #1a73e8;
+    padding-bottom: calc(0.75rem + 10px);
+    border-radius: 8px 8px 0 0;
+    /* Only top corners rounded — bottom connects to content */
+    border-bottom-color: #f8f9fa;
+    z-index: 2;
+}
+
+/* Content container — sits below, active tab overlaps its top border */
+.content-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    border-radius: 0 4px 4px 4px;
+    padding: 1.5rem;
+    margin-top: -1px;
+    position: relative;
+    z-index: 0;
+}
+
+/* Filters (Force White Backgrounds) */
+/* Override the global .filter-bar grid (styles.css) — this page uses a single
+   .filter-group flex row, so the grid cells were squeezing the filters into
+   1/3 width on desktop and 1 column on mobile. */
+.filter-bar {
+    display: block;
+    margin-bottom: 2rem;
+}
+
+.filter-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    /* Align inputs to the bottom so labels sit above */
+}
+
+.dropdown-wrapper {
+    width: 250px;
+    max-width: 100%;
+    flex: 1 1 150px;
+    min-width: 130px;
+}
+
+.filter-item.search-filter {
+    width: 250px;
+    max-width: 100%;
+    flex: 1 1 150px;
+    min-width: 130px;
+}
+
+/* Make dropdown fieldset background white to match search bar */
+.dropdown-wrapper ::ng-deep .custom-fieldset {
+    background-color: #ffffff;
+}
+
+.dropdown-wrapper ::ng-deep .custom-legend {
+    background-color: #f8f9fa;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 1024px) {
+    .content-container {
+        padding: 1.25rem;
+    }
+
+    .tab-btn {
+        padding: 0.65rem 1.5rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .filter-group {
+        gap: 1rem;
+    }
+
+    .content-container {
+        padding: 1rem;
+    }
+
+    .tab-btn {
+        padding: 0.55rem 1.1rem;
+        font-size: 13px;
+    }
+
+    .tab-btn.active {
+        padding-bottom: calc(0.55rem + 8px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .view-survey-page-container {
+        padding: 0 4px var(--space-4, 16px);
+    }
+
+    .main-card {
+        margin-top: 0.5rem;
+    }
+
+    .content-container {
+        padding: 0.75rem;
+    }
+
+    .tab-row {
+        gap: 0.4rem;
+    }
+
+    .tab-btn {
+        flex: 1 1 calc(50% - 0.4rem);
+        text-align: center;
+        padding: 0.5rem 0.5rem;
+    }
+
+    .filter-bar {
+        margin-bottom: 1rem;
+    }
+
+    .filter-group {
+        gap: 0.75rem;
+    }
+
+    .dropdown-wrapper,
+    .filter-item.search-filter {
+        flex: 1 1 100%;
+        width: 100% !important;
+        min-width: 0;
+    }
+}

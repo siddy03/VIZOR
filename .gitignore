@@ -1,17 +1,29 @@
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
+# ===== Frontend (Angular) =====
+/frontend/dist
+/frontend/tmp
+/frontend/out-tsc
+/frontend/bazel-out
+/frontend/node_modules
+/frontend/.angular/cache
+/frontend/.sass-cache
+/frontend/coverage
+/frontend/connect.lock
+/frontend/libpeerconnection.log
+/frontend/testem.log
+/frontend/typings
 
-# Node
-/node_modules
+# ===== Backend (Maven / Spring Boot) =====
+/backend/target
+/backend/data
+/backend/*.log
+
+# ===== Logs =====
 npm-debug.log
 yarn-error.log
 
-# IDEs and editors
+# ===== IDEs and editors =====
 .idea/
 .project
 .classpath
@@ -29,16 +41,9 @@ yarn-error.log
 !.vscode/mcp.json
 .history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+# ===== Misc =====
 __screenshots__/
 
-# System files
+# ===== System files =====
 .DS_Store
 Thumbs.db

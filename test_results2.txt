@@ -1,0 +1,2777 @@
+﻿
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90mC:/angular-projects/VIZOR[39m
+
+ [31m❯[39m src/app/pages/community/community.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[32m 14[2mms[22m[39m
+[31m     [31m×[31m should create[39m[32m 7[2mms[22m[39m
+[31m     [31m×[31m should have activeTab default to "discussion"[39m[32m 3[2mms[22m[39m
+[31m     [31m×[31m setActiveTab should update the activeTab[39m[32m 1[2mms[22m[39m
+ [31m❯[39m src/app/layout/sidebar/sidebar.spec.ts [2m([22m[2m26 tests[22m[2m | [22m[31m26 failed[39m[2m)[22m[32m 27[2mms[22m[39m
+[31m     [31m×[31m should create the component[39m[32m 9[2mms[22m[39m
+[31m     [31m×[31m should render the sidebar container[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the hamburger toggle button[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call toggleSidebar() when hamburger button is clicked[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have menuItems defined[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have 8 top-level menu items[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have a Home menu item with correct route[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have an Admin menu item with sub-items[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should include Users, Projects, and Roundtables in Admin sub-items[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have a Surveys menu item with sub-items[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m isActive() should return true for exact route match[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m isActive() should return true when currentRoute starts with route + "/"[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m isActive() should return false for non-matching route[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m navigate() should call router.navigate with the given path[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m navigate() should collapse Surveys submenu when navigating to non-survey route[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m navigate() should NOT collapse Surveys submenu when navigating to a survey route[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m navigate() should collapse Admin submenu when navigating to non-admin route[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m navigate() should NOT collapse Admin submenu when navigating to admin route[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m toggleSubmenu() should toggle expanded state when sidebar is not collapsed[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m toggleSubmenu() should collapse item if already expanded when sidebar is not collapsed[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m toggleSubmenu() should call setSidebarState(false) and set item.expanded = true when sidebar is collapsed[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m toggleSidebar() should call layoutService.toggleSidebar()[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m ngOnDestroy() should not throw errors[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should initialize currentRoute from router.url[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should update currentRoute on NavigationEnd event[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should update currentRoute on subsequent NavigationEnd events[39m[32m 0[2mms[22m[39m
+ [31m❯[39m src/app/layout/header/header.spec.ts [2m([22m[2m15 tests[22m[2m | [22m[31m15 failed[39m[2m)[22m[32m 23[2mms[22m[39m
+[31m     [31m×[31m should create the component[39m[32m 8[2mms[22m[39m
+[31m     [31m×[31m should render the page title element[39m[32m 2[2mms[22m[39m
+[31m     [31m×[31m should display "Home" as the default page title[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should set pageTitle to "Home" on init when no route data title[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the user name display[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have a Profile menu item[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have a Settings menu item[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have a Logout menu item[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should have exactly 4 user menu items[39m[32m 2[2mms[22m[39m
+[31m     [31m×[31m should have a separator in userMenuItems[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should update pageTitle when a NavigationEnd event fires[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should fall back to "Home" when route data has no title[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should render the header container[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should render the search input in the header[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should render the user section[39m[32m 1[2mms[22m[39m
+ [31m❯[39m src/app/pages/add-roundtable/add-roundtable.spec.ts [2m([22m[2m39 tests[22m[2m | [22m[31m39 failed[39m[2m)[22m[32m 73[2mms[22m[39m
+[31m     [31m×[31m should create the component[39m[32m 11[2mms[22m[39m
+[31m     [31m×[31m should render the Roundtable Name input field[39m[32m 2[2mms[22m[39m
+[31m     [31m×[31m should render the Roundtable Abbreviation input field[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Clients multiselect[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Directors multiselect[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Primary Director select[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Associates multiselect[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Primary Associate select[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Description textarea[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Active checkbox[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should disable the Save button when required fields are empty[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should enable the Save button when required fields are filled[39m[32m 23[2mms[22m[39m
+[31m     [31m×[31m should call onSave() when the Save button is clicked[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should show "Update" label on the button in edit mode[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call onCancel() when Cancel button is clicked[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should navigate directly to roundtables when form is clean on cancel[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should show cancel dialog when form is dirty on cancel[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call onConfirmLeave() and close dialog and navigate away[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call onKeepEditing() and close dialog without navigating[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the dialog No button when showCancelDialog is true[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should render the dialog Yes button when showCancelDialog is true[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should trigger onKeepEditing when dialog No button is clicked[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should trigger onConfirmLeave when dialog Yes button is clicked[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should show "Add New Roundtable" in breadcrumb when not in edit mode[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should show "Modify Roundtable" in breadcrumb when in edit mode[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call navigateToRoundtablesList() when breadcrumb link is clicked[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m isDirty should be false when all fields are empty[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m isDirty should be true when roundtableName is filled[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m primaryDirectorOptions should be empty when no directors are selected[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m primaryDirectorOptions should return filtered options for selected directors[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m onDirectorsChange should clear primaryDirector if it is no longer selected[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m onAssociatesChange should clear primaryAssociate if it is no longer selected[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call addRoundtable service when form is valid in add mode[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should not call addRoundtable when required fields are missing[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should enter edit mode when a route id param is present[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should populate roundtableName from service data in edit mode[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should populate roundtableAbbreviation from service data in edit mode[39m[32m 8[2mms[22m[39m
+[31m     [31m×[31m should set isActive to true when status is Active[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should populate selectedDirectors and selectedAssociates in edit mode[39m[32m 1[2mms[22m[39m
+ [31m❯[39m src/app/pages/roundtables/roundtables.spec.ts [2m([22m[2m28 tests[22m[2m | [22m[31m28 failed[39m[2m)[22m[32m 44[2mms[22m[39m
+[31m     [31m×[31m should create the component[39m[32m 9[2mms[22m[39m
+[31m     [31m×[31m should render the filter bar[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the search input[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the search button[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Add New Roundtable button[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call addNewRoundtable() when Add New Roundtable button is clicked[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should navigate to /admin/roundtables/add when addNewRoundtable() is called[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should load all roundtables on ngOnInit[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should show all roundtables in filteredRoundtables by default[39m[32m 2[2mms[22m[39m
+[31m     [31m×[31m should filter by Active status[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should filter by Inactive status[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should show all when status filter is "All"[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m onStatusChange() should call applyFilters()[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should call onStatusChange() when search button is clicked via triggerEventHandler[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m onSearch() should call applyFilters()[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should filter by name using searchText[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should filter by director using searchText[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should filter by associate using searchText[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should be case-insensitive in searchText[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should return empty when searchText matches nothing[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should ignore whitespace-only searchText[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should combine Active status and search text[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should combine Inactive status and search text to narrow to one result[39m[32m 4[2mms[22m[39m
+[31m     [31m×[31m should return empty when status and name search conflict[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call editRoundtable() with the correct roundtable[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should navigate to edit route with roundtable id[39m[32m 3[2mms[22m[39m
+[31m     [31m×[31m should navigate with the correct id for the second roundtable[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should initialize statusOptions with All, Active, Inactive[39m[32m 1[2mms[22m[39m
+ [31m❯[39m src/app/services/auth.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m src/app/pages/meetings/meetings.spec.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 9[2mms[22m[39m
+[31m     [31m×[31m should create[39m[32m 6[2mms[22m[39m
+ [31m❯[39m src/app/pages/projects/projects.spec.ts [2m([22m[2m31 tests[22m[2m | [22m[31m31 failed[39m[2m)[22m[32m 36[2mms[22m[39m
+[31m     [31m×[31m should create the component[39m[32m 9[2mms[22m[39m
+[31m     [31m×[31m should render the filter bar[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the search input[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the search button[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Add New Project button[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call addNewProject() when Add New Project button is clicked[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should navigate to /admin/projects/add when addNewProject() is called[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should load all projects on init[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should show all projects in filteredProjects by default[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should filter by Internal project type[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should filter by External project type[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should filter by Research project type[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should show all projects when type filter is "All"[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should filter by Active status[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should filter by Inactive status[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should show all when status filter is "All"[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should filter by name using searchTerm[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should filter by director using searchTerm[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should filter by associate using searchTerm[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should filter by client using searchTerm[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should be case-insensitive in search[39m[32m 8[2mms[22m[39m
+[31m     [31m×[31m should return no results when searchTerm matches nothing[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should ignore whitespace-only searchTerm[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should apply both type filter and search together[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should apply status filter and search together[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should return no results when combined filters do not match[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should call editProject() with the correct project[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should navigate to edit route with project id when editProject() is called[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should navigate with the correct id for second project[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should initialize projectTypeOptions with All, Internal, External, Research[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should initialize statusOptions with All, Active, Inactive[39m[32m 0[2mms[22m[39m
+ [31m❯[39m src/app/pages/add-project/add-project.spec.ts [2m([22m[2m48 tests[22m[2m | [22m[31m48 failed[39m[2m)[22m[32m 70[2mms[22m[39m
+[31m     [31m×[31m should create the component[39m[32m 13[2mms[22m[39m
+[31m     [31m×[31m should render the Project Name input field[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Project Abbreviation input field[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Project Type select dropdown[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Clients multiselect[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Directors multiselect[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Primary Director select[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Associates multiselect[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should render the Primary Associate select[39m[32m 11[2mms[22m[39m
+[31m     [31m×[31m should render the Description textarea[39m[32m 3[2mms[22m[39m
+[31m     [31m×[31m should render the Active checkbox[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should disable the Save button when required fields are empty[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should disable the Save button when only project name is filled[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should disable the Save button when project type is missing[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should enable the Save button when all required fields are filled[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call onSave() when Save button is clicked[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should set submitted = true when onSave is called[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should call addProject service when form is valid in add mode[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should not call addProject when required fields are missing[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should navigate to /admin/projects after successful save[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should reflect isEditMode = true in component state[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should set label to "Update" when isEditMode is true[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should call onCancel() when Cancel button is clicked[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should navigate directly to /admin/projects when form is clean on cancel[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should show cancel dialog when form is dirty on cancel[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should call onConfirmLeave() and close dialog and navigate[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should call onKeepEditing() and close dialog without navigating[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should render dialog No button when showCancelDialog is true[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should render dialog Yes button when showCancelDialog is true[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should trigger onKeepEditing when dialog No button is clicked[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should trigger onConfirmLeave when dialog Yes button is clicked[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should show "Add New Project" in breadcrumb when not in edit mode[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should show "Modify Project" in breadcrumb in edit mode[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should call navigateToProjectsList() when breadcrumb link is clicked[39m[32m 15[2mms[22m[39m
+[31m     [31m×[31m isDirty should be false when all fields are empty[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m isDirty should be true when projectName is set[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m primaryDirectorOptions should return empty array when no directors selected[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m primaryDirectorOptions should return filtered directors based on selection[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m onDirectorsChange should clear primaryDirector if deselected[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m onAssociatesChange should clear primaryAssociate if deselected[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should pass status "Active" when isActive is true[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should pass status "Inactive" when isActive is false[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should enter edit mode when route id param is present[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should populate projectName from service data[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should populate projectAbbreviation from service data[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should set selectedProjectType from service data[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should set isActive to true when status is Active[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should call updateProject instead of addProject in edit mode[39m[32m 0[2mms[22m[39m
+ [31m❯[39m src/app/services/layout.service.spec.ts [2m([22m[2m6 tests[22m[2m | [22m[31m6 failed[39m[2m)[22m[32m 14[2mms[22m[39m
+[31m     [31m×[31m should be created[39m[32m 7[2mms[22m[39m
+[31m     [31m×[31m should have sidebarCollapsed default to false (expanded)[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should toggle sidebarCollapsed from false to true[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should toggle sidebarCollapsed back to false on second toggle[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should set sidebarCollapsed to true using setSidebarState[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should set sidebarCollapsed to false using setSidebarState[39m[32m 1[2mms[22m[39m
+ [31m❯[39m src/app/services/layout.spec.ts [2m([22m[2m4 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[32m 13[2mms[22m[39m
+[31m     [31m×[31m should be created[39m[32m 7[2mms[22m[39m
+[31m     [31m×[31m should expose title as a signal[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should emit new title when setTitle is called[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should default to "Home" as the initial title[39m[32m 1[2mms[22m[39m
+ [31m❯[39m src/app/services/notification.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m src/app/pages/surveys/add-survey/add-survey.spec.ts [2m([22m[2m0 test[22m[2m)[22m
+ [31m❯[39m src/app/services/project.service.spec.ts [2m([22m[2m13 tests[22m[2m | [22m[31m13 failed[39m[2m)[22m[32m 26[2mms[22m[39m
+[31m     [31m×[31m should be created[39m[32m 7[2mms[22m[39m
+[31m     [31m×[31m should start with an empty projects list when localStorage is empty[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should add a new project and assign id starting at 1[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should increment id correctly when adding multiple projects[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should return a project by id[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should return undefined for a non-existent project id[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should update an existing project[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should not change project list when updating a non-existent id[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should persist projects to localStorage on add[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should persist projects to localStorage on update[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should load projects from localStorage on construction[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should handle corrupted localStorage gracefully[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should expose getProjects() returning an array[39m[32m 1[2mms[22m[39m
+ [31m❯[39m src/app/services/roundtable.service.spec.ts [2m([22m[2m13 tests[22m[2m | [22m[31m13 failed[39m[2m)[22m[32m 20[2mms[22m[39m
+[31m     [31m×[31m should be created[39m[32m 7[2mms[22m[39m
+[31m     [31m×[31m should start with an empty list when localStorage is empty[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should add a new roundtable with auto-incremented id starting at 1[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should correctly increment id for subsequent roundtables[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should return a roundtable by its id[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should return undefined for a non-existent id[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should update an existing roundtable[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should not change the list when updating a non-existent id[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should persist roundtables to localStorage on add[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should persist roundtables to localStorage on update[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should load roundtables from localStorage on construction[39m[32m 1[2mms[22m[39m
+[31m     [31m×[31m should handle corrupted localStorage gracefully[39m[32m 0[2mms[22m[39m
+[31m     [31m×[31m should expose getRoundtables() returning an array[39m[32m 1[2mms[22m[39m
+ [31m❯[39m src/app/app.spec.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 10[2mms[22m[39m
+[31m     [31m×[31m should create the app[39m[32m 7[2mms[22m[39m
+node.exe : 
+At C:\Program 
+Files\nodejs\npx.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (:St  
+  ring) [], RemoteExcept   
+ ion
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m 
+Failed Suites 3 
+[49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/services/auth.spec.t
+s[2m [ src/app/services/au
+th.spec.ts ][22m
+[31m[1mReferenceError[22
+m: describe is not 
+defined[39m
+[36m [2m❯[22m src/app/se
+rvices/auth.spec.ts:[2m5:1
+[22m[39m
+    [90m  3| 
+[39m[35mimport[39m { 
+[33mAuth[39m } 
+[35mfrom[39m [32m'./auth
+'[39m[33m;[39m
+    [90m  4| [39m
+    [90m  5| [39m[34mdes
+cribe[39m([32m'Auth'[39m
+[33m,[39m () 
+[33m=>[39m {
+    [90m   | 
+[39m[31m^[39m
+    [90m  6| [39m  
+[35mlet[39m 
+service[33m:[39m 
+[33mAuth[39m[33m;[39m
+    [90m  7| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[1/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/services/notificatio
+n.spec.ts[2m [ src/app/ser
+vices/notification.spec.ts 
+][22m
+[31m[1mReferenceError[22
+m: describe is not 
+defined[39m
+[36m [2m❯[22m src/app/se
+rvices/notification.spec.ts
+:[2m5:1[22m[39m
+    [90m  3| 
+[39m[35mimport[39m { 
+[33mNotification[39m } 
+[35mfrom[39m [32m'./noti
+fication'[39m[33m;[39m
+    [90m  4| [39m
+    [90m  5| [39m[34mdes
+cribe[39m([32m'Notificati
+on'[39m[33m,[39m () 
+[33m=>[39m {
+    [90m   | 
+[39m[31m^[39m
+    [90m  6| [39m  
+[35mlet[39m 
+service[33m:[39m [33mNot
+ification[39m[33m;[39m
+    [90m  7| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[2/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/surveys/add-su
+rvey/add-survey.spec.ts[2m
+ [ src/app/pages/surveys/ad
+d-survey/add-survey.spec.ts
+ ][22m
+[31m[1mReferenceError[22
+m: describe is not 
+defined[39m
+[36m [2m❯[22m src/app/pa
+ges/surveys/add-survey/add-
+survey.spec.ts:[2m5:1[22m
+[39m
+    [90m  3| 
+[39m[35mimport[39m { 
+[33mAddSurvey[39m } 
+[35mfrom[39m [32m'./add-
+survey'[39m[33m;[39m
+    [90m  4| [39m
+    [90m  5| [39m[34mdes
+cribe[39m([32m'AddSurvey'
+[39m[33m,[39m () 
+[33m=>[39m {
+    [90m   | 
+[39m[31m^[39m
+    [90m  6| [39m  
+[35mlet[39m 
+component[33m:[39m [33mA
+ddSurvey[39m[33m;[39m
+    [90m  7| [39m  
+[35mlet[39m 
+fixture[33m:[39m [33mCom
+ponentFixture[39m[33m<[3
+9m[33mAddSurvey[39m[33m>
+[39m[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[3/257]⎯[22m[39m
+
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m 
+Failed Tests 228 
+[49m[22m[31m⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m 
+src/app/app.spec.ts[2m > 
+[22mAppComponent[2m > 
+[22mshould create the app
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/ap
+p.spec.ts:[2m8:19[22m[39
+m
+    [90m  6| [39m[34mdes
+cribe[39m([32m'AppCompone
+nt'[39m[33m,[39m () 
+[33m=>[39m {
+    [90m  7| [39m  [34mb
+eforeEach[39m([35masync[
+39m () [33m=>[39m {
+    [90m  8| [39m    
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+          [31m^[39m
+    [90m  9| [39m      
+imports[33m:[39m [[33mAp
+pComponent[39m][33m,[39m
+    [90m 10| [39m      
+providers[33m:[39m [[34m
+provideRouter[39m([])]
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[4/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.serv
+ice.spec.ts[2m > 
+[22mLayoutService[2m > 
+[22mshould be created
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.serv
+ice.spec.ts[2m > 
+[22mLayoutService[2m > 
+[22mshould have 
+sidebarCollapsed default 
+to false (expanded)
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.serv
+ice.spec.ts[2m > 
+[22mLayoutService[2m > 
+[22mshould toggle 
+sidebarCollapsed from 
+false to true
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.serv
+ice.spec.ts[2m > 
+[22mLayoutService[2m > 
+[22mshould toggle 
+sidebarCollapsed back to 
+false on second toggle
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.serv
+ice.spec.ts[2m > 
+[22mLayoutService[2m > 
+[22mshould set 
+sidebarCollapsed to true 
+using setSidebarState
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.serv
+ice.spec.ts[2m > 
+[22mLayoutService[2m > 
+[22mshould set 
+sidebarCollapsed to false 
+using setSidebarState
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/se
+rvices/layout.service.spec.
+ts:[2m11:17[22m[39m
+    [90m  9| [39m
+    [90m 10| [39m    
+[34mbeforeEach[39m(() 
+[33m=>[39m {
+    [90m 11| [39m        
+[33mTestBed[39m[33m.[39
+m[34mconfigureTestingModul
+e[39m({
+    [90m   | [39m        
+        [31m^[39m
+    [90m 12| [39m        
+    providers[33m:[39m [
+    [90m 13| [39m        
+        [34mprovideStore[
+39m(reducers[33m,[39m { 
+metaReducers })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[5/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.spec
+.ts[2m > 
+[22mLayoutService 
+(services/layout)[2m > 
+[22mshould be created
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.spec
+.ts[2m > 
+[22mLayoutService 
+(services/layout)[2m > 
+[22mshould expose title 
+as a signal
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.spec
+.ts[2m > 
+[22mLayoutService 
+(services/layout)[2m > 
+[22mshould emit new title 
+when setTitle is called
+[41m[1m FAIL [22m[49m s
+rc/app/services/layout.spec
+.ts[2m > 
+[22mLayoutService 
+(services/layout)[2m > 
+[22mshould default to 
+"Home" as the initial title
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/se
+rvices/layout.spec.ts:[2m1
+1:13[22m[39m
+    [90m  9| [39m
+    [90m 10| [39m  
+[34mbeforeEach[39m(() 
+[33m=>[39m {
+    [90m 11| [39m    [33
+mTestBed[39m[33m.[39m[3
+4mconfigureTestingModule[3
+9m({
+    [90m   | [39m        
+    [31m^[39m
+    [90m 12| [39m      
+providers[33m:[39m [
+    [90m 13| [39m        
+[34mprovideStore[39m(redu
+cers[33m,[39m { 
+metaReducers })
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[6/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould be created
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould start with an 
+empty projects list when 
+localStorage is empty
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould add a new 
+project and assign id 
+starting at 1
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould increment id 
+correctly when adding 
+multiple projects
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould return a 
+project by id
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould return 
+undefined for a 
+non-existent project id
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould update an 
+existing project
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould not change 
+project list when updating 
+a non-existent id
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould persist 
+projects to localStorage 
+on add
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould persist 
+projects to localStorage 
+on update
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould load projects 
+from localStorage on 
+construction
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould handle 
+corrupted localStorage 
+gracefully
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould expose 
+getProjects() returning an 
+array
+[31m[1mReferenceError[22
+m: localStorage is not 
+defined[39m
+[36m [2m❯[22m src/app/se
+rvices/project.service.spec
+.ts:[2m23:9[22m[39m
+    [90m 21| [39m
+    [90m 22| [39m    
+[34mbeforeEach[39m(() 
+[33m=>[39m {
+    [90m 23| [39m        
+localStorage[33m.[39m[34
+mclear[39m()[33m;[39m
+    [90m   | [39m        
+[31m^[39m
+    [90m 24| [39m        
+[33mTestBed[39m[33m.[39
+m[34mconfigureTestingModul
+e[39m({
+    [90m 25| [39m        
+    providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[7/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould be created
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould start with an 
+empty projects list when 
+localStorage is empty
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould add a new 
+project and assign id 
+starting at 1
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould increment id 
+correctly when adding 
+multiple projects
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould return a 
+project by id
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould return 
+undefined for a 
+non-existent project id
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould update an 
+existing project
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould not change 
+project list when updating 
+a non-existent id
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould persist 
+projects to localStorage 
+on add
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould persist 
+projects to localStorage 
+on update
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould load projects 
+from localStorage on 
+construction
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould handle 
+corrupted localStorage 
+gracefully
+[41m[1m FAIL [22m[49m s
+rc/app/services/project.ser
+vice.spec.ts[2m > 
+[22mProjectService[2m > 
+[22mshould expose 
+getProjects() returning an 
+array
+[31m[1mReferenceError[22
+m: localStorage is not 
+defined[39m
+[36m [2m❯[22m src/app/se
+rvices/project.service.spec
+.ts:[2m33:9[22m[39m
+    [90m 31| [39m
+    [90m 32| [39m    
+[34mafterEach[39m(() 
+[33m=>[39m {
+    [90m 33| [39m        
+localStorage[33m.[39m[34
+mclear[39m()[33m;[39m
+    [90m   | [39m        
+[31m^[39m
+    [90m 34| [39m    
+})[33m;[39m
+    [90m 35| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[8/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould be created
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould start with 
+an empty list when 
+localStorage is empty
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould add a new 
+roundtable with 
+auto-incremented id 
+starting at 1
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould correctly 
+increment id for 
+subsequent roundtables
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould return a 
+roundtable by its id
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould return 
+undefined for a 
+non-existent id
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould update an 
+existing roundtable
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould not change 
+the list when updating a 
+non-existent id
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould persist 
+roundtables to 
+localStorage on add
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould persist 
+roundtables to 
+localStorage on update
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould load 
+roundtables from 
+localStorage on 
+construction
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould handle 
+corrupted localStorage 
+gracefully
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould expose 
+getRoundtables() returning 
+an array
+[31m[1mReferenceError[22
+m: localStorage is not 
+defined[39m
+[36m [2m❯[22m src/app/se
+rvices/roundtable.service.s
+pec.ts:[2m22:9[22m[39m
+    [90m 20| [39m
+    [90m 21| [39m    
+[34mbeforeEach[39m(() 
+[33m=>[39m {
+    [90m 22| [39m        
+localStorage[33m.[39m[34
+mclear[39m()[33m;[39m
+    [90m   | [39m        
+[31m^[39m
+    [90m 23| [39m        
+[33mTestBed[39m[33m.[39
+m[34mconfigureTestingModul
+e[39m({
+    [90m 24| [39m        
+    providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯[9/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould be created
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould start with 
+an empty list when 
+localStorage is empty
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould add a new 
+roundtable with 
+auto-incremented id 
+starting at 1
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould correctly 
+increment id for 
+subsequent roundtables
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould return a 
+roundtable by its id
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould return 
+undefined for a 
+non-existent id
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould update an 
+existing roundtable
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould not change 
+the list when updating a 
+non-existent id
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould persist 
+roundtables to 
+localStorage on add
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould persist 
+roundtables to 
+localStorage on update
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould load 
+roundtables from 
+localStorage on 
+construction
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould handle 
+corrupted localStorage 
+gracefully
+[41m[1m FAIL [22m[49m s
+rc/app/services/roundtable.
+service.spec.ts[2m > 
+[22mRoundtableService[2m 
+> [22mshould expose 
+getRoundtables() returning 
+an array
+[31m[1mReferenceError[22
+m: localStorage is not 
+defined[39m
+[36m [2m❯[22m src/app/se
+rvices/roundtable.service.s
+pec.ts:[2m32:9[22m[39m
+    [90m 30| [39m
+    [90m 31| [39m    
+[34mafterEach[39m(() 
+[33m=>[39m {
+    [90m 32| [39m        
+localStorage[33m.[39m[34
+mclear[39m()[33m;[39m
+    [90m   | [39m        
+[31m^[39m
+    [90m 33| [39m    
+})[33m;[39m
+    [90m 34| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[10/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould create the 
+component
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould render the 
+sidebar container
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould render the 
+hamburger toggle button
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould call 
+toggleSidebar() when 
+hamburger button is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould have 
+menuItems defined
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould have 8 
+top-level menu items
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould have a Home 
+menu item with correct 
+route
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould have an 
+Admin menu item with 
+sub-items
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould include 
+Users, Projects, and 
+Roundtables in Admin 
+sub-items
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould have a 
+Surveys menu item with 
+sub-items
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22misActive() should 
+return true for exact 
+route match
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22misActive() should 
+return true when 
+currentRoute starts with 
+route + "/"
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22misActive() should 
+return false for 
+non-matching route
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mnavigate() should 
+call router.navigate with 
+the given path
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mnavigate() should 
+collapse Surveys submenu 
+when navigating to 
+non-survey route
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mnavigate() should 
+NOT collapse Surveys 
+submenu when navigating to 
+a survey route
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mnavigate() should 
+collapse Admin submenu 
+when navigating to 
+non-admin route
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mnavigate() should 
+NOT collapse Admin submenu 
+when navigating to admin 
+route
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mtoggleSubmenu() 
+should toggle expanded 
+state when sidebar is not 
+collapsed
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mtoggleSubmenu() 
+should collapse item if 
+already expanded when 
+sidebar is not collapsed
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mtoggleSubmenu() 
+should call 
+setSidebarState(false) and 
+set item.expanded = true 
+when sidebar is collapsed
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mtoggleSidebar() 
+should call layoutService.t
+oggleSidebar()
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mngOnDestroy() 
+should not throw errors
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould initialize 
+currentRoute from 
+router.url
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould update 
+currentRoute on 
+NavigationEnd event
+[41m[1m FAIL [22m[49m s
+rc/app/layout/sidebar/sideb
+ar.spec.ts[2m > 
+[22mSidebarComponent[2m 
+> [22mshould update 
+currentRoute on subsequent 
+NavigationEnd events
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/la
+yout/sidebar/sidebar.spec.t
+s:[2m65:19[22m[39m
+    [90m 63| [39m    
+}[33m;[39m
+    [90m 64| [39m
+    [90m 65| [39m    
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+          [31m^[39m
+    [90m 66| [39m      
+imports[33m:[39m [[33mSi
+debarComponent[39m][33m,
+[39m
+    [90m 67| [39m      
+providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[11/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould create the 
+component
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould render the 
+page title element
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould display "Home" 
+as the default page title
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould set pageTitle 
+to "Home" on init when no 
+route data title
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould render the 
+user name display
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould have a Profile 
+menu item
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould have a 
+Settings menu item
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould have a Logout 
+menu item
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould have exactly 4 
+user menu items
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould have a 
+separator in userMenuItems
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould update 
+pageTitle when a 
+NavigationEnd event fires
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould fall back to 
+"Home" when route data has 
+no title
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould render the 
+header container
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould render the 
+search input in the header
+[41m[1m FAIL [22m[49m s
+rc/app/layout/header/header
+.spec.ts[2m > 
+[22mHeaderComponent[2m > 
+[22mshould render the 
+user section
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/la
+yout/header/header.spec.ts:
+[2m46:19[22m[39m
+    [90m 44| [39m    
+}[33m;[39m
+    [90m 45| [39m
+    [90m 46| [39m    
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+          [31m^[39m
+    [90m 47| [39m      
+imports[33m:[39m [[33mHe
+aderComponent[39m][33m,[
+39m
+    [90m 48| [39m      
+providers[33m:[39m [{ 
+provide[33m:[39m [33mRou
+ter[39m[33m,[39m 
+useValue[33m:[39m 
+mockRouter }][33m,[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[12/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould create the 
+component
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Project Name input field
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Project Abbreviation input 
+field
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Project Type select 
+dropdown
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Clients multiselect
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Directors multiselect
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Primary Director select
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Associates multiselect
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Primary Associate select
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Description textarea
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render the 
+Active checkbox
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould disable the 
+Save button when required 
+fields are empty
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould disable the 
+Save button when only 
+project name is filled
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould disable the 
+Save button when project 
+type is missing
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould enable the 
+Save button when all 
+required fields are filled
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould call 
+onSave() when Save button 
+is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould set 
+submitted = true when 
+onSave is called
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould call 
+addProject service when 
+form is valid in add mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould not call 
+addProject when required 
+fields are missing
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould navigate to 
+/admin/projects after 
+successful save
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould reflect 
+isEditMode = true in 
+component state
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould set label to 
+"Update" when isEditMode 
+is true
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould call 
+onCancel() when Cancel 
+button is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould navigate 
+directly to 
+/admin/projects when form 
+is clean on cancel
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould show cancel 
+dialog when form is dirty 
+on cancel
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould call 
+onConfirmLeave() and close 
+dialog and navigate
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould call 
+onKeepEditing() and close 
+dialog without navigating
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render 
+dialog No button when 
+showCancelDialog is true
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould render 
+dialog Yes button when 
+showCancelDialog is true
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould trigger 
+onKeepEditing when dialog 
+No button is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould trigger 
+onConfirmLeave when dialog 
+Yes button is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould show "Add 
+New Project" in breadcrumb 
+when not in edit mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould show "Modify 
+Project" in breadcrumb in 
+edit mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould call 
+navigateToProjectsList() 
+when breadcrumb link is 
+clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22misDirty should be 
+false when all fields are 
+empty
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22misDirty should be 
+true when projectName is 
+set
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mprimaryDirectorOptio
+ns should return empty 
+array when no directors 
+selected
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mprimaryDirectorOptio
+ns should return filtered 
+directors based on 
+selection
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22monDirectorsChange 
+should clear 
+primaryDirector if 
+deselected
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22monAssociatesChange 
+should clear 
+primaryAssociate if 
+deselected
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould pass status 
+"Active" when isActive is 
+true
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > [2
+2mAddProjectComponent[2m 
+> [22mshould pass status 
+"Inactive" when isActive 
+is false
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/pa
+ges/add-project/add-project
+.spec.ts:[2m48:23[22m[39
+m
+    [90m 46| [39m        
+}[33m;[39m
+    [90m 47| [39m
+    [90m 48| [39m        
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+              [31m^[39m
+    [90m 49| [39m        
+    imports[33m:[39m [[3
+3mAddProjectComponent[39m
+[33m,[39m [33mFormsModule
+[39m][33m,[39m
+    [90m 50| [39m        
+    providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[13/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > 
+[22mAddProjectComponent – 
+Edit Mode[2m > 
+[22mshould enter edit 
+mode when route id param 
+is present
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > 
+[22mAddProjectComponent – 
+Edit Mode[2m > 
+[22mshould populate 
+projectName from service 
+data
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > 
+[22mAddProjectComponent – 
+Edit Mode[2m > 
+[22mshould populate 
+projectAbbreviation from 
+service data
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > 
+[22mAddProjectComponent – 
+Edit Mode[2m > 
+[22mshould set 
+selectedProjectType from 
+service data
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > 
+[22mAddProjectComponent – 
+Edit Mode[2m > 
+[22mshould set isActive 
+to true when status is 
+Active
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-project/ad
+d-project.spec.ts[2m > 
+[22mAddProjectComponent – 
+Edit Mode[2m > 
+[22mshould call 
+updateProject instead of 
+addProject in edit mode
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/pa
+ges/add-project/add-project
+.spec.ts:[2m396:23[22m[3
+9m
+    [90m394| [39m        
+}[33m;[39m
+    [90m395| [39m
+    [90m396| [39m        
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+              [31m^[39m
+    [90m397| [39m        
+    imports[33m:[39m [[3
+3mAddProjectComponent[39m
+[33m,[39m [33mFormsModule
+[39m][33m,[39m
+    [90m398| [39m        
+    providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[14/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+create the component
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Roundtable Name 
+input field
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Roundtable 
+Abbreviation input field
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Clients 
+multiselect
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Directors 
+multiselect
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Primary 
+Director select
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Associates 
+multiselect
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Primary 
+Associate select
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Description 
+textarea
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the Active checkbox
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+disable the Save button 
+when required fields are 
+empty
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+enable the Save button 
+when required fields are 
+filled
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould call 
+onSave() when the Save 
+button is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould show 
+"Update" label on the 
+button in edit mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould call 
+onCancel() when Cancel 
+button is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+navigate directly to 
+roundtables when form is 
+clean on cancel
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould show 
+cancel dialog when form is 
+dirty on cancel
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould call 
+onConfirmLeave() and close 
+dialog and navigate away
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould call 
+onKeepEditing() and close 
+dialog without navigating
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the dialog No 
+button when 
+showCancelDialog is true
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+render the dialog Yes 
+button when 
+showCancelDialog is true
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+trigger onKeepEditing when 
+dialog No button is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould 
+trigger onConfirmLeave 
+when dialog Yes button is 
+clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould show 
+"Add New Roundtable" in 
+breadcrumb when not in 
+edit mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould show 
+"Modify Roundtable" in 
+breadcrumb when in edit 
+mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould call 
+navigateToRoundtablesList()
+ when breadcrumb link is 
+clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22misDirty 
+should be false when all 
+fields are empty
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22misDirty 
+should be true when 
+roundtableName is filled
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mprimaryDirec
+torOptions should be empty 
+when no directors are 
+selected
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mprimaryDirec
+torOptions should return 
+filtered options for 
+selected directors
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > 
+[22monDirectorsChange 
+should clear 
+primaryDirector if it is 
+no longer selected
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > 
+[22monAssociatesChange 
+should clear 
+primaryAssociate if it is 
+no longer selected
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould call 
+addRoundtable service when 
+form is valid in add mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent[2m > [22mshould not 
+call addRoundtable when 
+required fields are missing
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/pa
+ges/add-roundtable/add-roun
+dtable.spec.ts:[2m49:23[2
+2m[39m
+    [90m 47| [39m        
+}[33m;[39m
+    [90m 48| [39m
+    [90m 49| [39m        
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+              [31m^[39m
+    [90m 50| [39m        
+    imports[33m:[39m [[3
+3mAddRoundtableComponent[3
+9m[33m,[39m [33mFormsMod
+ule[39m][33m,[39m
+    [90m 51| [39m        
+    providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[15/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent – Edit Mode[2m > 
+[22mshould enter edit 
+mode when a route id param 
+is present
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent – Edit Mode[2m > 
+[22mshould populate 
+roundtableName from 
+service data in edit mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent – Edit Mode[2m > 
+[22mshould populate 
+roundtableAbbreviation 
+from service data in edit 
+mode
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent – Edit Mode[2m > 
+[22mshould set isActive 
+to true when status is 
+Active
+[41m[1m FAIL [22m[49m s
+rc/app/pages/add-roundtable
+/add-roundtable.spec.ts[2m
+ > [22mAddRoundtableCompon
+ent – Edit Mode[2m > 
+[22mshould populate 
+selectedDirectors and 
+selectedAssociates in edit 
+mode
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/pa
+ges/add-roundtable/add-roun
+dtable.spec.ts:[2m331:23[
+22m[39m
+    [90m329| [39m        
+}[33m;[39m
+    [90m330| [39m
+    [90m331| [39m        
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+              [31m^[39m
+    [90m332| [39m        
+    imports[33m:[39m [[3
+3mAddRoundtableComponent[3
+9m[33m,[39m [33mFormsMod
+ule[39m][33m,[39m
+    [90m333| [39m        
+    providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[16/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/community/comm
+unity.spec.ts[2m > [22mCo
+mmunityComponent[2m > 
+[22mshould create
+[41m[1m FAIL [22m[49m s
+rc/app/pages/community/comm
+unity.spec.ts[2m > [22mCo
+mmunityComponent[2m > 
+[22mshould have activeTab 
+default to "discussion"
+[41m[1m FAIL [22m[49m s
+rc/app/pages/community/comm
+unity.spec.ts[2m > [22mCo
+mmunityComponent[2m > 
+[22msetActiveTab should 
+update the activeTab
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/pa
+ges/community/community.spe
+c.ts:[2m11:19[22m[39m
+    [90m  9| [39m
+    [90m 10| [39m  [34mb
+eforeEach[39m([35masync[
+39m () [33m=>[39m {
+    [90m 11| [39m    
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+          [31m^[39m
+    [90m 12| [39m      
+imports[33m:[39m [[33mCo
+mmunityComponent[39m][33m
+,[39m
+    [90m 13| [39m      
+providers[33m:[39m 
+[[33mLayoutService[39m]
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[17/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/meetings/meeti
+ngs.spec.ts[2m > 
+[22mMeetingsComponent[2m 
+> [22mshould create
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/pa
+ges/meetings/meetings.spec.
+ts:[2m10:19[22m[39m
+    [90m  8| [39m
+    [90m  9| [39m  [34mb
+eforeEach[39m([35masync[
+39m () [33m=>[39m {
+    [90m 10| [39m    
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+          [31m^[39m
+    [90m 11| [39m      
+imports[33m:[39m [[33mMe
+etingsComponent[39m]
+    [90m 12| [39m    })[
+33m.[39m[34mcompileCompon
+ents[39m()[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[18/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould create the 
+component
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould render the 
+filter bar
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould render the 
+search input
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould render the 
+search button
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould render the 
+Add New Project button
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould call 
+addNewProject() when Add 
+New Project button is 
+clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould navigate to 
+/admin/projects/add when 
+addNewProject() is called
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould load all 
+projects on init
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould show all 
+projects in 
+filteredProjects by default
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+Internal project type
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+External project type
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+Research project type
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould show all 
+projects when type filter 
+is "All"
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+Active status
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+Inactive status
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould show all 
+when status filter is "All"
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+name using searchTerm
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+director using searchTerm
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+associate using searchTerm
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould filter by 
+client using searchTerm
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould be 
+case-insensitive in search
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould return no 
+results when searchTerm 
+matches nothing
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould ignore 
+whitespace-only searchTerm
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould apply both 
+type filter and search 
+together
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould apply status 
+filter and search together
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould return no 
+results when combined 
+filters do not match
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould call 
+editProject() with the 
+correct project
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould navigate to 
+edit route with project id 
+when editProject() is 
+called
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould navigate 
+with the correct id for 
+second project
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould initialize 
+projectTypeOptions with 
+All, Internal, External, 
+Research
+[41m[1m FAIL [22m[49m s
+rc/app/pages/projects/proje
+cts.spec.ts[2m > 
+[22mProjectsComponent[2m 
+> [22mshould initialize 
+statusOptions with All, 
+Active, Inactive
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/pa
+ges/projects/projects.spec.
+ts:[2m62:23[22m[39m
+    [90m 60| [39m        
+mockProjectService = { 
+getProjects: 
+vi.fn().mockReturnValue(sa…
+    [90m 61| [39m
+    [90m 62| [39m        
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+              [31m^[39m
+    [90m 63| [39m        
+    imports[33m:[39m [[3
+3mProjectsComponent[39m[3
+3m,[39m [33mFormsModule[
+39m][33m,[39m
+    [90m 64| [39m        
+    providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[19/257]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould create the 
+component
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould render the 
+filter bar
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould render the 
+search input
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould render the 
+search button
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould render the 
+Add New Roundtable button
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould call 
+addNewRoundtable() when 
+Add New Roundtable button 
+is clicked
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould navigate to 
+/admin/roundtables/add 
+when addNewRoundtable() is 
+called
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould load all 
+roundtables on ngOnInit
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould show all 
+roundtables in 
+filteredRoundtables by 
+default
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould filter by 
+Active status
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould filter by 
+Inactive status
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould show all 
+when status filter is "All"
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22monStatusChange() 
+should call applyFilters()
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould call 
+onStatusChange() when 
+search button is clicked 
+via triggerEventHandler
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22monSearch() should 
+call applyFilters()
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould filter by 
+name using searchText
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould filter by 
+director using searchText
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould filter by 
+associate using searchText
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould be 
+case-insensitive in 
+searchText
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould return empty 
+when searchText matches 
+nothing
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould ignore 
+whitespace-only searchText
+
+[2m Test Files [22m [1m[31m16 failed[39m[22m[90m (16)[39m
+[2m      Tests [22m [1m[31m228 failed[39m[22m[90m (228)[39m
+[2m   Start at [22m 10:31:31
+[2m   Duration [22m 8.51s[2m (transform 3.30s, setup 0ms, import 42.81s, tests 380ms, environment 6ms)[22m
+
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould combine 
+Active status and search 
+text
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould combine 
+Inactive status and search 
+text to narrow to one 
+result
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould return empty 
+when status and name 
+search conflict
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould call 
+editRoundtable() with the 
+correct roundtable
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould navigate to 
+edit route with roundtable 
+id
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould navigate 
+with the correct id for 
+the second roundtable
+[41m[1m FAIL [22m[49m s
+rc/app/pages/roundtables/ro
+undtables.spec.ts[2m > [2
+2mRoundtablesComponent[2m 
+> [22mshould initialize 
+statusOptions with All, 
+Active, Inactive
+[31m[1mError[22m: Need 
+to call TestBed.initTestEnv
+ironment() first[39m
+[90m [2m❯[22m 
+TestBedImpl.get compiler 
+[as compiler] node_modules/
+@angular/core/fesm2022/test
+ing.mjs:[2m1486:13[22m[3
+9m
+[90m [2m❯[22m TestBedImp
+l.configureTestingModule no
+de_modules/@angular/core/fe
+sm2022/testing.mjs:[2m1402
+:10[22m[39m
+[90m [2m❯[22m Function.c
+onfigureTestingModule node_
+modules/@angular/core/fesm2
+022/testing.mjs:[2m1273:33
+[22m[39m
+[36m [2m❯[22m src/app/pa
+ges/roundtables/roundtables
+.spec.ts:[2m59:23[22m[39
+m
+    [90m 57| [39m        
+mockRoundtableService = { 
+getRoundtables: 
+vi.fn().mockReturnVa…
+    [90m 58| [39m
+    [90m 59| [39m        
+[35mawait[39m [33mTestBe
+d[39m[33m.[39m[34mconfi
+gureTestingModule[39m({
+    [90m   | [39m        
+              [31m^[39m
+    [90m 60| [39m        
+    imports[33m:[39m [[3
+3mRoundtablesComponent[39m
+[33m,[39m [33mFormsModul
+e[39m][33m,[39m
+    [90m 61| [39m        
+    providers[33m:[39m [
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯[20/257]⎯[22m[39m
+

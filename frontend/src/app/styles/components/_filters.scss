@@ -1,0 +1,95 @@
+/* Shared Filter Styles (Status Dropdown & Search Bar) */
+
+/* Custom Fieldset for Status */
+.custom-fieldset {
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-fieldset:focus-within {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.custom-legend {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #5f6368;
+    z-index: 2;
+}
+
+/* PrimeNG Select Override inside Fieldset */
+/* Use :host ::ng-deep equivalent if needed, but here global */
+.custom-fieldset .p-select {
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+.custom-fieldset .p-select .p-select-label {
+    padding: 1 14px;
+    line-height: normal;
+}
+
+/* Search Box Styles */
+/* Search Box Styles */
+.search-filter {
+    width: 100%;
+}
+
+.search-filter .p-inputgroup {
+    height: 44px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-filter .p-inputgroup:focus-within {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.search-filter .p-inputgroup-addon {
+    background: #fff;
+    border: none;
+    color: #5f6368;
+    padding-left: 12px;
+}
+
+.search-filter input.p-inputtext {
+    border: none !important;
+    box-shadow: none !important;
+    padding-left: 0.5rem !important;
+    flex: 1;
+}
+
+.search-btn {
+    background: #1a73e8;
+    border: 1px solid #1a73e8;
+    color: #fff;
+    width: 44px;
+    border-radius: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -1,0 +1,100 @@
+<main class="login-page" role="main" aria-labelledby="member-login-heading">
+  <!-- Left Panel: Form -->
+  <section class="login-left" aria-label="Sign in form">
+    <div class="login-form-wrapper">
+      <!-- Vizor Logo -->
+      <div class="login-logo">
+        <img src="assets/images/real.svg" alt="Vizor logo" class="vizor-logo-img" />
+      </div>
+
+      <!-- Tagline -->
+      <div class="login-tagline" aria-hidden="true">
+        <span class="tagline-dark">decisions</span><br />
+        <span class="tagline-dark">start</span><br />
+        <span class="tagline-blue">here</span><span class="tagline-blue-dot">.</span>
+      </div>
+      <span class="sr-only">Decisions start here.</span>
+
+      <!-- Member Login Heading -->
+      <h2 class="member-login-heading" id="member-login-heading">Member Login</h2>
+
+      <!-- Login Form -->
+      <form class="login-form" (ngSubmit)="onLogin()" novalidate aria-labelledby="member-login-heading">
+        <!-- Email Field -->
+        <div class="form-group">
+          <label for="login-email" class="form-label">Email</label>
+          <input
+            id="login-email"
+            type="email"
+            class="form-input"
+            placeholder="abc@xyz.com"
+            [(ngModel)]="email"
+            name="email"
+            autocomplete="email"
+            aria-required="true"
+            [attr.aria-invalid]="errorMessage ? 'true' : null"
+            [attr.aria-describedby]="errorMessage ? 'login-error-message' : null"
+          />
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-group">
+          <label for="login-password" class="form-label">Password</label>
+          <div class="password-input-wrapper">
+            <input
+              id="login-password"
+              [type]="showPassword ? 'text' : 'password'"
+              class="form-input password-input"
+              [(ngModel)]="password"
+              name="password"
+              autocomplete="current-password"
+              aria-required="true"
+              [attr.aria-invalid]="errorMessage ? 'true' : null"
+              [attr.aria-describedby]="errorMessage ? 'login-error-message' : null"
+            />
+            <button
+              type="button"
+              class="password-toggle-btn"
+              (click)="togglePasswordVisibility()"
+              [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+              [attr.aria-pressed]="showPassword"
+              aria-controls="login-password"
+            >
+              <i *ngIf="!showPassword" class="pi pi-eye-slash password-toggle-icon" aria-hidden="true"></i>
+              <i *ngIf="showPassword" class="pi pi-eye password-toggle-icon" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Forgot Password Link -->
+        <div class="forgot-password-row">
+          <a href="javascript:void(0)" class="forgot-password-link" (click)="onForgotPassword()" role="link" aria-label="Reset forgotten password">Forgot Password?</a>
+        </div>
+
+        <!-- Error Message -->
+        <div *ngIf="errorMessage"
+             id="login-error-message"
+             class="error-message"
+             role="alert"
+             aria-live="assertive"
+             aria-atomic="true">
+          {{ errorMessage }}
+        </div>
+
+        <!-- Login Button -->
+        <button type="submit" class="login-btn" id="login-submit-btn" aria-label="Sign in to your account">Login</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Right Panel: Hero Image -->
+  <aside class="login-right" aria-hidden="true">
+    <img src="assets/images/login_banner.webp" alt="" class="login-hero-img" />
+    <!-- AR Logo (top-right) -->
+    <div class="ar-logo-wrapper">
+      <img src="assets/images/ar__logo__right__top (1).svg" alt="" class="ar-logo-img" />
+    </div>
+  </aside>
+</main>
+
+

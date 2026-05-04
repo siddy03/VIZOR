@@ -1,0 +1,40 @@
+<!-- Global Toast Notifications Container -->
+<p-toast></p-toast>
+
+<ng-container *ngIf="!isLoginPage()">
+  <div class="app-container">
+    <!-- Skip link for keyboard / screen-reader users -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <!-- Mobile backdrop overlay -->
+    <div class="sidebar-backdrop"
+         [class.visible]="layoutService.mobileSidebarOpen()"
+         (click)="layoutService.closeMobileSidebar()"
+         role="presentation"
+         aria-hidden="true"></div>
+
+    <!-- Sidebar Navigation Landmark -->
+    <aside class="app-sidebar"
+         [class.collapsed]="layoutService.sidebarCollapsed()"
+         [class.mobile-open]="layoutService.mobileSidebarOpen()"
+         aria-label="Sidebar navigation">
+      <app-sidebar></app-sidebar>
+    </aside>
+
+    <div class="app-main" [class.collapsed]="layoutService.sidebarCollapsed()">
+      <!-- Header Landmark -->
+      <header class="app-header" role="banner" aria-label="Page header">
+        <app-header></app-header>
+      </header>
+
+      <!-- Main Content Landmark -->
+      <div class="app-content" role="main" id="main-content" tabindex="-1" aria-label="Main content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isLoginPage()">
+  <router-outlet></router-outlet>
+</ng-container>

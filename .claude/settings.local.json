@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(npx vitest run src/app/services/live-announcer.service.spec.ts 2>&1 | Select-Object -Last 60)",
+      "PowerShell(npm test *)",
+      "PowerShell(npx tsc --noEmit -p tsconfig.app.json; echo \"EXIT=$LASTEXITCODE\")",
+      "Bash(Find \"C:\\\\angular-projects\\\\VIZOR\\\\node_modules\\\\primeng\" -type f -name \"select.d.ts\")",
+      "PowerShell(New-Item *)",
+      "PowerShell(Join-Path *)",
+      "PowerShell(Set-Location \"C:\\\\angular-projects\\\\VIZOR\\\\frontend\"; npx tsc --noEmit -p tsconfig.app.json; \"EXIT=$LASTEXITCODE\")"
+    ]
+  }
+}

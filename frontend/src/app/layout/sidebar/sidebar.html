@@ -1,0 +1,176 @@
+<nav class="sidebar-container" [class.collapsed]="layoutService.sidebarCollapsed()"
+    role="navigation" aria-label="Main navigation">
+  <!-- Blue VIZOR Header -->
+  <div class="sidebar-brand">
+    <img [src]="(layoutService.sidebarCollapsed() && !layoutService.mobileSidebarOpen()) ? '/assets/images/logo-icon.png' : '/assets/images/logo.png'"
+      alt="VIZOR Home" [class]="(layoutService.sidebarCollapsed() && !layoutService.mobileSidebarOpen()) ? 'brand-logo-icon' : 'brand-logo-img'"
+      (click)="layoutService.sidebarCollapsed() ? toggleSidebar() : null">
+    <button type="button" class="hamburger-btn-a11y" (click)="toggleSidebar()"
+      aria-label="Toggle sidebar navigation"
+      [attr.aria-expanded]="!layoutService.sidebarCollapsed()">
+      <i class="pi pi-bars menu-icon" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  <!-- Navigation Menu -->
+  <div class="sidebar-nav">
+    <!-- Menu Items with Keyboard Support -->
+    <ul class="menu-items" role="menubar" aria-label="Primary navigation"
+      (keydown)="onMenuKeyDown($event)">
+
+      <!-- Home -->
+      <li class="menu-item" role="menuitem" tabindex="0"
+        [class.active]="isActive('/home')"
+        [attr.aria-current]="isActive('/home') ? 'page' : null"
+        (click)="navigate('/home')"
+        (keydown.enter)="navigate('/home')"
+        (keydown.space)="navigate('/home'); $event.preventDefault()"
+        title="Home">
+        <i class="pi pi-home menu-icon" aria-hidden="true"></i>
+        <span class="menu-label">Home</span>
+      </li>
+
+      <!-- Surveys with Submenu -->
+      <li class="menu-item-group" role="none">
+        <div class="menu-item" role="menuitem" tabindex="0"
+          [class.active]="isActive('/surveys')"
+          [attr.aria-current]="isActive('/surveys') ? 'page' : null"
+          [attr.aria-expanded]="menuItems[1].expanded"
+          aria-haspopup="true"
+          (click)="toggleSubmenu(menuItems[1])"
+          (keydown.enter)="toggleSubmenu(menuItems[1])"
+          (keydown.space)="toggleSubmenu(menuItems[1]); $event.preventDefault()"
+          title="Surveys">
+          <i class="pi pi-file-edit menu-icon" aria-hidden="true"></i>
+          <span class="menu-label">Surveys</span>
+          <i class="pi" [class.pi-angle-right]="!menuItems[1].expanded" [class.pi-angle-down]="menuItems[1].expanded"
+            style="margin-left: auto;" aria-hidden="true"></i>
+        </div>
+        <ul class="submenu" *ngIf="menuItems[1].expanded" role="menu" aria-label="Surveys submenu">
+          <li class="submenu-item" *ngFor="let item of menuItems[1].items" role="menuitem" tabindex="0"
+            [class.active]="isActive(item.route)"
+            [attr.aria-current]="isActive(item.route) ? 'page' : null"
+            (click)="navigate(item.route)"
+            (keydown.enter)="navigate(item.route)"
+            (keydown.space)="navigate(item.route); $event.preventDefault()"
+            [title]="item.label">
+            {{ item.label }}
+          </li>
+        </ul>
+      </li>
+
+      <!-- Interactive Benchmarks -->
+      <li class="menu-item" role="menuitem" tabindex="0"
+        [class.active]="isActive('/benchmarks')"
+        [attr.aria-current]="isActive('/benchmarks') ? 'page' : null"
+        (click)="navigate('/benchmarks')"
+        (keydown.enter)="navigate('/benchmarks')"
+        (keydown.space)="navigate('/benchmarks'); $event.preventDefault()"
+        title="Interactive Benchmarks">
+        <i class="pi pi-chart-bar menu-icon" aria-hidden="true"></i>
+        <span class="menu-label">Interactive Benchmarks</span>
+        <i class="pi pi-angle-right" style="margin-left: auto;" aria-hidden="true"></i>
+      </li>
+
+      <!-- Meetings (AR Only) -->
+      <li *ngIf="authService.isArUser()" class="menu-item" role="menuitem" tabindex="0"
+        [class.active]="isActive('/meetings')"
+        [attr.aria-current]="isActive('/meetings') ? 'page' : null"
+        (click)="navigate('/meetings')"
+        (keydown.enter)="navigate('/meetings')"
+        (keydown.space)="navigate('/meetings'); $event.preventDefault()"
+        title="Meetings">
+        <i class="pi pi-users menu-icon" aria-hidden="true"></i>
+        <span class="menu-label">Meetings</span>
+        <i class="pi pi-angle-right" style="margin-left: auto;" aria-hidden="true"></i>
+      </li>
+
+      <!-- Tools -->
+      <li class="menu-item" role="menuitem" tabindex="0"
+        [class.active]="isActive('/tools')"
+        [attr.aria-current]="isActive('/tools') ? 'page' : null"
+        (click)="navigate('/tools')"
+        (keydown.enter)="navigate('/tools')"
+        (keydown.space)="navigate('/tools'); $event.preventDefault()"
+        title="Tools">
+        <i class="pi pi-wrench menu-icon" aria-hidden="true"></i>
+        <span class="menu-label">Tools</span>
+        <i class="pi pi-angle-right" style="margin-left: auto;" aria-hidden="true"></i>
+      </li>
+
+      <!-- Admin with Submenu (AR Only) -->
+      <li *ngIf="authService.isArUser()" class="menu-item-group" role="none">
+        <div class="menu-item" role="menuitem" tabindex="0"
+          [class.active]="isActive('/admin')"
+          [attr.aria-current]="isActive('/admin') ? 'page' : null"
+          [attr.aria-expanded]="menuItems[5].expanded"
+          aria-haspopup="true"
+          (click)="toggleSubmenu(menuItems[5])"
+          (keydown.enter)="toggleSubmenu(menuItems[5])"
+          (keydown.space)="toggleSubmenu(menuItems[5]); $event.preventDefault()"
+          title="Admin">
+          <i class="pi pi-shield menu-icon" aria-hidden="true"></i>
+          <span class="menu-label">Admin</span>
+          <i class="pi" [class.pi-angle-right]="!menuItems[5].expanded" [class.pi-angle-down]="menuItems[5].expanded"
+            style="margin-left: auto;" aria-hidden="true"></i>
+        </div>
+        <ul class="submenu" *ngIf="menuItems[5].expanded" role="menu" aria-label="Admin submenu">
+          <li class="submenu-item" *ngFor="let item of menuItems[5].items" role="menuitem" tabindex="0"
+            [class.active]="isActive(item.route)"
+            [attr.aria-current]="isActive(item.route) ? 'page' : null"
+            (click)="navigate(item.route)"
+            (keydown.enter)="navigate(item.route)"
+            (keydown.space)="navigate(item.route); $event.preventDefault()"
+            [title]="item.label">
+            {{ item.label }}
+          </li>
+        </ul>
+      </li>
+
+      <!-- Auriemma Exchange (AR Only) -->
+      <li *ngIf="authService.isArUser()" class="menu-item" role="menuitem" tabindex="0"
+        [class.active]="isActive('/exchange')"
+        [attr.aria-current]="isActive('/exchange') ? 'page' : null"
+        (click)="navigate('/exchange')"
+        (keydown.enter)="navigate('/exchange')"
+        (keydown.space)="navigate('/exchange'); $event.preventDefault()"
+        title="Auriemma Exchange">
+        <i class="pi pi-sync menu-icon" aria-hidden="true"></i>
+        <span class="menu-label">Auriemma Exchange</span>
+        <i class="pi pi-angle-right" style="margin-left: auto;" aria-hidden="true"></i>
+      </li>
+
+      <!-- Discussion Board/Chat (AR Only) -->
+      <li *ngIf="authService.isArUser()" class="menu-item" role="menuitem" tabindex="0"
+        [class.active]="isActive('/community')"
+        [attr.aria-current]="isActive('/community') ? 'page' : null"
+        (click)="navigate('/community')"
+        (keydown.enter)="navigate('/community')"
+        (keydown.space)="navigate('/community'); $event.preventDefault()"
+        title="Discussion Board/Chat">
+        <i class="pi pi-comments menu-icon" aria-hidden="true"></i>
+        <span class="menu-label">Discussion Board/Chat</span>
+      </li>
+
+      <!-- Help -->
+      <li class="menu-item" role="menuitem" tabindex="0"
+        [class.active]="isActive('/help')"
+        [attr.aria-current]="isActive('/help') ? 'page' : null"
+        (click)="navigate('/help')"
+        (keydown.enter)="navigate('/help')"
+        (keydown.space)="navigate('/help'); $event.preventDefault()"
+        title="Help">
+        <i class="pi pi-question-circle menu-icon" aria-hidden="true"></i>
+        <span class="menu-label">Help</span>
+        <i class="pi pi-angle-right" style="margin-left: auto;" aria-hidden="true"></i>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Roundtables Branding -->
+  <div class="sidebar-footer" aria-hidden="true">
+    <img
+      [src]="(layoutService.sidebarCollapsed() && !layoutService.mobileSidebarOpen()) ? '/assets/images/roundtable-logo-icon.png' : '/assets/images/roundtable-logo.png'"
+      alt="Auriemma Roundtables" class="footer-logo">
+  </div>
+</nav>

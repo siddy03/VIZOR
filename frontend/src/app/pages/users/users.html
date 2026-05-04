@@ -1,0 +1,177 @@
+<main class="users-page-container" aria-label="Users management">
+    <!-- Skip to main content link -->
+    <a class="skip-link" href="#users-main-card">Skip to users content</a>
+
+    <!-- Breadcrumb -->
+    <app-breadcrumb [items]="breadcrumbItems"></app-breadcrumb>
+
+    <!-- Main Content Card -->
+    <div class="main-card" id="users-main-card">
+        <!-- Tabs -->
+        <div class="tabs-header" role="tablist" aria-label="User management tabs">
+            <div class="tab-item"
+                 [class.active]="activeTab === 'users'"
+                 role="tab"
+                 tabindex="0"
+                 id="tab-users"
+                 aria-controls="panel-users"
+                 [attr.aria-selected]="activeTab === 'users'"
+                 (click)="setActiveTab('users')"
+                 (keydown.enter)="setActiveTab('users')"
+                 (keydown.space)="setActiveTab('users'); $event.preventDefault()">Users</div>
+            <div class="tab-item"
+                 [class.active]="activeTab === 'requests'"
+                 role="tab"
+                 tabindex="0"
+                 id="tab-requests"
+                 aria-controls="panel-requests"
+                 [attr.aria-selected]="activeTab === 'requests'"
+                 (click)="setActiveTab('requests')"
+                 (keydown.enter)="setActiveTab('requests')"
+                 (keydown.space)="setActiveTab('requests'); $event.preventDefault()">User
+                Requests</div>
+        </div>
+
+        <div class="tab-content">
+
+            <!-- VIEW 1: USERS TAB -->
+            <ng-container *ngIf="activeTab === 'users'">
+                <div role="tabpanel" id="panel-users" aria-labelledby="tab-users" tabindex="0">
+                <!-- Filter Bar (Users) -->
+                <section class="filter-bar" role="search" aria-label="User filters">
+                    <div class="filter-item status-filter">
+                        <app-shared-dropdown
+                            label="User Status"
+                            [options]="statusOptions"
+                            [value]="selectedStatus"
+                            (valueChange)="selectedStatus = $event"
+                            (onChange)="onStatusChange()"
+                            [filter]="false">
+                        </app-shared-dropdown>
+                    </div>
+
+                    <div class="filter-item search-filter">
+                        <app-shared-searchbar
+                            placeholder="Search"
+                            ariaLabel="Search users"
+                            id="users-search"
+                            [(value)]="searchTerm"
+                            (valueChange)="applyFilters()"
+                            (onSearch)="applyFilters()">
+                        </app-shared-searchbar>
+                    </div>
+
+                    <div class="action-item">
+                        <button pButton label="Add New User" class="add-user-btn"
+                            aria-label="Add new user"
+                            (click)="navigateToAddUser()"></button>
+                    </div>
+                </section>
+
+                <!-- Users Table -->
+                <div class="table-container">
+                    <app-table1
+                        [rows]="users"
+                        [columns]="usersColumns"
+                        [rowActions]="usersActions"
+                        [expandableRows]="true"
+                        dataKey="id"
+                        (actionClick)="onUserActionClick($event)">
+                        
+                        <ng-template #rowExpansionTemplate let-user>
+                            <div class="p-3" role="region" [attr.aria-label]="'Expanded details for ' + (user.firstName || '')">
+                                <p>Expanded details for {{user.firstName}}...</p>
+                            </div>
+                        </ng-template>
+                    </app-table1>
+                </div>
+                </div>
+            </ng-container>
+
+            <!-- VIEW 2: USER REQUESTS TAB -->
+            @defer (when activeTab === 'requests') {
+            <ng-container *ngIf="activeTab === 'requests'">
+                <div role="tabpanel" id="panel-requests" aria-labelledby="tab-requests" tabindex="0">
+                <!-- Filter Bar (Requests) - 4 Column Grid -->
+                <!-- Filter Bar (Requests) -->
+                <section class="filter-bar requests-filter-bar" role="search" aria-label="User request filters">
+                    <!-- Roundtables Dropdown -->
+                    <div class="filter-item">
+                        <app-shared-dropdown
+                            label="Roundtables"
+                            [options]="roundtableOptions"
+                            [value]="selectedRoundtable"
+                            (valueChange)="selectedRoundtable = $event"
+                            (onChange)="onRequestFilterChange()"
+                            placeholder="Select"
+                            [filter]="false">
+                        </app-shared-dropdown>
+                    </div>
+
+                    <!-- Clients Dropdown -->
+                    <div class="filter-item">
+                        <app-shared-dropdown
+                            label="Clients"
+                            [options]="clientOptions"
+                            [value]="selectedClient"
+                            (valueChange)="selectedClient = $event"
+                            (onChange)="onRequestFilterChange()"
+                            placeholder="Select"
+                            [filter]="false">
+                        </app-shared-dropdown>
+                    </div>
+
+                    <!-- User Status Dropdown -->
+                    <div class="filter-item">
+                        <app-shared-dropdown
+                            label="User Status"
+                            [options]="statusOptions"
+                            [value]="selectedStatus"
+                            (valueChange)="selectedStatus = $event"
+                            (onChange)="onStatusChange()"
+                            [filter]="false">
+                        </app-shared-dropdown>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="filter-item search-filter">
+                        <app-shared-searchbar
+                            placeholder="Search"
+                            ariaLabel="Search user requests"
+                            id="requests-search"
+                            [(value)]="requestSearchTerm"
+                            (valueChange)="applyRequestFilters()"
+                            (onSearch)="applyRequestFilters()">
+                        </app-shared-searchbar>
+                    </div>
+
+                </section>
+
+                <!-- Requests Table -->
+                <div class="table-container">
+                    <app-table1
+                        [rows]="userRequests"
+                        [columns]="requestsColumns"
+                        [rowActions]="requestsActions"
+                        [expandableRows]="true"
+                        dataKey="id"
+                        (actionClick)="onRequestActionClick($event)">
+                        
+                        <ng-template #rowExpansionTemplate let-request>
+                            <div class="p-3" role="region" [attr.aria-label]="'Expanded details for ' + (request.firstName || '')">
+                                <p>Expanded details for {{request.firstName}}...</p>
+                            </div>
+                        </ng-template>
+                    </app-table1>
+                </div>
+                </div>
+            </ng-container>
+            }
+
+            <div class="footer-note" role="note">
+                Note: Users highlighted in red indicate that their accounts have been expired & Users highlighted in
+                amber indicate that their accounts have been locked.
+            </div>
+        </div>
+    </div>
+</main>

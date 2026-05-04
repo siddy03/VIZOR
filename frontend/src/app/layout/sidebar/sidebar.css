@@ -1,0 +1,379 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-light-color, #F4F8FB);
+}
+
+/* Blue VIZOR Brand Header */
+.sidebar-brand {
+  height: 64px;
+  background: var(--color-primary, #0078D4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.menu-icon {
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Accessible Hamburger Button */
+.hamburger-btn-a11y {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-btn-a11y:focus-visible {
+  outline: 3px solid #FFB900;
+  outline-offset: 2px;
+}
+
+/* Navigation Area */
+.sidebar-nav {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+/* Menu Items Container */
+.menu-items {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.menu-item-group {
+  list-style: none;
+}
+
+/* Individual Menu Item - Default State (White/Light Gray) */
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 16px 12px;
+  color: #5f6368;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: background 0.2s;
+  gap: 12px;
+  background: transparent;
+  margin: 0 8px 8px 8px;
+  border-radius: var(--border-radius-form-fields, 4px);
+  list-style: none;
+}
+
+/* Focus indicator for keyboard navigation */
+.menu-item:focus-visible {
+  outline: 3px solid #0078D4;
+  outline-offset: -2px;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+/* Menu Item Hover - Light Gray */
+.menu-item:hover {
+  background: var(--hover-color, #E6EFF6);
+  border-radius: 10px;
+}
+
+/* Menu Item Active State - BLUE BACKGROUND */
+.menu-item.active {
+  background: var(--color-primary, #0078D4) !important;
+  color: var(--color-white, #FFFFFF) !important;
+  border-radius: var(--border-radius-form-fields, 10px);
+  margin: 0 8px 8px 8px;
+  padding: 16px 12px;
+}
+
+/* Active Menu Item Icons - WHITE */
+.menu-item.active i {
+  color: var(--color-white, #FFFFFF) !important;
+}
+
+/* Menu Item Icon */
+.menu-item .menu-icon {
+  font-size: 18px;
+  color: #5f6368;
+}
+
+/* Active state icon color */
+.menu-item.active .menu-icon {
+  color: var(--color-white, #FFFFFF);
+}
+
+/* Menu Item Label */
+.menu-item .menu-label {
+  flex: 1;
+  white-space: nowrap;
+}
+
+/* Submenu Container */
+.submenu {
+  background: transparent;
+  margin: 4px 8px 8px 24px;
+  padding: 4px 0;
+  border-left: 2px solid #dadce0;
+  padding-left: 0;
+  list-style: none;
+}
+
+/* Submenu Items */
+.submenu-item {
+  padding: 8px 16px 8px 19px;
+  font-size: 13px;
+  color: #5f6368;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-left: 3px solid transparent;
+  position: relative;
+  list-style: none;
+}
+
+.submenu-item:focus-visible {
+  outline: 3px solid #0078D4;
+  outline-offset: -2px;
+}
+
+.submenu-item:hover {
+  border-left-color: var(--color-primary, #0078D4);
+  color: var(--color-primary, #0078D4);
+  background: var(--hover-color, #E6EFF6);
+
+}
+
+.submenu-item.active {
+  border-left-color: var(--color-primary, #0078D4);
+  color: var(--color-primary, #0078D4);
+}
+
+/* Footer Branding */
+.sidebar-footer {
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.footer-logo {
+  margin-left: 15px;
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+
+/* Scrollbar styling */
+.sidebar-nav::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-nav::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb {
+  background: #dadce0;
+  border-radius: 3px;
+}
+
+
+
+/* COLLAPSED STATE STYLING */
+
+
+.sidebar-container.collapsed .menu-label {
+  display: none !important;
+}
+
+/* Center icons in menu items, allow space for arrows */
+.sidebar-container.collapsed .menu-item {
+  justify-content: space-between;
+  padding: 16px 8px;
+  margin: 0 8px 8px 8px;
+}
+
+/* Adjust arrow size/margin if needed */
+.sidebar-container.collapsed .pi-angle-right,
+.sidebar-container.collapsed .pi-angle-down {
+  margin-left: 0 !important;
+  font-size: 12px;
+}
+
+/* Hide submenus completely */
+.sidebar-container.collapsed .submenu {
+  display: none !important;
+}
+
+/* Branding Area Adjustment */
+.sidebar-container.collapsed .sidebar-brand {
+  padding: 0;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}  
+
+/* Hamburger Button Adjustment in Collapsed State */
+.sidebar-container.collapsed .hamburger-btn-a11y {
+  display: none;
+}
+
+/* Make logo clickable in collapsed state */
+.sidebar-container.collapsed .brand-logo-icon {
+  cursor: pointer;
+}
+
+/* Branding Logo Icon (Small) */
+.brand-logo-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+/* Footer Adjustment */
+.sidebar-container.collapsed .sidebar-footer {
+  padding: 16px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-container.collapsed .footer-logo {
+  max-width: 32px;
+  margin: 0;
+}
+
+/* TABLET: Force collapsed state styles                                       */
+@media screen and (max-width: 1024px) {
+  .sidebar-container .menu-label {
+    display: none !important;
+  }
+
+  .sidebar-container .menu-item {
+    justify-content: center;
+    padding: 16px 8px;
+  }
+
+  .sidebar-container .submenu {
+    display: none !important;
+  }
+
+  .sidebar-container .sidebar-brand {
+    padding: 0;
+    justify-content: center;
+  }
+
+  .sidebar-container .hamburger-btn-a11y {
+    display: none;
+  }
+
+  .sidebar-container .sidebar-footer {
+    padding: 16px 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidebar-container .footer-logo {
+    max-width: 32px;
+    margin: 0;
+  }
+
+
+  .sidebar-container .pi-angle-right,
+  .sidebar-container .pi-angle-down {
+    display: none !important;
+  }
+}
+
+/* SMALL PHONE: shrink everything inside the slimmed 52px sidebar */
+@media screen and (max-width: 480px) {
+  .sidebar-container .menu-item {
+    padding: 12px 6px;
+    margin: 0 4px 6px 4px;
+  }
+
+  .sidebar-container .menu-item .menu-icon {
+    font-size: 16px;
+  }
+
+  .sidebar-container .sidebar-brand {
+    height: 56px;
+  }
+
+  .sidebar-container .brand-logo-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sidebar-container .footer-logo {
+    max-width: 24px;
+  }
+}
+
+/* MOBILE: Default is collapsed (icon-only).                                  */
+/* When parent .app-sidebar has .mobile-open, show fully expanded overlay     */
+@media screen and (max-width: 768px) {
+
+
+
+  :host-context(.mobile-open) .sidebar-container .menu-label {
+    display: inline !important;
+  }
+
+  :host-context(.mobile-open) .sidebar-container .menu-item {
+    justify-content: flex-start;
+    padding: 16px 12px;
+    gap: 12px;
+  }
+  /**/
+
+  :host-context(.mobile-open) .sidebar-container .submenu {
+    display: block !important;
+  }
+
+  :host-context(.mobile-open) .sidebar-container .sidebar-brand {
+    padding: 0 16px;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+
+  :host-context(.mobile-open) .sidebar-container .hamburger-btn-a11y {
+    display: flex;
+  }
+
+  :host-context(.mobile-open) .sidebar-container .sidebar-footer {
+    padding: 16px 24px;
+    display: block;
+    text-align: left;
+  }
+
+  :host-context(.mobile-open) .sidebar-container .footer-logo {
+    max-width: 90px;
+    margin-left: -4px;
+
+    
+  }
+
+  :host-context(.mobile-open) .sidebar-container .pi-angle-right,
+  :host-context(.mobile-open) .sidebar-container .pi-angle-down {
+    display: inline !important;
+  }
+}

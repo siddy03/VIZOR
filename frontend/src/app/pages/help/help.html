@@ -1,0 +1,54 @@
+<main class="help-container" aria-labelledby="help-heading">
+    <div class="help-header">
+        <h1 id="help-heading">Help &amp; Support</h1>
+        <p>Find answers to common questions and get support</p>
+    </div>
+
+    <div class="help-content">
+        <!-- FAQs Section -->
+        @defer (on viewport) {
+            <section class="faq-section" aria-labelledby="faq-heading">
+                <h2 id="faq-heading">Frequently Asked Questions</h2>
+                <div class="faq-list" role="list" aria-label="Frequently asked questions">
+                    <div class="faq-item" *ngFor="let faq of faqs; let i = index" role="listitem"
+                         [attr.aria-labelledby]="'faq-question-' + i">
+                        <h3 [id]="'faq-question-' + i">{{ faq.question }}</h3>
+                        <p>{{ faq.answer }}</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section class="contact-section" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Need More Help?</h2>
+                <p>Our support team is here to assist you.</p>
+                <div class="contact-info" role="list" aria-label="Contact information">
+                    <div class="contact-item" role="listitem">
+                        <i class="pi pi-envelope" aria-hidden="true"></i>
+                        <span class="sr-only">Email:</span>
+                        <span [attr.aria-label]="'Email support at ' + contactInfo.email">{{ contactInfo.email }}</span>
+                    </div>
+                    <div class="contact-item" role="listitem">
+                        <i class="pi pi-phone" aria-hidden="true"></i>
+                        <span class="sr-only">Phone:</span>
+                        <span [attr.aria-label]="'Phone support at ' + contactInfo.phone">{{ contactInfo.phone }}</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Links -->
+            <nav class="quick-links-section" aria-labelledby="quick-links-heading">
+                <h2 id="quick-links-heading">Quick Links</h2>
+                <ul class="quick-links">
+                    <li><a href="#" aria-label="Open user guide">User Guide</a></li>
+                    <li><a href="#" aria-label="Open video tutorials">Video Tutorials</a></li>
+                    <li><a href="#" aria-label="Open system requirements">System Requirements</a></li>
+                    <li><a href="#" aria-label="Open privacy policy">Privacy Policy</a></li>
+                    <li><a href="#" aria-label="Open terms of service">Terms of Service</a></li>
+                </ul>
+            </nav>
+        } @placeholder {
+            <div style="min-height: 500px" role="status" aria-live="polite" aria-busy="true">Loading more information...</div>
+        }
+    </div>
+</main>

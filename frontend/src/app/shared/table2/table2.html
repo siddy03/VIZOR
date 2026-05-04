@@ -1,0 +1,55 @@
+<p-table [value]="data" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '60rem'}"
+    role="region" aria-label="Data table">
+    <ng-template pTemplate="header">
+        <tr role="row">
+            <th *ngFor="let col of cols"
+                [pSortableColumn]="col.sortable !== false ? col.field : undefined"
+                class="text-900 text-sm font-semibold whitespace-nowrap"
+                scope="col"
+                role="columnheader"
+                [attr.aria-sort]="col.sortable !== false ? 'none' : null">
+                {{ col.header }}
+                <p-sortIcon *ngIf="col.sortable !== false" [field]="col.field">
+                    <ng-template pTemplate="sorticon" let-sortOrder>
+                        <span class="sort-arrows" aria-hidden="true">
+                            <i class="pi pi-arrow-up" [class.active]="sortOrder === 1"></i>
+                            <i class="pi pi-arrow-down" [class.active]="sortOrder === -1"></i>
+                        </span>
+                        <span class="sr-only">
+                            {{ sortOrder === 1 ? 'sorted ascending' : sortOrder === -1 ? 'sorted descending' : 'not sorted' }}
+                        </span>
+                    </ng-template>
+                </p-sortIcon>
+            </th>
+            <th class="w-8rem text-center" *ngIf="showEdit || showCopy || showDelete" scope="col" role="columnheader">
+                <span class="sr-only">Actions</span>
+            </th>
+        </tr>
+    </ng-template>
+    
+    <ng-template pTemplate="body" let-row>
+        <tr role="row">
+            <td *ngFor="let col of cols" class="text-600 text-sm" role="cell">
+                {{ row[col.field] || '-' }}
+            </td>
+            <td class="text-center" *ngIf="showEdit || showCopy || showDelete" role="cell">
+                <div class="row-actions" role="group" aria-label="Row actions">
+                    <button *ngIf="showEdit" pButton icon="icon-edit-svg" class="p-button-text p-button-rounded p-button-plain action-btn" title="Edit" aria-label="Edit row" (click)="handleEdit(row)"></button>
+                    <button *ngIf="showCopy" pButton icon="pi pi-copy" class="p-button-text p-button-rounded p-button-plain action-btn" title="Copy" aria-label="Copy row" (click)="handleCopy(row)"></button>
+                    <button *ngIf="showDelete" pButton icon="pi pi-trash" class="p-button-text p-button-rounded p-button-plain action-btn delete-btn" title="Delete" aria-label="Delete row" (click)="handleDelete(row)"></button>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="emptymessage">
+        <tr role="row">
+            <td [attr.colspan]="cols.length + (showEdit || showCopy || showDelete ? 1 : 0)" class="text-center p-5 border-none" role="cell">
+                <div class="flex flex-column align-items-center gap-3" role="status" aria-live="polite">
+                    <img src="/assets/no-records.png" alt="" aria-hidden="true" style="width: 150px; height: auto;" />
+                    <span class="text-900 font-semibold text-lg">No Records Found!</span>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+</p-table>

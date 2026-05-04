@@ -1,0 +1,410 @@
+﻿[33m❯[39m Building...
+[32m✔[39m Building...
+[1mInitial chunk files[22m                            [2m | [22m[1mNames[22m                                       [2m | [22m [1mRaw size[22m
+[32mstyles.css[39m                                     [2m | [22m[2mstyles[22m                                      [2m | [22m[36m476.39 kB[39m[2m | [22m
+[32mspec-app-pages-add-project-add-project.js[39m      [2m | [22m[2mspec-app-pages-add-project-add-project[22m      [2m | [22m [36m67.32 kB[39m[2m | [22m
+[32mspec-app-pages-add-roundtable-add-roundtable.js[39m[2m | [22m[2mspec-app-pages-add-roundtable-add-roundtable[22m[2m | [22m [36m63.89 kB[39m[2m | [22m
+[32mspec-app-pages-projects-projects.js[39m            [2m | [22m[2mspec-app-pages-projects-projects[22m            [2m | [22m [36m34.55 kB[39m[2m | [22m
+[32mspec-app-pages-roundtables-roundtables.js[39m      [2m | [22m[2mspec-app-pages-roundtables-roundtables[22m      [2m | [22m [36m30.36 kB[39m[2m | [22m
+[32mchunk-CBNTASM5.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m [36m28.15 kB[39m[2m | [22m
+[32mspec-app-pages-community-community.js[39m          [2m | [22m[2mspec-app-pages-community-community[22m          [2m | [22m [36m15.17 kB[39m[2m | [22m
+[32mchunk-TR5WF6KI.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m [36m10.50 kB[39m[2m | [22m
+[32mspec-app-layout-sidebar-sidebar.js[39m             [2m | [22m[2mspec-app-layout-sidebar-sidebar[22m             [2m | [22m  [36m7.24 kB[39m[2m | [22m
+[32mspec-app-app.js[39m                                [2m | [22m[2mspec-app-app[22m                                [2m | [22m  [36m6.43 kB[39m[2m | [22m
+[32mspec-app-services-roundtable.service.js[39m        [2m | [22m[2mspec-app-services-roundtable.service[22m        [2m | [22m  [36m5.10 kB[39m[2m | [22m
+[32mspec-app-services-project.service.js[39m           [2m | [22m[2mspec-app-services-project.service[22m           [2m | [22m  [36m5.02 kB[39m[2m | [22m
+[32mchunk-RSTWSNOR.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m  [36m4.75 kB[39m[2m | [22m
+[32mchunk-NFHIKKJF.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m  [36m4.31 kB[39m[2m | [22m
+[32mspec-app-layout-header-header.js[39m               [2m | [22m[2mspec-app-layout-header-header[22m               [2m | [22m  [36m4.24 kB[39m[2m | [22m
+[32mspec-app-pages-meetings-meetings.js[39m            [2m | [22m[2mspec-app-pages-meetings-meetings[22m            [2m | [22m  [36m2.84 kB[39m[2m | [22m
+[32mchunk-62Y7ZD6Q.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m  [36m2.02 kB[39m[2m | [22m
+[32mchunk-ZJOIJUQJ.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m  [36m1.89 kB[39m[2m | [22m
+[32mspec-app-pages-surveys-add-survey-add-survey.js[39m[2m | [22m[2mspec-app-pages-surveys-add-survey-add-survey[22m[2m | [22m  [36m1.78 kB[39m[2m | [22m
+[32mspec-app-services-layout.service.js[39m            [2m | [22m[2mspec-app-services-layout.service[22m            [2m | [22m  [36m1.70 kB[39m[2m | [22m
+[32mchunk-HFTXPUE7.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m  [36m1.41 kB[39m[2m | [22m
+[32mspec-app-services-layout.js[39m                    [2m | [22m[2mspec-app-services-layout[22m                    [2m | [22m  [36m1.25 kB[39m[2m | [22m
+[32minit-testbed.js[39m                                [2m | [22m[2minit-testbed[22m                                [2m | [22m  [36m1.21 kB[39m[2m | [22m
+[32mchunk-FM2WNKRU.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m  [36m1.14 kB[39m[2m | [22m
+[32mspec-app-services-notification.js[39m              [2m | [22m[2mspec-app-services-notification[22m              [2m | [22m  [36m1.10 kB[39m[2m | [22m
+[32mspec-app-services-auth.js[39m                      [2m | [22m[2mspec-app-services-auth[22m                      [2m | [22m[36m997 bytes[39m[2m | [22m
+[32mchunk-ZPR2P34C.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m[36m444 bytes[39m[2m | [22m
+[32mchunk-OAN37NGT.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m[36m442 bytes[39m[2m | [22m
+[32mchunk-JFLLUUYE.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m[36m402 bytes[39m[2m | [22m
+[32mchunk-IWND7JM5.js[39m                              [2m | [22m[2m-[22m                                           [2m | [22m[36m392 bytes[39m[2m | [22m
+
+[1m [22m                                              [2m | [22m[1mInitial total[22m                               [2m | [22m[1m782.44 kB[22m
+
+Application bundle generation complete. [3.695 seconds] - 2026-03-10T05:10:50.340Z
+
+
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90mC:/angular-projects/VIZOR[39m
+
+ [31m❯[39m [30m[43m VIZOR [49m[39m src/app/pages/community/community.spec.ts [2m([22m[2m3 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[33m 421[2mms[22m[39m
+[31m     [31m×[31m should create[39m[33m 360[2mms[22m[39m
+[31m     [31m×[31m should have activeTab default to "discussion"[39m[32m 33[2mms[22m[39m
+[31m     [31m×[31m setActiveTab should update the activeTab[39m[32m 25[2mms[22m[39m
+ [31m❯[39m [30m[43m VIZOR [49m[39m src/app/app.spec.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 41[2mms[22m[39m
+[31m     [31m×[31m should create the app[39m[32m 40[2mms[22m[39m
+ [31m❯[39m [30m[43m VIZOR [49m[39m src/app/services/project.service.spec.ts [2m([22m[2m13 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 124[2mms[22m[39m
+     [32m✓[39m should be created[32m 13[2mms[22m[39m
+     [32m✓[39m should start with an empty projects list when localStorage is empty[32m 7[2mms[22m[39m
+     [32m✓[39m should add a new project and assign id starting at 1[32m 6[2mms[22m[39m
+     [32m✓[39m should increment id correctly when adding multiple projects[32m 6[2mms[22m[39m
+     [32m✓[39m should return a project by id[32m 7[2mms[22m[39m
+     [32m✓[39m should return undefined for a non-existent project id[32m 4[2mms[22m[39m
+     [32m✓[39m should update an existing project[32m 7[2mms[22m[39m
+     [32m✓[39m should not change project list when updating a non-existent id[32m 4[2mms[22m[39m
+     [32m✓[39m should persist projects to localStorage on add[32m 10[2mms[22m[39m
+     [32m✓[39m should persist projects to localStorage on update[32m 15[2mms[22m[39m
+[31m     [31m×[31m should load projects from localStorage on construction[39m[32m 16[2mms[22m[39m
+     [32m✓[39m should handle corrupted localStorage gracefully[32m 23[2mms[22m[39m
+     [32m✓[39m should expose getProjects() returning an array[32m 4[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/layout/sidebar/sidebar.spec.ts [2m([22m[2m26 tests[22m[2m)[22m[33m 1813[2mms[22m[39m
+     [33m[2m✓[22m[39m should create the component [33m 430[2mms[22m[39m
+ [31m❯[39m [30m[43m VIZOR [49m[39m src/app/services/roundtable.service.spec.ts [2m([22m[2m13 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 68[2mms[22m[39m
+     [32m✓[39m should be created[32m 4[2mms[22m[39m
+     [32m✓[39m should start with an empty list when localStorage is empty[32m 3[2mms[22m[39m
+     [32m✓[39m should add a new roundtable with auto-incremented id starting at 1[32m 4[2mms[22m[39m
+     [32m✓[39m should correctly increment id for subsequent roundtables[32m 4[2mms[22m[39m
+     [32m✓[39m should return a roundtable by its id[32m 5[2mms[22m[39m
+     [32m✓[39m should return undefined for a non-existent id[32m 5[2mms[22m[39m
+     [32m✓[39m should update an existing roundtable[32m 4[2mms[22m[39m
+     [32m✓[39m should not change the list when updating a non-existent id[32m 3[2mms[22m[39m
+     [32m✓[39m should persist roundtables to localStorage on add[32m 3[2mms[22m[39m
+     [32m✓[39m should persist roundtables to localStorage on update[32m 4[2mms[22m[39m
+[31m     [31m×[31m should load roundtables from localStorage on construction[39m[32m 9[2mms[22m[39m
+     [32m✓[39m should handle corrupted localStorage gracefully[32m 7[2mms[22m[39m
+     [32m✓[39m should expose getRoundtables() returning an array[32m 12[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/pages/surveys/add-survey/add-survey.spec.ts [2m([22m[2m1 test[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/services/layout.service.spec.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/pages/meetings/meetings.spec.ts [2m([22m[2m1 test[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/services/auth.spec.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/services/layout.spec.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/services/notification.spec.ts [2m([22m[2m1 test[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/layout/header/header.spec.ts [2m([22m[2m15 tests[22m[2m)[22m[33m 2990[2mms[22m[39m
+     [33m[2m✓[22m[39m should create the component [33m 748[2mms[22m[39m
+[90mstdout[2m | src/app/pages/add-roundtable/add-roundtable.spec.ts[2m > [22m[2mAddRoundtableComponent[2m > [22m[2mshould call onSave() when the Save button is clicked
+[22m[39monSave triggered
+Constructed roundtable: {
+  id: [33m0[39m,
+  name: [32m'Test Roundtable'[39m,
+  abbreviation: [32m'TRT'[39m,
+  clientsWithAccess: [33m0[39m,
+  directors: [32m''[39m,
+  associates: [32m''[39m,
+  description: [32m''[39m,
+  status: [32m'Active'[39m,
+  clientIds: [],
+  directorIds: [],
+  associateIds: [],
+  primaryDirector: [1mnull[22m,
+  primaryAssociate: [1mnull[22m
+}
+Called service.addRoundtable
+
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/pages/roundtables/roundtables.spec.ts [2m([22m[2m28 tests[22m[2m)[22m[33m 4447[2mms[22m[39m
+     [33m[2m✓[22m[39m should create the component [33m 892[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/pages/projects/projects.spec.ts [2m([22m[2m31 tests[22m[2m)[22m[33m 4869[2mms[22m[39m
+     [33m[2m✓[22m[39m should create the component [33m 947[2mms[22m[39m
+     [33m[2m✓[22m[39m should render the filter bar [33m 374[2mms[22m[39m
+[90mstdout[2m | src/app/pages/add-roundtable/add-roundtable.spec.ts[2m > [22m[2mAddRoundtableComponent[2m > [22m[2mshould call addRoundtable service when form is valid in add mode
+[22m[39monSave triggered
+Constructed roundtable: {
+  id: [33m0[39m,
+  name: [32m'New RT'[39m,
+  abbreviation: [32m'NRT'[39m,
+  clientsWithAccess: [33m0[39m,
+  directors: [32m''[39m,
+  associates: [32m''[39m,
+  description: [32m''[39m,
+  status: [32m'Active'[39m,
+  clientIds: [],
+  directorIds: [],
+  associateIds: [],
+  primaryDirector: [1mnull[22m,
+  primaryAssociate: [1mnull[22m
+}
+Called service.addRoundtable
+
+[90mstdout[2m | src/app/pages/add-roundtable/add-roundtable.spec.ts[2m > [22m[2mAddRoundtableComponent[2m > [22m[2mshould not call addRoundtable when required fields are missing
+[22m[39monSave triggered
+Validation failed { name: [32m''[39m, abbr: [32m''[39m }
+
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/pages/add-roundtable/add-roundtable.spec.ts [2m([22m[2m39 tests[22m[2m)[22m[33m 6629[2mms[22m[39m
+     [33m[2m✓[22m[39m should create the component [33m 1116[2mms[22m[39m
+     [33m[2m✓[22m[39m should render the Roundtable Name input field [33m 362[2mms[22m[39m
+     [33m[2m✓[22m[39m should render the Roundtable Abbreviation input field [33m 339[2mms[22m[39m
+     [33m[2m✓[22m[39m should render the dialog No button when showCancelDialog is true [33m 574[2mms[22m[39m
+ [32m✓[39m [30m[43m VIZOR [49m[39m src/app/pages/add-project/add-project.spec.ts [2m([22m[2m48 tests[22m[2m)[22m[33m 7783[2mms[22m[39m
+     [33m[2m✓[22m[39m should create the component [33m 1396[2mms[22m[39m
+     [33m[2m✓[22m[39m should render the Project Name input field [33m 386[2mms[22m[39m
+     [33m[2m✓[22m[39m should render the Project Abbreviation input field [33m 372[2mms[22m[39m
+     [33m[2m✓[22m[39m should render the Project Type select dropdown [33m 313[2mms[22m[39m
+     [33m[2m✓[22m[39m should render dialog No button when showCancelDialog is true [33m 456[2mms[22m[39m
+node.exe : 
+At C:\Program 
+Files\nodejs\npx.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPX_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (:St  
+  ring) [], RemoteExcept   
+ ion
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+[31m⎯⎯⎯⎯⎯⎯⎯[39m[1m[41m 
+Failed Tests 6 
+[49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m 
+[30m[43m VIZOR 
+[49m[39m 
+src/app/app.spec.ts[2m > 
+[22mAppComponent[2m > 
+[22mshould create the app
+[31m[1mɵNotFound[22m: 
+NG0201: No provider found 
+for `Store`. Source: 
+Standalone[_AppComponent]. 
+Path: _LayoutService -> 
+Store. Find more at https:/
+/v21.angular.dev/errors/NG0
+201[39m
+[90m [2m❯[22m 
+createRuntimeError node_mod
+ules/@angular/core/fesm2022
+/_untracked-chunk.mjs:[2m6
+00:17[22m[39m
+[90m [2m❯[22m 
+NullInjector.get node_modul
+es/@angular/core/fesm2022/_
+untracked-chunk.mjs:[2m881
+:21[22m[39m
+[90m [2m❯[22m 
+R3Injector.get node_modules
+/@angular/core/fesm2022/_un
+tracked-chunk.mjs:[2m1206:
+27[22m[39m
+[90m [2m❯[22m 
+R3Injector.get node_modules
+/@angular/core/fesm2022/_un
+tracked-chunk.mjs:[2m1206:
+27[22m[39m
+[90m [2m❯[22m 
+R3Injector.retrieve node_mo
+dules/@angular/core/fesm202
+2/_untracked-chunk.mjs:[2m
+1116:19[22m[39m
+[90m [2m❯[22m 
+injectInjectorOnly node_mod
+ules/@angular/core/fesm2022
+/_untracked-chunk.mjs:[2m6
+70:35[22m[39m
+[90m [2m❯[22m ɵɵinject n
+ode_modules/@angular/core/f
+esm2022/_untracked-chunk.mj
+s:[2m682:59[22m[39m
+[90m [2m❯[22m inject nod
+e_modules/@angular/core/fes
+m2022/_untracked-chunk.mjs:
+[2m691:10[22m[39m
+[90m [2m❯[22m _LayoutSer
+vice.<instance_members_init
+ializer> src/app/layout/lay
+out.service.ts:[2m12:21[2
+2m[39m
+[90m [2m❯[22m new 
+_LayoutService src/app/layo
+ut/layout.service.ts:[2m11
+:7[22m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯[1/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m 
+[30m[43m VIZOR 
+[49m[39m src/app/services
+/project.service.spec.ts[2
+m > 
+[22mProjectService[2m > 
+[22mshould load projects 
+from localStorage on 
+construction
+[31m[1mAssertionError[22
+m: expected +0 to be 1 // 
+Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 1[39m
+[31m+ 0[39m
+
+[36m [2m❯[22m src/app/se
+rvices/project.service.spec
+.ts:[2m117:31[22m[39m
+    [90m115| [39m
+    [90m116| [39m        
+[35mconst[39m result 
+[33m=[39m freshService[3
+3m.[39m[34mgetProjects[3
+9m()[33m;[39m
+    [90m117| [39m        
+[34mexpect[39m(result[33
+m.[39mlength)[33m.[39m[
+34mtoBe[39m([34m1[39m)[
+33m;[39m
+    [90m   | [39m        
+                      
+[31m^[39m
+    [90m118| [39m        
+[34mexpect[39m(result[[3
+4m0[39m][33m.[39mname)[
+33m.[39m[34mtoBe[39m([3
+2m'Persisted'[39m)[33m;[
+39m
+    [90m119| [39m    
+})[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯[2/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m 
+[30m[43m VIZOR 
+[49m[39m src/app/services
+/roundtable.service.spec.ts
+[2m > 
+[22mRoundtableService[2m 
+> [22mshould load 
+roundtables from 
+localStorage on 
+construction
+[31m[1mAssertionError[22
+m: expected +0 to be 1 // 
+Object.is equality[39m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- 1[39m
+[31m+ 0[39m
+
+[36m [2m❯[22m src/app/se
+rvices/roundtable.service.s
+pec.ts:[2m113:31[22m[39m
+    [90m111| [39m
+    [90m112| [39m        
+[35mconst[39m result 
+[33m=[39m freshService[3
+3m.[39m[34mgetRoundtables
+[39m()[33m;[39m
+    [90m113| [39m        
+[34mexpect[39m(result[33
+m.[39mlength)[33m.[39m[
+34mtoBe[39m([34m1[39m)[
+33m;[39m
+    [90m   | [39m        
+                      
+[31m^[39m
+    [90m114| [39m        
+[34mexpect[39m(result[[3
+4m0[39m][33m.[39mname)[
+33m.[39m[34mtoBe[39m([3
+2m'Stored Roundtable'[39m)
+[33m;[39m
+    [90m115| [39m    
+})[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯[3/6]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m 
+[30m[43m VIZOR 
+[49m[39m src/app/pages/co
+mmunity/community.spec.ts[
+2m > [22mCommunityComponen
+t[2m > [22mshould create
+[41m[1m FAIL [22m[49m 
+[30m[43m VIZOR 
+[49m[39m src/app/pages/co
+mmunity/community.spec.ts[
+2m > [22mCommunityComponen
+t[2m > [22mshould have 
+activeTab default to 
+"discussion"
+[41m[1m FAIL [22m[49m 
+[30m[43m VIZOR 
+[49m[39m src/app/pages/co
+mmunity/community.spec.ts[
+2m > [22mCommunityComponen
+t[2m > [22msetActiveTab 
+should update the activeTab
+[31m[1mɵNotFound[22m: 
+NG0201: No provider found 
+for `Store`. Source: Standa
+lone[_CommunityComponent]. 
+Path: _LayoutService -> 
+Store. Find more at https:/
+/v21.angular.dev/errors/NG0
+201[39m
+[90m [2m❯[22m 
+createRuntimeError node_mod
+ules/@angular/core/fesm2022
+/_untracked-chunk.mjs:[2m6
+00:17[22m[39m
+[90m [2m❯[22m 
+NullInjector.get node_modul
+es/@angular/core/fesm2022/_
+untracked-chunk.mjs:[2m881
+:21[22m[39m
+[90m [2m❯[22m 
+R3Injector.get node_modules
+/@angular/core/fesm2022/_un
+tracked-chunk.mjs:[2m1206:
+27[22m[39m
+[90m [2m❯[22m 
+R3Injector.get node_modules
+/@angular/core/fesm2022/_un
+tracked-chunk.mjs:[2m1206:
+27[22m[39m
+[90m [2m❯[22m 
+R3Injector.retrieve node_mo
+dules/@angular/core/fesm202
+2/_untracked-chunk.mjs:[2m
+1116:19[22m[39m
+[90m [2m❯[22m 
+injectInjectorOnly node_mod
+ules/@angular/core/fesm2022
+/_untracked-chunk.mjs:[2m6
+70:35[22m[39m
+[90m [2m❯[22m ɵɵinject n
+ode_modules/@angular/core/f
+esm2022/_untracked-chunk.mj
+s:[2m682:59[22m[39m
+[90m [2m❯[22m inject nod
+e_modules/@angular/core/fes
+m2022/_untracked-chunk.mjs:
+[2m691:10[22m[39m
+[90m [2m❯[22m _LayoutSer
+vice.<instance_members_init
+ializer> src/app/services/l
+ayout.ts:[2m12:19[22m[39
+m
+[90m [2m❯[22m new 
+_LayoutService src/app/serv
+ices/layout.ts:[2m11:7[22
+m[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+⎯⎯⎯⎯⎯⎯[4/6]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m4 failed[39m[22m[2m | [22m[1m[32m12 passed[39m[22m[90m (16)[39m
+[2m      Tests [22m [1m[31m6 failed[39m[22m[2m | [22m[1m[32m225 passed[39m[22m[90m (231)[39m
+[2m   Start at [22m 10:40:50
+[2m   Duration [22m 15.03s[2m (transform 2.35s, setup 6.80s, import 20.65s, tests 29.26s, environment 50.28s)[22m
+

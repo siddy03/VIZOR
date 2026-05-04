@@ -1,0 +1,1050 @@
+<main class="add-survey-container" aria-labelledby="add-survey-heading">
+
+  <h2 id="add-survey-heading" class="sr-only">{{ editMode() ? 'Edit Survey' : 'Add New Survey' }}</h2>
+
+  <!-- Breadcrumb -->
+  <app-breadcrumb [items]="breadcrumbItems()"></app-breadcrumb>
+
+  <!-- STEPPER -->
+  <app-stepper
+    [steps]="steps"
+    [currentStep]="currentStep()"
+    [allowFreeNavigation]="editMode()"
+    (stepChange)="goToStep($event)">
+  </app-stepper>
+      
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- STEP 1: ADD SURVEY FORM                        -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @if (currentStep() === 0) {
+  <form [formGroup]="surveyForm" class="form-container" autocomplete="off"
+    role="form" aria-label="Add survey - basic information"
+    aria-describedby="add-survey-required-hint">
+    <p id="add-survey-required-hint" class="sr-only">Required fields are marked with an asterisk.</p>
+
+    <!-- Row 1: Source, Entity, Survey Type -->
+    <div class="form-row three-column">
+      <!-- Source -->
+      <div class="form-field">
+        <app-shared-dropdown
+          label="Source*"
+          id="survey-source"
+          [options]="sourceOptions"
+          placeholder="Select Source"
+          [isInvalid]="isFieldInvalid('source')"
+          [value]="surveyForm.get('source')?.value"
+          (valueChange)="surveyForm.get('source')?.setValue($event); surveyForm.get('source')?.markAsDirty()">
+        </app-shared-dropdown>
+        @if (isFieldInvalid('source')) {
+        <small class="field-error">{{ getFieldError('source') }}</small>
+        }
+      </div>
+
+      <!-- Entity (Roundtable / Project) -->
+      <div class="form-field">
+        <app-shared-dropdown
+          [label]="entityLabel + '*'"
+          id="survey-entity"
+          [options]="entityOptions()"
+          [placeholder]="'Select ' + entityLabel"
+          [filter]="true"
+          [isInvalid]="isFieldInvalid('entity')"
+          [value]="surveyForm.get('entity')?.value"
+          (valueChange)="surveyForm.get('entity')?.setValue($event); surveyForm.get('entity')?.markAsDirty()">
+        </app-shared-dropdown>
+        @if (isFieldInvalid('entity')) {
+        <small class="field-error">{{ getFieldError('entity') }}</small>
+        }
+      </div>
+
+      <!-- Survey Type -->
+      <div class="form-field">
+        <app-shared-dropdown
+          label="Survey Type*"
+          id="survey-type"
+          [options]="surveyTypeOptions"
+          placeholder="Select Type"
+          [isInvalid]="isFieldInvalid('surveyType')"
+          [value]="surveyForm.get('surveyType')?.value"
+          (valueChange)="surveyForm.get('surveyType')?.setValue($event); surveyForm.get('surveyType')?.markAsDirty()">
+        </app-shared-dropdown>
+        @if (isFieldInvalid('surveyType')) {
+        <small class="field-error">{{ getFieldError('surveyType') }}</small>
+        }
+      </div>
+    </div>
+
+    <!-- Row 2: Survey Name, Year, Date Range -->
+    <div class="form-row three-column">
+      <!-- Survey Name -->
+      <div class="form-field">
+        <label for="survey-name" class="sr-only">Survey Name</label>
+        <input id="survey-name" type="text" pInputText formControlName="surveyName" placeholder="Survey Name"
+          aria-label="Survey name"
+          [attr.aria-invalid]="isFieldInvalid('surveyName') ? 'true' : null"
+          [class.input-invalid]="isFieldInvalid('surveyName')" />
+      </div>
+          
+      <!-- Year -->
+      <div class="form-field">
+        <app-shared-dropdown
+          label="Year*"
+          id="survey-year"
+          [options]="yearOptions"
+          placeholder="Select Year"
+          [isInvalid]="isFieldInvalid('year')"
+          [value]="surveyForm.get('year')?.value"
+          (valueChange)="surveyForm.get('year')?.setValue($event); surveyForm.get('year')?.markAsDirty()">
+        </app-shared-dropdown>
+        @if (isFieldInvalid('year')) {
+        <small class="field-error">{{ getFieldError('year') }}</small>
+        }
+      </div>
+
+      <!-- Dates Range -->
+      <div class="form-field">
+        <div class="custom-fieldset date-fieldset" [class.invalid-field]="isFieldInvalid('dates')">
+          <label class="custom-legend">Dates*</label>
+          <p-datepicker id="survey-dates" formControlName="dates" selectionMode="range" [showIcon]="true" iconDisplay="input"
+            dateFormat="mm/dd/yy" placeholder="Select start and end dates" styleClass="w-full border-none"
+            appendTo="body">
+          </p-datepicker>
+        </div>
+        @if (isFieldInvalid('dates')) {
+        <small class="field-error">{{ getFieldError('dates') }}</small>
+        }
+      </div>
+    </div>
+
+    <!-- Row 3: Period & Period Number (Benchmark only) -->
+    @if (showPeriod()) {
+    <div class="form-row three-column">
+      <!-- Period -->
+      <div class="form-field">
+        <app-shared-dropdown
+          label="Period"
+          id="survey-period"
+          [options]="periodOptions"
+          placeholder="Select Period"
+          [value]="surveyForm.get('period')?.value"
+          (valueChange)="surveyForm.get('period')?.setValue($event); surveyForm.get('period')?.markAsDirty()">
+        </app-shared-dropdown>
+      </div>
+
+      <!-- Period Number -->
+      @if (showPeriodNumber()) {
+      <div class="form-field">
+        <app-shared-dropdown
+          label="Period#"
+          id="survey-period-number"
+          [options]="periodNumberOptions()"
+          placeholder="Select..."
+          [value]="surveyForm.get('periodNumber')?.value"
+          (valueChange)="surveyForm.get('periodNumber')?.setValue($event); surveyForm.get('periodNumber')?.markAsDirty()">
+        </app-shared-dropdown>
+      </div>
+      }
+
+      <div class="form-field"></div>
+    </div>
+    }
+
+    <!-- Row 4: First Alert Date, Reminder Date -->
+    <div class="form-row three-column">
+      <div class="form-field">
+        <div class="custom-fieldset date-fieldset">
+          <label class="custom-legend">Date after start date for first alert*</label>
+          <p-datepicker id="survey-alert-date" formControlName="firstAlertDate" [showIcon]="true" iconDisplay="input"
+            [minDate]="minAlertDate()" [maxDate]="maxAlertDate()" dateFormat="mm/dd/yy" placeholder="First Alert Date"
+            styleClass="w-full border-none" appendTo="body">
+          </p-datepicker>
+        </div>
+        @if (getFormError('alertBeforeStart')) {
+        <small class="field-error">Must be after or on start date.</small>
+        }
+        @if (getFormError('alertAfterEnd')) {
+        <small class="field-error">Must be before or on end date.</small>
+        }
+      </div>
+
+      <div class="form-field">
+        <div class="custom-fieldset date-fieldset">
+          <label class="custom-legend">Date before due date for reminder*</label>
+          <p-datepicker id="survey-reminder-date" formControlName="reminderDate" [showIcon]="true" iconDisplay="input"
+            [minDate]="minReminderDate()" [maxDate]="maxReminderDate()" dateFormat="mm/dd/yy"
+            placeholder="Reminder Date" styleClass="w-full border-none" appendTo="body">
+          </p-datepicker>
+        </div>
+        @if (getFormError('reminderBeforeStart')) {
+        <small class="field-error">Must be after or on start date.</small>
+        }
+        @if (getFormError('reminderBeforeAlert')) {
+        <small class="field-error">Must be after first alert date.</small>
+        }
+        @if (getFormError('reminderAfterEnd')) {
+        <small class="field-error">Must be before or on end date.</small>
+        }
+      </div>
+    </div>
+
+    <!-- Row 5: Active Checkbox -->
+    <div class="form-row">
+      <div class="checkbox-group">
+        <p-checkbox formControlName="isActive" [binary]="true" inputId="survey-active">
+        </p-checkbox>
+        <label for="survey-active">Active</label>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons form-actions-right" role="group" aria-label="Step 1 actions">
+      <button pButton type="button" label="Save" class="shared-action-btn" [disabled]="!isAddSurveyStepValid()"
+        [loading]="saving()"
+        aria-label="Save survey draft"
+        (click)="onSave()">
+      </button>
+      <button pButton type="button" label="Add Questions" icon="pi pi-angle-right" iconPos="right"
+        class="shared-action-btn" [disabled]="!isAddSurveyStepValid()"
+        aria-label="Continue to add questions"
+        (click)="onAddQuestions()">
+      </button>
+    </div>
+  </form>
+  }
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- STEP 2: ADD QUESTIONS                           -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @if (currentStep() === 1) {
+  <section class="questions-step" aria-label="Survey questions">
+    <div class="questions-meta" role="group" aria-label="Survey context">
+      <div class="meta-item">
+        <span class="meta-label">{{ entityLabel }} :</span>
+        <span class="meta-value">{{ selectedEntityName }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Survey :</span>
+        <span class="meta-value">{{ selectedSurveyName }}</span>
+      </div>
+    </div>
+
+    <div class="questions-toolbar" role="toolbar" aria-label="Question section actions">
+      <div class="toolbar-left"></div>
+      <div class="toolbar-right">
+        <button pButton type="button" label="Add Explanation" class="shared-action-btn toolbar-btn"
+          aria-label="Add explanation for this section"
+          (click)="openExplanationDialog()"></button>
+        <button pButton type="button" label="Add New Section" class="shared-action-btn toolbar-btn"
+          aria-label="Add a new question section"
+          (click)="addNewSection()"></button>
+      </div>
+    </div>
+
+      @if (!questionSections().length) {
+      <div class="empty-sections-state" role="status" aria-live="polite">
+        Click <b>Add New Section</b> to start building your survey questions.
+      </div>
+      }
+
+      @for (section of questionSections(); track section.id) {
+      <article class="question-section-card" [attr.aria-labelledby]="'section-title-' + section.id">
+        <div class="section-header">
+          <button type="button" class="section-toggle" (click)="toggleSection(section.id)"
+            [attr.aria-expanded]="section.expanded"
+            [attr.aria-controls]="'section-content-' + section.id"
+            [id]="'section-title-' + section.id">
+            <i class="pi" [class.pi-angle-down]="section.expanded" [class.pi-angle-right]="!section.expanded" aria-hidden="true"></i>
+            <span>{{ section.title }}</span>
+          </button>
+          <div class="section-actions" role="group" [attr.aria-label]="'Actions for section ' + section.title">
+            <button pButton type="button" label="Add Question" icon="pi pi-angle-down" iconPos="right"
+              class="shared-action-btn add-question-btn"
+              [attr.aria-label]="'Add question to ' + section.title"
+              (click)="addQuestion(section.id)"></button>
+            <button pButton type="button" icon="icon-edit-svg" class="p-button-text p-button-rounded p-button-secondary section-icon-btn"
+              [attr.aria-label]="'Edit section ' + section.title"
+              (click)="editSection(section.id)"></button>
+            <button pButton type="button" icon="pi pi-trash" class="p-button-text p-button-rounded p-button-secondary section-icon-btn"
+              [attr.aria-label]="'Delete section ' + section.title"
+              (click)="confirmDeleteSection(section.id)"></button>
+          </div>
+        </div>
+
+        @if (section.expanded) {
+        <div class="section-questions" [id]="'section-content-' + section.id" role="list" [attr.aria-label]="section.title + ' questions'">
+          @if (!section.questions.length) {
+          <div class="empty-questions" role="status" aria-live="polite">No questions yet in this section.</div>
+          }
+          @for (question of getRootQuestions(section); track question.id; let i = $index) {
+          <div class="question-row question-row-level-1">
+            <div class="question-row-left">
+              <span class="question-prefix">{{ getLevelPrefix(1, i) }}</span>
+              <span class="question-text">{{ question.text }}</span>
+              <div class="question-row-menu-wrapper">
+                <button pButton type="button" icon="pi pi-ellipsis-v"
+                  class="p-button-text p-button-rounded p-button-secondary question-menu-btn"
+                  aria-label="Open question actions menu"
+                  aria-haspopup="menu"
+                  (click)="questionMenuOverlay.toggle($event)"></button>
+                <p-popover #questionMenuOverlay role="menu">
+                  <div class="question-context-menu">
+                    <button type="button" class="question-context-item" role="menuitem" (click)="editQuestion(section.id, question.id); questionMenuOverlay.hide()">
+                      <i class="icon-edit-svg" aria-hidden="true"></i> Edit
+                    </button>
+                    <button type="button" class="question-context-item" role="menuitem" (click)="addSubQuestion(section.id, question.id); questionMenuOverlay.hide()">
+                      <i class="pi pi-plus" aria-hidden="true"></i> Add
+                    </button>
+                    <button type="button" class="question-context-item question-context-delete" role="menuitem" (click)="confirmDeleteQuestion(section.id, question.id); questionMenuOverlay.hide()">
+                      <i class="pi pi-trash" aria-hidden="true"></i> Delete
+                    </button>
+                  </div>
+                </p-popover>
+              </div>
+            </div>
+            <div class="question-row-right">
+              @if (question.answerControlType === 'Entry Box') {
+              <input type="text" class="question-inline-input" readonly aria-hidden="true" tabindex="-1" />
+              } @else if (question.answerControlType === 'Drop Down') {
+              <div class="question-inline-dropdown">
+                <span class="question-inline-dropdown-label">Dropdown List</span>
+                <span class="question-inline-dropdown-value">{{ question.dropDownHeading || question.existingDropdownList || '-' }}</span>
+                <i class="pi pi-angle-down question-inline-dropdown-icon"></i>
+              </div>
+              } @else if (question.answerControlType === 'Checkbox (True/False)') {
+              <div class="question-inline-checkbox-slot">
+                <input type="checkbox" class="question-inline-checkbox" disabled aria-hidden="true" tabindex="-1" />
+              </div>
+              }
+
+              @let rootTabularQuestions = getTabularQuestionsForParent(section, question.id);
+              @if (shouldRenderChildrenInTabularRow(section, question) && rootTabularQuestions.length) {
+              <div class="tabular-grid tabular-grid-inline">
+                @for (subQuestion of rootTabularQuestions; track subQuestion.id; let j = $index) {
+                <div class="tabular-grid-cell tabular-grid-cell-inline">
+                  <span class="question-prefix">{{ getLevelPrefix(2, j) }}</span>
+                  <span class="question-text">{{ subQuestion.text }}</span>
+                  <div class="question-row-menu-wrapper">
+                    <button pButton type="button" icon="pi pi-ellipsis-v"
+                      class="p-button-text p-button-rounded p-button-secondary question-menu-btn"
+                      aria-label="Open sub-question actions menu"
+                      aria-haspopup="menu"
+                      (click)="questionMenuOverlayLevel2.toggle($event)"></button>
+                    <p-popover #questionMenuOverlayLevel2 role="menu">
+                      <div class="question-context-menu">
+                        <button type="button" class="question-context-item" role="menuitem" (click)="editQuestion(section.id, subQuestion.id); questionMenuOverlayLevel2.hide()">
+                          <i class="icon-edit-svg" aria-hidden="true"></i> Edit
+                        </button>
+                        <button type="button" class="question-context-item" role="menuitem" (click)="addSubQuestion(section.id, subQuestion.id); questionMenuOverlayLevel2.hide()">
+                          <i class="pi pi-plus" aria-hidden="true"></i> Add
+                        </button>
+                        <button type="button" class="question-context-item question-context-delete" role="menuitem" (click)="confirmDeleteQuestion(section.id, subQuestion.id); questionMenuOverlayLevel2.hide()">
+                          <i class="pi pi-trash" aria-hidden="true"></i> Delete
+                        </button>
+                      </div>
+                    </p-popover>
+                  </div>
+
+                  @if (subQuestion.answerControlType === 'Drop Down') {
+                  <div class="question-inline-dropdown">
+                    <span class="question-inline-dropdown-label">Dropdown List</span>
+                    <span class="question-inline-dropdown-value">{{ subQuestion.dropDownHeading || subQuestion.existingDropdownList || '-' }}</span>
+                    <i class="pi pi-angle-down question-inline-dropdown-icon"></i>
+                  </div>
+                  } @else if (subQuestion.answerControlType === 'Entry Box') {
+                  <input type="text" class="question-inline-input" readonly aria-hidden="true" tabindex="-1" />
+                  } @else if (subQuestion.answerControlType === 'Checkbox (True/False)') {
+                  <div class="question-inline-checkbox-slot">
+                    <input type="checkbox" class="question-inline-checkbox" disabled aria-hidden="true" tabindex="-1" />
+                  </div>
+                  }
+                </div>
+                }
+                <div class="tabular-grid-cell tabular-grid-cell-explanation">
+                  <input
+                    type="text"
+                    class="question-inline-explanation"
+                    [value]="questionExplanation() || ''"
+                    placeholder="Explanation"
+                    readonly
+                    aria-hidden="true"
+                    tabindex="-1" />
+                </div>
+              </div>
+              } @else if (question.answerControlType !== 'Blank') {
+              <input type="text" class="question-inline-explanation" placeholder="Explanation" readonly aria-hidden="true" tabindex="-1" />
+              }
+            </div>
+          </div>
+
+          @if (!shouldRenderChildrenInTabularRow(section, question) && isIndentedSubQuestionType(question)) {
+          @for (subQuestion of getChildQuestions(section, question.id); track subQuestion.id; let j = $index) {
+          <div class="question-row question-row-level-2" [class.question-row-tabular]="isTabularSubQuestionType(subQuestion)">
+            <div class="question-row-left" [class.question-row-left-tabular]="isTabularSubQuestionType(subQuestion)">
+              <span class="question-prefix">{{ getLevelPrefix(2, j) }}</span>
+              <span class="question-text">{{ subQuestion.text }}{{ isTabularSubQuestionType(subQuestion) ? ' :' : '' }}</span>
+              <div class="question-row-menu-wrapper">
+                <button pButton type="button" icon="pi pi-ellipsis-v"
+                  class="p-button-text p-button-rounded p-button-secondary question-menu-btn"
+                  aria-label="Open sub-question actions menu"
+                  aria-haspopup="menu"
+                  (click)="questionMenuOverlayLevel2.toggle($event)"></button>
+                <p-popover #questionMenuOverlayLevel2 role="menu">
+                  <div class="question-context-menu">
+                    <button type="button" class="question-context-item" role="menuitem" (click)="editQuestion(section.id, subQuestion.id); questionMenuOverlayLevel2.hide()">
+                      <i class="icon-edit-svg" aria-hidden="true"></i> Edit
+                    </button>
+                    <button type="button" class="question-context-item" role="menuitem" (click)="addSubQuestion(section.id, subQuestion.id); questionMenuOverlayLevel2.hide()">
+                      <i class="pi pi-plus" aria-hidden="true"></i> Add
+                    </button>
+                    <button type="button" class="question-context-item question-context-delete" role="menuitem" (click)="confirmDeleteQuestion(section.id, subQuestion.id); questionMenuOverlayLevel2.hide()">
+                      <i class="pi pi-trash" aria-hidden="true"></i> Delete
+                    </button>
+                  </div>
+                </p-popover>
+              </div>
+            </div>
+            <div class="question-row-right" [class.question-row-right-tabular]="isTabularSubQuestionType(subQuestion)">
+              @if (subQuestion.answerControlType === 'Entry Box') {
+              <input type="text" class="question-inline-input" readonly aria-hidden="true" tabindex="-1" />
+              <input type="text" class="question-inline-explanation" placeholder="Explanation" readonly aria-hidden="true" tabindex="-1" />
+              } @else if (subQuestion.answerControlType === 'Drop Down') {
+              <div class="question-inline-dropdown">
+                <span class="question-inline-dropdown-label">Dropdown List</span>
+                <span class="question-inline-dropdown-value">{{ subQuestion.dropDownHeading || subQuestion.existingDropdownList || '-' }}</span>
+                <i class="pi pi-angle-down question-inline-dropdown-icon"></i>
+              </div>
+              <input type="text" class="question-inline-explanation" placeholder="Explanation" readonly aria-hidden="true" tabindex="-1" />
+              } @else if (subQuestion.answerControlType === 'Checkbox (True/False)') {
+              <div class="question-inline-checkbox-slot">
+                <input type="checkbox" class="question-inline-checkbox" disabled aria-hidden="true" tabindex="-1" />
+              </div>
+              <input type="text" class="question-inline-explanation" placeholder="Explanation" readonly aria-hidden="true" tabindex="-1" />
+              }
+            </div>
+          </div>
+
+          @if (!isTabularSubQuestionType(subQuestion) && isIndentedSubQuestionType(subQuestion)) {
+          @for (innerQuestion of getChildQuestions(section, subQuestion.id); track innerQuestion.id; let k = $index) {
+          <div class="question-row question-row-level-3">
+            <div class="question-row-left">
+              <span class="question-prefix">{{ getLevelPrefix(3, k) }}</span>
+              <span class="question-text">{{ innerQuestion.text }}</span>
+              <div class="question-row-menu-wrapper">
+                <button pButton type="button" icon="pi pi-ellipsis-v"
+                  class="p-button-text p-button-rounded p-button-secondary question-menu-btn"
+                  aria-label="Open inner question actions menu"
+                  aria-haspopup="menu"
+                  (click)="questionMenuOverlayLevel3.toggle($event)"></button>
+                <p-popover #questionMenuOverlayLevel3 role="menu">
+                  <div class="question-context-menu">
+                    <button type="button" class="question-context-item" role="menuitem" (click)="editQuestion(section.id, innerQuestion.id); questionMenuOverlayLevel3.hide()">
+                      <i class="icon-edit-svg" aria-hidden="true"></i> Edit
+                    </button>
+                    <button type="button" class="question-context-item" role="menuitem" (click)="addSubQuestion(section.id, innerQuestion.id); questionMenuOverlayLevel3.hide()">
+                      <i class="pi pi-plus" aria-hidden="true"></i> Add
+                    </button>
+                    <button type="button" class="question-context-item question-context-delete" role="menuitem" (click)="confirmDeleteQuestion(section.id, innerQuestion.id); questionMenuOverlayLevel3.hide()">
+                      <i class="pi pi-trash" aria-hidden="true"></i> Delete
+                    </button>
+                  </div>
+                </p-popover>
+              </div>
+            </div>
+            <div class="question-row-right">
+              @if (innerQuestion.answerControlType === 'Entry Box') {
+              <input type="text" class="question-inline-input" readonly aria-hidden="true" tabindex="-1" />
+              <input type="text" class="question-inline-explanation" placeholder="Explanation" readonly aria-hidden="true" tabindex="-1" />
+              } @else if (innerQuestion.answerControlType === 'Drop Down') {
+              <div class="question-inline-dropdown">
+                <span class="question-inline-dropdown-label">Dropdown List</span>
+                <span class="question-inline-dropdown-value">{{ innerQuestion.dropDownHeading || innerQuestion.existingDropdownList || '-' }}</span>
+                <i class="pi pi-angle-down question-inline-dropdown-icon"></i>
+              </div>
+              <input type="text" class="question-inline-explanation" placeholder="Explanation" readonly aria-hidden="true" tabindex="-1" />
+              } @else if (innerQuestion.answerControlType === 'Checkbox (True/False)') {
+              <div class="question-inline-checkbox-slot">
+                <input type="checkbox" class="question-inline-checkbox" disabled aria-hidden="true" tabindex="-1" />
+              </div>
+              <input type="text" class="question-inline-explanation" placeholder="Explanation" readonly aria-hidden="true" tabindex="-1" />
+              }
+            </div>
+          </div>
+          }
+          }
+          }
+          }
+          }
+        </div>
+        }
+      </article>
+      }
+    <div class="questions-bottom-actions" role="group" aria-label="Step 2 actions">
+      <button pButton type="button" label="Back" class="p-button-secondary"
+        aria-label="Go back to previous step" (click)="prevStep()"></button>
+      <div class="bottom-actions-right">
+        <button pButton type="button" label="Delete All Questions" class="delete-all-btn"
+          aria-label="Delete all questions"
+          (click)="onDeleteAllQuestions()"></button>
+        <button pButton type="button" label="Get Template" class="shared-action-btn"
+          aria-label="Download question template"
+          (click)="downloadTemplate()"></button>
+        <button pButton type="button" label="Confirm Clients &amp; Review Participants" icon="pi pi-angle-right"
+          iconPos="right" class="shared-action-btn"
+          aria-label="Continue to confirm clients and review participants"
+          (click)="nextStep()"></button>
+      </div>
+    </div>
+  </section>
+  }
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- STEP 3: CONFIRM CLIENTS                         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @if (currentStep() === 2) {
+  <section class="confirm-clients-step" aria-label="Confirm clients and review participants">
+    <div class="questions-meta confirm-meta" role="group" aria-label="Survey context">
+      <div class="meta-item">
+        <span class="meta-label">{{ entityLabel }} :</span>
+        <span class="meta-value">{{ selectedEntityName }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Survey :</span>
+        <span class="meta-value">{{ selectedSurveyName }}</span>
+      </div>
+    </div>
+
+    <app-table1
+      [rows]="confirmClientRows()"
+      [columns]="confirmClientColumns"
+      [isCheckboxDisabled]="isConfirmClientCheckboxDisabled"
+      (checkboxChange)="onConfirmClientCheckboxChange($event)">
+    </app-table1>
+
+    <div class="confirm-actions-row" role="group" aria-label="Step 3 actions">
+      <div class="confirm-actions-left">
+        <button pButton type="button" label="Back to Questions" class="p-button-secondary"
+          aria-label="Go back to questions" (click)="prevStep()"></button>
+        <button pButton type="button" label="Reset" class="p-button-secondary"
+          aria-label="Reset confirmed clients" (click)="resetConfirmClients()"></button>
+      </div>
+      <div class="confirm-actions-right">
+        <button pButton type="button" label="Save" class="shared-action-btn" [loading]="saving()"
+          aria-label="Save confirmed clients"
+          (click)="saveConfirmClients()"></button>
+        <button pButton type="button" label="Review Participants" class="shared-action-btn"
+          aria-label="Review participants"
+          (click)="reviewParticipants()"></button>
+        <button pButton type="button" label="Review Email" icon="pi pi-angle-right" iconPos="right"
+          class="shared-action-btn" [loading]="saving()"
+          aria-label="Continue to review email"
+          (click)="reviewEmail()"></button>
+      </div>
+    </div>
+  </section>
+  }
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- STEP 4: REVIEW EMAIL (placeholder)             -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @if (currentStep() === 3) {
+  <section class="review-email-step" aria-label="Review survey invitation email">
+    <div class="questions-meta review-email-meta" role="group" aria-label="Survey context">
+      <div class="meta-item">
+        <span class="meta-label">{{ entityLabel }} :</span>
+        <span class="meta-value">{{ selectedEntityName }}</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Survey :</span>
+        <span class="meta-value">{{ surveyForm.get('surveyName')?.value }}</span>
+      </div>
+    </div>
+
+    <div class="review-email-content">
+      <label for="email-subject" class="sr-only">Email subject</label>
+      <input id="email-subject" type="text" pInputText class="email-subject-input" [(ngModel)]="emailSubject" placeholder="Subject"
+        aria-label="Email subject line" />
+      <div class="email-editor-wrapper">
+        <p-editor [(ngModel)]="emailBody" [style]="{ height: '320px' }">
+          <ng-template pTemplate="header">
+            <span class="ql-formats" role="toolbar" aria-label="Text formatting">
+              <button type="button" class="ql-bold" aria-label="Bold"></button>
+              <button type="button" class="ql-italic" aria-label="Italic"></button>
+              <button type="button" class="ql-underline" aria-label="Underline"></button>
+              <button type="button" class="ql-strike" aria-label="Strikethrough"></button>
+            </span>
+            <span class="ql-formats" role="toolbar" aria-label="Block formatting">
+              <button type="button" class="ql-blockquote" aria-label="Blockquote"></button>
+              <button type="button" class="ql-code-block" aria-label="Code block"></button>
+            </span>
+            <span class="ql-formats" role="toolbar" aria-label="Headings">
+              <button type="button" class="ql-header" value="1" aria-label="Heading 1"></button>
+              <button type="button" class="ql-header" value="2" aria-label="Heading 2"></button>
+            </span>
+            <span class="ql-formats" role="toolbar" aria-label="Lists">
+              <button type="button" class="ql-list" value="ordered" aria-label="Ordered list"></button>
+              <button type="button" class="ql-list" value="bullet" aria-label="Bullet list"></button>
+            </span>
+            <span class="ql-formats" role="toolbar" aria-label="Script">
+              <button type="button" class="ql-script" value="sub" aria-label="Subscript"></button>
+              <button type="button" class="ql-script" value="super" aria-label="Superscript"></button>
+            </span>
+            <span class="ql-formats" role="toolbar" aria-label="Indentation">
+              <button type="button" class="ql-indent" value="-1" aria-label="Decrease indent"></button>
+              <button type="button" class="ql-indent" value="+1" aria-label="Increase indent"></button>
+            </span>
+            <span class="ql-formats" role="toolbar" aria-label="Direction">
+              <button type="button" class="ql-direction" value="rtl" aria-label="Right-to-left direction"></button>
+            </span>
+            <span class="ql-formats">
+              <select class="ql-size" aria-label="Font size"></select>
+            </span>
+            <span class="ql-formats">
+              <select class="ql-header" aria-label="Heading level"></select>
+            </span>
+            <span class="ql-formats">
+              <select class="ql-color" aria-label="Text color"></select>
+              <select class="ql-background" aria-label="Background color"></select>
+            </span>
+            <span class="ql-formats">
+              <select class="ql-font" aria-label="Font family"></select>
+            </span>
+            <span class="ql-formats">
+              <select class="ql-align" aria-label="Text alignment"></select>
+            </span>
+            <span class="ql-formats" role="toolbar" aria-label="Link and clear">
+              <button type="button" class="ql-link" aria-label="Insert link"></button>
+              <button type="button" class="ql-clean" aria-label="Clear formatting"></button>
+            </span>
+          </ng-template>
+        </p-editor>
+      </div>
+    </div>
+
+    <div class="questions-bottom-actions email-bottom-actions" role="group" aria-label="Step 4 actions">
+      <button pButton type="button" label="Back to Clients &amp; Participants" class="p-button-secondary email-back-btn"
+        aria-label="Go back to clients and participants" (click)="prevStep()"></button>
+      <div class="bottom-actions-right">
+        <button pButton type="button" label="Save Email Format" class="shared-action-btn"
+          aria-label="Save email format" (click)="saveEmailFormat()"></button>
+        <button pButton type="button" label="Launch" class="shared-action-btn"
+          aria-label="Launch survey" (click)="launchSurvey()"></button>
+        <button pButton type="button" label="Design Report" class="p-button-primary design-report-btn"
+          aria-label="Design report" (click)="designReport()"></button>
+      </div>
+    </div>
+  </section>
+  }
+
+  @defer (when showExplanationDialog()) {
+  <p-dialog [visible]="showExplanationDialog()" (visibleChange)="showExplanationDialog.set($event)" [modal]="true"
+    [closable]="false" [resizable]="false" [draggable]="false" styleClass="custom-explanation-dialog"
+    [style]="{width: '560px'}" appendTo="body"
+    role="dialog"
+    [attr.aria-labelledby]="'explanation-dialog-title'">
+    <div class="explanation-dialog-content">
+      <h3 class="explanation-title" id="explanation-dialog-title">Add Explanation</h3>
+      <label for="explanation-textarea" class="sr-only">Explanation text</label>
+      <textarea id="explanation-textarea" class="explanation-textarea" rows="6" placeholder="Enter explanation..."
+        aria-label="Explanation text"
+        [value]="explanationDraft()" (input)="onExplanationInput($event)"></textarea>
+      <div class="explanation-actions" role="group" aria-label="Dialog actions">
+        <button pButton type="button" label="Cancel" class="p-button-secondary"
+          aria-label="Cancel adding explanation"
+          (click)="closeExplanationDialog()"></button>
+        <button pButton type="button" label="Save" class="shared-action-btn"
+          aria-label="Save explanation"
+          (click)="saveExplanation()"></button>
+      </div>
+    </div>
+  </p-dialog>
+  }
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- ADD / EDIT SECTION DIALOG                     -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @defer (when showSectionDialog()) {
+  <p-dialog
+    [visible]="showSectionDialog()"
+    (visibleChange)="showSectionDialog.set($event)"
+    [modal]="true"
+    [resizable]="false"
+    [draggable]="false"
+    [closable]="true"
+    styleClass="custom-section-dialog"
+    [style]="{width: '620px'}"
+    appendTo="body"
+    role="dialog"
+    [attr.aria-label]="editingSectionId() ? 'Edit Section dialog' : 'Add New Section dialog'"
+    [header]="editingSectionId() ? 'Edit Section' : 'Add New Section'">
+
+    <form class="dialog-form" [formGroup]="sectionForm" autocomplete="off"
+      role="form" aria-label="Section details form">
+      <div class="dialog-field">
+        <label class="dialog-label" for="section-name-input">Name*</label>
+        <input id="section-name-input" type="text" pInputText formControlName="name" placeholder="Name"
+          aria-required="true"
+          [attr.aria-invalid]="sectionSubmitted() && sectionForm.get('name')?.invalid ? 'true' : null"
+          [attr.aria-describedby]="sectionSubmitted() && sectionForm.get('name')?.invalid ? 'section-name-error' : null" />
+        @if (sectionSubmitted() && sectionForm.get('name')?.invalid) {
+        <small id="section-name-error" class="field-error" role="alert" aria-live="polite">Name is required.</small>
+        }
+      </div>
+
+      <div class="dialog-field">
+        <label class="dialog-label" for="section-description-input">Description</label>
+        <textarea id="section-description-input" class="dialog-textarea" rows="5" formControlName="description" placeholder="Section Description"
+          aria-label="Section description"></textarea>
+      </div>
+
+      <div class="dialog-footer" role="group" aria-label="Dialog actions">
+        <button pButton type="button" label="Cancel" class="p-button-secondary"
+          aria-label="Cancel and close dialog"
+          (click)="closeSectionDialog()"></button>
+        <button
+          pButton
+          type="button"
+          [label]="editingSectionId() ? 'Update' : 'Save'"
+          class="shared-action-btn"
+          [attr.aria-label]="editingSectionId() ? 'Update section' : 'Save section'"
+          (click)="saveSection()"
+          [disabled]="sectionForm.invalid && sectionSubmitted()">
+        </button>
+      </div>
+    </form>
+  </p-dialog>
+  }
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- DELETE SECTION CONFIRMATION DIALOG           -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @defer (when showDeleteSectionDialog()) {
+  <p-dialog
+    [visible]="showDeleteSectionDialog()"
+    (visibleChange)="showDeleteSectionDialog.set($event)"
+    [modal]="true"
+    [resizable]="false"
+    [draggable]="false"
+    [closable]="false"
+    styleClass="custom-delete-dialog"
+    [style]="{width: '520px'}"
+    appendTo="body"
+    role="alertdialog"
+    [attr.aria-labelledby]="'delete-section-title'"
+    [attr.aria-describedby]="'delete-section-message'">
+
+    <div class="delete-dialog-content">
+      <h3 class="delete-dialog-title" id="delete-section-title">Delete Section?</h3>
+      <p class="delete-dialog-message" id="delete-section-message">Are you sure you want to delete this section? All questions inside it will be removed.</p>
+
+      <div class="dialog-actions" role="group" aria-label="Confirmation actions">
+        <button pButton type="button" label="Cancel" class="p-button-secondary"
+          aria-label="Cancel deletion"
+          (click)="cancelDeleteSection()"></button>
+        <button pButton type="button" label="Delete" class="delete-confirm-btn"
+          aria-label="Confirm delete section"
+          (click)="deleteSection()"></button>
+      </div>
+    </div>
+  </p-dialog>
+  }
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- ADD / EDIT QUESTION DIALOG                   -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @defer (when showQuestionDialog()) {
+  <p-dialog
+    [visible]="showQuestionDialog()"
+    (visibleChange)="showQuestionDialog.set($event)"
+    [modal]="true"
+    [resizable]="false"
+    [draggable]="false"
+    [closable]="false"
+    [showHeader]="false"
+    styleClass="custom-question-dialog"
+    [style]="{width: '1040px'}"
+    appendTo="body"
+    role="dialog"
+    [attr.aria-labelledby]="'question-dialog-title'">
+
+    <h2 id="question-dialog-title" class="sr-only">{{ editingQuestionId() ? 'Edit Question' : 'Add Question' }}</h2>
+
+    <form class="dialog-form dialog-question-form" [formGroup]="questionForm" autocomplete="off"
+      role="form" [attr.aria-label]="editingQuestionId() ? 'Edit question form' : 'Add question form'">
+      <button
+        pButton
+        type="button"
+        icon="pi pi-times"
+        class="p-button-text p-button-rounded p-button-secondary question-dialog-close-btn"
+        (click)="closeQuestionDialog()"
+        aria-label="Close Add Question dialog">
+      </button>
+
+      <div class="question-top-row">
+        <div class="dialog-field">
+          <label class="dialog-label">{{ entityLabel }} :</label>
+          <div class="readonly-display-text">{{ selectedEntityName }}</div>
+        </div>
+        <div class="dialog-field">
+          <label class="dialog-label">Survey :</label>
+          <div class="readonly-display-text">{{ selectedSurveyName }}</div>
+        </div>
+        <div class="dialog-field">
+          <label class="dialog-label">&nbsp;</label>
+          <app-shared-dropdown
+            label="Section"
+            [options]="getSectionDropdownOptionsForQuestionDialog()"
+            placeholder="Select Section"
+            [value]="questionForm.get('sectionId')?.value"
+            (valueChange)="questionForm.get('sectionId')?.setValue($event); questionForm.get('sectionId')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+      </div>
+
+      <div class="question-second-row">
+        <div class="dialog-field">
+          <label class="dialog-label">&nbsp;</label>
+          <app-shared-dropdown
+            label="Sub Question Of"
+            [options]="getParentQuestionOptionsForSectionId(questionForm.get('sectionId')?.value ?? null)"
+            [value]="questionForm.get('subQuestionOf')?.value"
+            (valueChange)="questionForm.get('subQuestionOf')?.setValue($event); questionForm.get('subQuestionOf')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+        <div class="dialog-field">
+          <label class="dialog-label" for="question-text-input">Question Text*</label>
+          <input id="question-text-input" type="text" pInputText formControlName="questionText" placeholder="Question Text*"
+            aria-required="true"
+            [attr.aria-invalid]="questionSubmitted() && questionForm.get('questionText')?.invalid ? 'true' : null"
+            [attr.aria-describedby]="questionSubmitted() && questionForm.get('questionText')?.invalid ? 'question-text-error' : null" />
+          @if (questionSubmitted() && questionForm.get('questionText')?.invalid) {
+          <small id="question-text-error" class="field-error" role="alert" aria-live="polite">Question Text is required.</small>
+          }
+        </div>
+      </div>
+
+      <div class="dialog-grid-full">
+        <div class="dialog-field">
+          <label class="dialog-label" for="question-description-input">Question Description</label>
+          <textarea id="question-description-input" class="dialog-textarea question-definition-textarea" rows="4" formControlName="questionDescription"
+            aria-label="Question description"></textarea>
+        </div>
+      </div>
+
+      <div class="checkbox-row checkbox-row-primary">
+        <p-checkbox formControlName="visibleToClients" [binary]="true" inputId="visibleToClients"></p-checkbox>
+        <label for="visibleToClients" class="checkbox-text">Visible to Clients</label>
+      </div>
+
+      <div class="question-third-row">
+        <div class="dialog-field">
+          <app-shared-dropdown
+            label="Display Type*"
+            [options]="displayTypeOptions"
+            [disabled]="shouldLockDisplayTypeToTabular()"
+            [value]="questionForm.get('displayType')?.value"
+            (valueChange)="questionForm.get('displayType')?.setValue($event); questionForm.get('displayType')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+        <div class="dialog-field">
+          <app-shared-dropdown
+            label="Answer Control Type"
+            [options]="answerControlTypeOptions"
+            [value]="questionForm.get('answerControlType')?.value"
+            (valueChange)="questionForm.get('answerControlType')?.setValue($event); questionForm.get('answerControlType')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+        @if (questionForm.get('answerControlType')?.value === 'Entry Box') {
+        <div class="dialog-field">
+          <app-shared-dropdown
+            label="Size"
+            [options]="entryBoxSizeOptions"
+            [value]="questionForm.get('entryBoxSize')?.value"
+            (valueChange)="questionForm.get('entryBoxSize')?.setValue($event); questionForm.get('entryBoxSize')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+        } @else {
+        <div class="dialog-field">
+          <app-shared-dropdown
+            label="Sentiment Value ?"
+            [options]="sentimentOptions"
+            [value]="questionForm.get('sentimentValue')?.value"
+            (valueChange)="questionForm.get('sentimentValue')?.setValue($event); questionForm.get('sentimentValue')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+        }
+      </div>
+
+      @if (questionForm.get('answerControlType')?.value === 'Entry Box') {
+      <div class="question-third-row">
+        <div class="dialog-field">
+          <app-shared-dropdown
+            label="Required Answer Type"
+            [options]="requiredAnswerTypeOptions"
+            [value]="questionForm.get('requiredAnswerType')?.value"
+            (valueChange)="questionForm.get('requiredAnswerType')?.setValue($event); questionForm.get('requiredAnswerType')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+        <div class="dialog-field">
+          <div class="custom-fieldset">
+            <label class="custom-legend" for="decimals-on-report">Decimals on Report ?</label>
+            <input id="decimals-on-report" name="decimalsOnReport" type="text" class="fieldset-input" formControlName="decimalsOnReport" placeholder="" aria-label="Decimals on report" />
+          </div>
+        </div>
+        <div class="dialog-field">
+          <app-shared-dropdown
+            label="Sentiment Value ?"
+            [options]="sentimentOptions"
+            [value]="questionForm.get('sentimentValue')?.value"
+            (valueChange)="questionForm.get('sentimentValue')?.setValue($event); questionForm.get('sentimentValue')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+      </div>
+      }
+
+      <div class="checkbox-grid-four">
+        <div class="checkbox-row checkbox-row-compact">
+          <p-checkbox formControlName="metricReportable" [binary]="true" inputId="metricReportable"></p-checkbox>
+          <label for="metricReportable" class="checkbox-text">Metric is Reportable?</label>
+        </div>
+        <div class="checkbox-row checkbox-row-compact">
+          <p-checkbox formControlName="showIndividualResponses" [binary]="true" inputId="showIndividualResponses"></p-checkbox>
+          <label for="showIndividualResponses" class="checkbox-text">Show Individual Responses on Reports</label>
+        </div>
+        <div class="checkbox-row checkbox-row-compact">
+          <p-checkbox formControlName="showInExecutiveSummary" [binary]="true" inputId="showInExecutiveSummary"></p-checkbox>
+          <label for="showInExecutiveSummary" class="checkbox-text">Show in Executive Summary</label>
+        </div>
+        <div class="checkbox-row checkbox-row-compact">
+          <p-checkbox formControlName="includeInVarianceTracker" [binary]="true" inputId="includeInVarianceTracker"></p-checkbox>
+          <label for="includeInVarianceTracker" class="checkbox-text">Include in Variance Tracker</label>
+        </div>
+        <div class="checkbox-row checkbox-row-compact">
+          <p-checkbox formControlName="showInChartGenerator" [binary]="true" inputId="showInChartGenerator"></p-checkbox>
+          <label for="showInChartGenerator" class="checkbox-text">Show in Chart Generator</label>
+        </div>
+        <div class="checkbox-row checkbox-row-compact">
+          <p-checkbox formControlName="allowAutoMarkNA" [binary]="true" inputId="allowAutoMarkNA"></p-checkbox>
+          <label for="allowAutoMarkNA" class="checkbox-text">Allow Auto Mark NA</label>
+        </div>
+      </div>
+
+      <!-- Dynamic fields by answer control type -->
+      @if (questionForm.get('answerControlType')?.value === 'Drop Down') {
+      <div class="dropdown-dynamic-section">
+        <div class="dialog-field" style="max-width: 320px;">
+          <app-shared-dropdown
+            label="Choose an Existing Dropdown List"
+            [options]="existingDropdownListOptions"
+            [value]="questionForm.get('existingDropdownList')?.value"
+            (valueChange)="questionForm.get('existingDropdownList')?.setValue($event); questionForm.get('existingDropdownList')?.markAsDirty()">
+          </app-shared-dropdown>
+        </div>
+
+        <div class="dropdown-values-card">
+          <h4 class="dropdown-values-title" id="ddl-values-heading">Drop Down Values</h4>
+          <div class="dropdown-values-fields" role="group" aria-labelledby="ddl-values-heading">
+            <label for="ddl-heading-input" class="sr-only">Drop down list heading</label>
+            <input id="ddl-heading-input" name="dropDownHeading" type="text" class="ddl-heading-input" formControlName="dropDownHeading" placeholder="ddl heading" aria-label="Drop down list heading" />
+            <label for="ddl-values-input" class="sr-only">Drop down list values</label>
+            <textarea id="ddl-values-input" name="dropDownValues" class="ddl-values-textarea" formControlName="dropDownValues" rows="3" placeholder="" aria-label="Drop down list values"></textarea>
+          </div>
+        </div>
+
+        <div class="dropdown-checkboxes-row">
+          <div class="checkbox-row checkbox-row-compact">
+            <p-checkbox formControlName="showNAInDropDown" [binary]="true" inputId="showNAInDropDown"></p-checkbox>
+            <label for="showNAInDropDown" class="checkbox-text">Show NA in Drop Down</label>
+          </div>
+          <div class="checkbox-row checkbox-row-compact">
+            <p-checkbox formControlName="showNTInDropDown" [binary]="true" inputId="showNTInDropDown"></p-checkbox>
+            <label for="showNTInDropDown" class="checkbox-text">Show NT in Drop Down</label>
+          </div>
+        </div>
+      </div>
+      }
+
+      @if (questionForm.get('answerControlType')?.value === 'Calculated - Editable' || questionForm.get('answerControlType')?.value === 'Calculated - Non-editable') {
+      <div class="dynamic-block">
+        <label class="dialog-label">Formula</label>
+        <textarea class="dialog-textarea" rows="3" formControlName="formula" placeholder="Enter formula"></textarea>
+      </div>
+      }
+
+
+
+      <div class="dialog-footer dialog-footer-question" role="group" aria-label="Question dialog actions">
+        <button pButton type="button" label="Cancel" class="p-button-secondary"
+          aria-label="Cancel and close dialog" (click)="closeQuestionDialog()"></button>
+        <div class="dialog-footer-right">
+          <button pButton type="button" label="Reset" class="shared-action-btn"
+            aria-label="Reset question form" (click)="resetQuestionForm()"></button>
+          <button pButton type="button" [label]="editingQuestionId() ? 'Update' : 'Save'" class="shared-action-btn"
+            [attr.aria-label]="editingQuestionId() ? 'Update question' : 'Save question'"
+            (click)="saveQuestion()" [disabled]="questionForm.invalid && questionSubmitted()"></button>
+        </div>
+      </div>
+    </form>
+  </p-dialog>
+  }
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- DELETE QUESTION CONFIRMATION DIALOG         -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @defer (when showDeleteQuestionDialog()) {
+  <p-dialog
+    [visible]="showDeleteQuestionDialog()"
+    (visibleChange)="showDeleteQuestionDialog.set($event)"
+    [modal]="true"
+    [resizable]="false"
+    [draggable]="false"
+    [closable]="false"
+    styleClass="custom-delete-dialog"
+    [style]="{width: '520px'}"
+    appendTo="body"
+    role="alertdialog"
+    [attr.aria-labelledby]="'delete-question-title'"
+    [attr.aria-describedby]="'delete-question-message'">
+
+    <div class="delete-dialog-content">
+      <h3 class="delete-dialog-title" id="delete-question-title">Delete Question?</h3>
+      <p class="delete-dialog-message" id="delete-question-message">This action will permanently remove the question from the selected section.</p>
+
+      <div class="dialog-actions" role="group" aria-label="Confirmation actions">
+        <button pButton type="button" label="Cancel" class="p-button-secondary"
+          aria-label="Cancel deletion"
+          (click)="cancelDeleteQuestion()"></button>
+        <button pButton type="button" label="Delete" class="delete-confirm-btn"
+          aria-label="Confirm delete question"
+          (click)="deleteQuestion()"></button>
+      </div>
+    </div>
+  </p-dialog>
+  }
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- CANCEL CONFIRMATION DIALOG                     -->
+  <!-- ═══════════════════════════════════════════════ -->
+  @defer (when showCancelDialog()) {
+  <p-dialog [visible]="showCancelDialog()" (visibleChange)="showCancelDialog.set($event)" [modal]="true"
+    [closable]="false" [resizable]="false" [draggable]="false" styleClass="custom-cancel-dialog"
+    [style]="{width: '560px', borderRadius: '12px', boxShadow: 'none'}" appendTo="body"
+    role="alertdialog"
+    [attr.aria-labelledby]="'cancel-survey-dialog-title'"
+    [attr.aria-describedby]="'cancel-survey-dialog-message'">
+    <div class="cancel-dialog-content">
+      <div class="dialog-icon-container" aria-hidden="true">
+        <i class="pi pi-exclamation-triangle dialog-icon"></i>
+      </div>
+      <h2 class="dialog-title" id="cancel-survey-dialog-title">Unsaved Changes</h2>
+      <p class="dialog-message" id="cancel-survey-dialog-message">You have unsaved changes, do you want to leave without saving?</p>
+      <div class="dialog-actions" role="group" aria-label="Confirmation actions">
+        <button pButton type="button" label="No" class="dialog-button-no"
+          aria-label="Stay and keep editing" (click)="onKeepEditing()"></button>
+        <button pButton type="button" label="Yes" class="dialog-button-yes"
+          aria-label="Leave without saving" (click)="onConfirmLeave()"></button>
+      </div>
+    </div>
+  </p-dialog>
+  }
+
+</main>

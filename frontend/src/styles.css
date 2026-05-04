@@ -1,0 +1,414 @@
+@import 'app/styles/fonts.scss';
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+@import "quill/dist/quill.core.css";
+@import "quill/dist/quill.snow.css";
+@import "app/styles/components/_buttons.scss";
+@import "app/styles/components/_tables.scss";
+@import "app/styles/components/_inputs.scss";
+@import "app/styles/components/_dialogs.scss";
+@import "app/styles/components/_filters.scss";
+
+/* Custom edit icon (SVG) used in tables and other edit affordances */
+.icon-edit-svg {
+  display: inline-block !important;
+  width: 16px !important;
+  height: 16px !important;
+  background-image: url('/assets/images/edit.svg') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  vertical-align: middle;
+}
+
+.icon-edit-svg::before,
+.icon-edit-svg::after {
+  content: none !important;
+}
+
+/* GLOBAL RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== DESIGN TOKENS — RESPONSIVE SCALE ============================
+   Breakpoints (used in @media — kept in sync across files):
+   --bp-xs: 0–479px   (small phone)
+   --bp-sm: 480–767px (phone landscape)
+   --bp-md: 768–1023px (tablet)
+   --bp-lg: 1024–1439px (laptop)
+   --bp-xl: 1440px+    (desktop)
+
+   Always use mobile-first: base styles target small screens,
+   then min-width @media adds layout for larger ones — but the existing
+   codebase uses max-width queries, so keep that style for consistency
+   when adding new rules.
+=================================================================== */
+:root {
+  /* Fluid typography — scales smoothly between viewport widths */
+  --fs-xs: clamp(0.6875rem, 0.66rem + 0.15vw, 0.75rem);   /* 11–12px */
+  --fs-sm: clamp(0.75rem, 0.71rem + 0.2vw, 0.875rem);     /* 12–14px */
+  --fs-md: clamp(0.875rem, 0.83rem + 0.25vw, 1rem);       /* 14–16px */
+  --fs-lg: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);        /* 16–18px */
+  --fs-xl: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);         /* 18–24px */
+  --fs-2xl: clamp(1.5rem, 1.25rem + 1.2vw, 2rem);         /* 24–32px */
+
+  /* Fluid spacing tokens */
+  --space-1: clamp(0.25rem, 0.2rem + 0.2vw, 0.5rem);      /* 4–8px */
+  --space-2: clamp(0.5rem, 0.4rem + 0.4vw, 0.75rem);      /* 8–12px */
+  --space-3: clamp(0.75rem, 0.6rem + 0.6vw, 1rem);        /* 12–16px */
+  --space-4: clamp(1rem, 0.8rem + 0.9vw, 1.5rem);         /* 16–24px */
+  --space-5: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);         /* 24–32px */
+  --space-6: clamp(2rem, 1.6rem + 1.6vw, 2.5rem);         /* 32–40px */
+
+  /* Page gutters — auto-shrinking horizontal padding */
+  --page-gutter: clamp(12px, 2.5vw, 40px);
+
+  /* Container max-width clamp for very wide screens */
+  --container-max: 1440px;
+}
+
+/* Utility: anywhere a table can overflow, wrap it in this class */
+.responsive-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* PrimeNG dialogs use fixed pixel widths — cap them so they always fit
+   the viewport with a small horizontal gutter on tiny screens. */
+.p-dialog {
+  max-width: calc(100vw - 24px) !important;
+}
+
+/* Constrain dialog vertical size, keep content scrollable on short viewports */
+.p-dialog .p-dialog-content {
+  max-height: calc(100vh - 120px) !important;
+  overflow-y: auto;
+}
+
+/* Toast container should sit clear of mobile notch / home indicator */
+.p-toast {
+  max-width: calc(100vw - 24px) !important;
+}
+
+/* Make any overflowing image fluid by default */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== ACCESSIBILITY UTILITIES (ARIA) ===== */
+/* Screen-reader only content: visually hidden but available to assistive tech */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip link: visually hidden until focused, allows keyboard users to jump to main content */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #1a73e8;
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 10000;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  transition: top 0.2s ease-in-out;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* Visible focus indicator for keyboard users on interactive elements without one */
+[tabindex="0"]:focus-visible,
+[tabindex="-1"]:focus-visible,
+[role="button"]:focus-visible,
+[role="menuitem"]:focus-visible,
+[role="link"]:focus-visible,
+[role="tab"]:focus-visible,
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Main content focus on route change should be visually quiet */
+#main-content:focus-visible {
+  outline: 2px solid transparent;
+}
+
+/* Honor reduced-motion preferences for non-essential transitions */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+html,
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /* Prevent body scroll, handle in app-content */
+  font-family: 'Arial Nova', sans-serif;
+}
+
+/* Ensure app-root takes full height and has no margins */
+/* Ensure app-root takes full height and has no margins */
+app-root,
+app-sidebar,
+app-header {
+  display: block;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+}
+
+app-root {
+  height: 100vh !important;
+  width: 100vw !important;
+  overflow: hidden !important;
+}
+
+/* Community Tabs (Enterprise-style) */
+
+.tabs {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 15px;
+}
+
+.tabs button {
+  background: none;
+  border: none;
+  padding: 10px 0;
+  font-weight: 500;
+  cursor: pointer;
+  color: #555;
+}
+
+.tabs button.active {
+  border-bottom: 2px solid #0b5ed7;
+  color: #0b5ed7;
+}
+
+.tab-content {
+  padding-top: 10px;
+}
+
+
+
+/* Global Dropdown/MultiSelect Item Styling */
+.p-select-overlay,
+.p-multiselect-overlay,
+.p-datepicker-panel,
+.p-dropdown-panel,
+.p-select-panel,
+.p-popover,
+.p-overlay,
+.p-connected-overlay {
+  z-index: 99999 !important;
+}
+
+.p-select-overlay .p-select-option,
+.p-multiselect-overlay .p-multiselect-option {
+  padding: 10px 14px !important;
+  font-size: 14px !important;
+  color: #3c4043 !important;
+}
+
+.p-select-overlay .p-select-option.p-select-option-selected,
+.p-multiselect-overlay .p-multiselect-option.p-multiselect-option-selected {
+  background: #e8f0fe !important;
+  color: #1a73e8 !important;
+  font-weight: 500 !important;
+}
+
+.p-select-overlay .p-select-option:hover,
+.p-multiselect-overlay .p-multiselect-option:hover {
+  background: #f8f9fa !important;
+}
+
+/* MultiSelect Header Override */
+.p-multiselect-overlay .p-multiselect-header {
+  background: #f8f9fa !important;
+  padding: 10px 14px !important;
+  border-bottom: 1px solid #dadce0 !important;
+}
+
+/* Global Filter Bar Grid Layout */
+.filter-bar {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* Default 3 Columns */
+  gap: 24px;
+  margin-bottom: 24px;
+  width: 100%;
+  align-items: end;
+}
+
+.filter-bar.four-column,
+.requests-filter-bar {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.filter-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.action-item {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 100%;
+}
+
+/* Response for Mobile */
+@media screen and (max-width: 960px) {
+
+  .filter-bar,
+  .filter-bar.four-column,
+  .requests-filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .action-item {
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .filter-bar,
+  .filter-bar.four-column,
+  .requests-filter-bar {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+}
+
+/* 
+   DROPDOWN ICON: */
+
+/* Default: icon points RIGHT */
+.p-select-dropdown .pi-sort-down-fill,
+.p-multiselect-dropdown .pi-sort-down-fill {
+  /*transform: rotate(-90deg);*/
+  transition: transform 0.2s ease;
+  display: inline-block;
+  font-size: 10px !important;
+}
+
+/* DROPDOWN FILTER SEARCH BAR STYLING                                         */
+
+
+
+.p-select-overlay .p-select-filter-container,
+.p-select-overlay .p-select-header {
+  padding: 8px 12px !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  background: #f8f9fa !important;
+}
+
+.p-select-overlay .p-select-filter {
+  width: 100% !important;
+  height: 36px !important;
+  padding: 6px 12px !important;
+  border: 1px solid #dadce0 !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  color: #202124 !important;
+  background: #fff !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.p-select-overlay .p-select-filter:focus {
+  border-color: #1a73e8 !important;
+  box-shadow: 0 0 0 2px #bfdbfe !important;
+  outline: none !important;
+}
+
+
+
+.p-multiselect-overlay .p-multiselect-header {
+  padding: 8px 12px !important;
+  border-bottom: 1px solid #e5e7eb !important;
+  background: #f8f9fa !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+  flex-wrap: nowrap !important;
+}
+
+
+
+/* Restore header checkbox margin */
+.p-multiselect-overlay .p-multiselect-header .p-checkbox {
+  margin-right: 0 !important;
+}
+
+
+
+.p-multiselect-overlay .p-multiselect-filter-container {
+  width: 100% !important;
+  flex: 1 !important;
+}
+
+.p-multiselect-overlay .p-multiselect-filter {
+  width: 100% !important;
+  height: 36px !important;
+  padding: 6px 12px !important;
+  border: 1px solid #dadce0 !important;
+  border-radius: 4px !important;
+  font-size: 14px !important;
+  color: #202124 !important;
+  background: #fff !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.p-multiselect-overlay .p-multiselect-filter:focus {
+  border-color: #1a73e8 !important;
+  box-shadow: 0 0 0 2px #bfdbfe !important;
+  outline: none !important;
+}
+
+
+
+.p-select-overlay .p-icon-wrapper,
+.p-multiselect-overlay .p-icon-wrapper {
+  color: #9ca3af;
+}

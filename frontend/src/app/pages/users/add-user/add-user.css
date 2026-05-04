@@ -1,0 +1,196 @@
+.add-user-container {
+    padding: 0 40px 32px 40px;
+    background: #fff;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0 0 32px 0;
+}
+
+/* Form Layout */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row.three-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field label {
+    font-size: 13px;
+    color: #5f6368;
+    font-weight: 500;
+}
+
+/* Phone Group (Country + Phone) */
+.phone-group {
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.country-select {
+    flex: 0 0 100px;
+    /* Fixed width for country code */
+}
+
+.country-select label,
+.phone-input label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.phone-input {
+    flex: 1;
+}
+
+/* Status Row */
+.form-row.status-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.status-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #202124;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #3c4043;
+    cursor: pointer;
+}
+
+/* Permissions Section */
+.permissions-section {
+    margin-top: 24px;
+    background: #f8f9fa;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-header h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0;
+}
+
+.permission-table ::ng-deep .p-datatable-header,
+.permission-table ::ng-deep .p-datatable-thead>tr>th {
+    background: transparent;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #202124;
+    padding: 12px 16px;
+}
+
+.permission-table ::ng-deep .p-datatable-tbody>tr>td {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #3c4043;
+    border-bottom: 1px solid #f1f3f4;
+    background: #fff;
+}
+
+/* Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.action-buttons button {
+    width: 120px;
+}
+
+/* PrimeNG Overrides */
+::ng-deep .p-inputtext,
+::ng-deep .p-select,
+::ng-deep .p-calendar,
+::ng-deep .p-datepicker {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+}
+
+::ng-deep .p-select .p-select-trigger,
+::ng-deep .p-datepicker .p-datepicker-trigger {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 960px) {
+    .add-user-container {
+        padding: 16px;
+    }
+
+    .top-row {
+        margin-top: 0;
+    }
+
+    .form-row.three-column {
+        grid-template-columns: 1fr;
+    }
+
+    .phone-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .country-select {
+        flex: 1 1 100%;
+    }
+
+    .form-row.status-row {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .permissions-section {
+        padding: 16px;
+    }
+
+    .action-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .action-buttons button {
+        width: 100%;
+    }
+}

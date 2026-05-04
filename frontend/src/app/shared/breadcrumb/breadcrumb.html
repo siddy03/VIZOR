@@ -1,0 +1,19 @@
+<nav class="vizor-breadcrumb" aria-label="Breadcrumb">
+  @for (item of items; track item.label; let i = $index; let last = $last) {
+    <span class="breadcrumb-item"
+          [class.active]="last"
+          [class.breadcrumb-link]="item.isLink"
+          [attr.role]="item.isLink && !last ? 'link' : null"
+          [attr.tabindex]="item.isLink && !last ? 0 : null"
+          [attr.aria-current]="last ? 'page' : null"
+          [attr.aria-label]="last ? 'Current page: ' + item.label : item.label"
+          (click)="onItemClick(i)"
+          (keydown.enter)="onItemClick(i)"
+          (keydown.space)="onItemClick(i); $event.preventDefault()">
+      {{ item.label }}
+    </span>
+    @if (!last) {
+      <i class="pi pi-angle-right breadcrumb-separator" aria-hidden="true"></i>
+    }
+  }
+</nav>

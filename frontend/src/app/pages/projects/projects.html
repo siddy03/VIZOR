@@ -1,0 +1,60 @@
+<main class="projects-page-container" aria-labelledby="page-heading" aria-label="Projects management">
+    <!-- Skip to main content link for keyboard users -->
+    <a class="skip-link" href="#projects-table">Skip to projects table</a>
+
+    <!-- Breadcrumb + Add Button Row -->
+    <div class="top-row">
+        <app-breadcrumb [items]="breadcrumbItems" class="inline-breadcrumb"></app-breadcrumb>
+        <button pButton type="button" label="Add New Project" class="p-button-primary add-btn-custom"
+            aria-label="Add new project"
+            (click)="addNewProject()"></button>
+    </div>
+
+    <!-- Filters (3-column grid) -->
+    <section class="filter-bar" role="search" aria-label="Project filters">
+        <!-- Project Type Filter -->
+        <div class="filter-item">
+            <app-shared-dropdown
+                label="Project Type"
+                [options]="projectTypeOptions"
+                [value]="selectedProjectType()"
+                (valueChange)="selectedProjectType.set($event)"
+                optionLabel="label"
+                placeholder="All">
+            </app-shared-dropdown>
+        </div>
+
+        <!-- Status Filter -->
+        <div class="filter-item">
+            <app-shared-dropdown
+                label="Status"
+                [options]="statusOptions"
+                [value]="selectedStatus()"
+                (valueChange)="selectedStatus.set($event)"
+                optionLabel="label"
+                placeholder="Active">
+            </app-shared-dropdown>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="filter-item search-filter">
+            <app-shared-searchbar
+                placeholder="Search"
+                ariaLabel="Search projects"
+                id="projects-search"
+                [value]="searchTerm()"
+                (valueChange)="searchTerm.set($event)">
+            </app-shared-searchbar>
+        </div>
+    </section>
+
+    <!-- Table -->
+    <section id="projects-table" aria-label="Projects data table" tabindex="-1">
+        <app-table1
+            [rows]="filteredProjects()"
+            [columns]="projectColumns"
+            [rowActions]="projectActions"
+            (actionClick)="onActionClick($event)">
+        </app-table1>
+    </section>
+</main>

@@ -1,0 +1,48 @@
+﻿src/app/app.spec.ts(2,10): error TS2305: Module '"./app"' has no exported member 'App'.
+src/app/layout/sidebar/sidebar.spec.ts(19,17): error TS2304: Cannot find name 'jasmine'.
+src/app/layout/sidebar/sidebar.spec.ts(165,5): error TS2304: Cannot find name 'spyOn'.
+src/app/pages/add-project/add-project.spec.ts(12,21): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/add-project/add-project.spec.ts(13,29): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/add-project/add-project.spec.ts(34,22): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/add-project/add-project.spec.ts(35,30): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/add-project/add-project.spec.ts(273,29): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/add-project/add-project.spec.ts(294,30): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/add-roundtable/add-roundtable.spec.ts(11,21): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/add-roundtable/add-roundtable.spec.ts(12,32): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/add-roundtable/add-roundtable.spec.ts(15,22): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/add-roundtable/add-roundtable.spec.ts(16,33): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/add-roundtable/add-roundtable.spec.ts(222,32): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/add-roundtable/add-roundtable.spec.ts(241,33): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/community/community.spec.ts(3,10): error TS2305: Module '"./community"' has no exported member 'Community'.
+src/app/pages/meetings/meetings.spec.ts(3,10): error TS2305: Module '"./meetings"' has no exported member 'Meetings'.
+src/app/pages/projects/projects.spec.ts(10,21): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/projects/projects.spec.ts(11,29): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/projects/projects.spec.ts(50,22): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/projects/projects.spec.ts(51,30): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/roundtables/roundtables.spec.ts(10,21): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/roundtables/roundtables.spec.ts(11,32): error TS2503: Cannot find namespace 'jasmine'.
+src/app/pages/roundtables/roundtables.spec.ts(47,22): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/roundtables/roundtables.spec.ts(48,33): error TS2304: Cannot find name 'jasmine'.
+src/app/pages/roundtables/roundtables.spec.ts(146,9): error TS2304: Cannot find name 'spyOn'.
+src/app/pages/roundtables/roundtables.spec.ts(152,9): error TS2304: Cannot find name 'spyOn'.
+src/app/services/layout.spec.ts(3,10): error TS2305: Module '"./layout"' has no exported member 'Layout'.
+src/app/services/project.service.spec.ts(36,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/project.service.spec.ts(46,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/project.service.spec.ts(57,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/project.service.spec.ts(79,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/project.service.spec.ts(90,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/roundtable.service.spec.ts(35,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/roundtable.service.spec.ts(44,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/roundtable.service.spec.ts(53,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/roundtable.service.spec.ts(75,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
+src/app/services/roundtable.service.spec.ts(85,13): error TS2349: This expression is not callable.
+  Type 'TestContext' has no call signatures.
