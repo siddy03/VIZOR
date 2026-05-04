@@ -53,7 +53,9 @@ export class Table1Component {
   // Legacy actions (will keep for backward compatibility with roundtables)
   @Input() showEditAction: boolean = false;
   @Input() editAriaLabel: string = 'Edit row';
-  
+  @Input() showDeleteAction: boolean = false;
+  @Input() deleteAriaLabel: string = 'Delete row';
+
   // New Dynamic Actions API
   @Input() rowActions: Table1Action[] = [];
   
@@ -66,6 +68,7 @@ export class Table1Component {
 
   @Output() checkboxChange = new EventEmitter<Table1CheckboxChangeEvent>();
   @Output() edit = new EventEmitter<any>();
+  @Output() delete = new EventEmitter<any>();
   @Output() actionClick = new EventEmitter<Table1ActionEvent>();
 
   getTextValue(row: any, field: string): string {
@@ -84,6 +87,10 @@ export class Table1Component {
 
   onEditClick(row: any): void {
     this.edit.emit(row);
+  }
+
+  onDeleteClick(row: any): void {
+    this.delete.emit(row);
   }
 
   onActionClick(actionId: string, row: any): void {

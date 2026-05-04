@@ -90,7 +90,8 @@ export class UsersComponent {
         { id: 'mimic', icon: 'pi pi-shield', tooltip: 'Mimic', cssClass: 'btn-mimic' },
         { id: 'transfer', icon: 'pi pi-sitemap', tooltip: 'Transfer', cssClass: 'btn-transfer' },
         { id: 'resend', icon: 'pi pi-envelope', tooltip: 'Resend Invite', cssClass: 'btn-resend' },
-        { id: 'edit', icon: 'icon-edit-svg', tooltip: 'Edit', cssClass: 'btn-edit' }
+        { id: 'edit', icon: 'icon-edit-svg', tooltip: 'Edit', cssClass: 'btn-edit' },
+        { id: 'delete', icon: 'pi pi-trash', tooltip: 'Delete', cssClass: 'p-button-danger' }
     ];
 
     requestsColumns: Table1Column[] = [
@@ -104,7 +105,8 @@ export class UsersComponent {
     ];
 
     requestsActions: Table1Action[] = [
-        { id: 'view', icon: 'pi pi-eye', tooltip: 'View', cssClass: 'btn-transfer' }
+        { id: 'view', icon: 'pi pi-eye', tooltip: 'View', cssClass: 'btn-transfer' },
+        { id: 'delete', icon: 'pi pi-trash', tooltip: 'Delete', cssClass: 'p-button-danger' }
     ];
 
     constructor(private http: HttpClient, private cdr: ChangeDetectorRef, private router: Router) { }
@@ -238,6 +240,12 @@ export class UsersComponent {
         console.log(`Action ${event.actionId} clicked for user`, event.row);
         if (event.actionId === 'edit') {
             // Handle edit action
+        } else if (event.actionId === 'delete') {
+            const name = `${event.row.firstName ?? ''} ${event.row.lastName ?? ''}`.trim() || event.row.email;
+            const confirmed = window.confirm(`Delete user "${name}"?`);
+            if (confirmed) {
+                console.log('Delete user', event.row);
+            }
         }
     }
 
@@ -245,6 +253,12 @@ export class UsersComponent {
         console.log(`Action ${event.actionId} clicked for request`, event.row);
         if (event.actionId === 'view') {
             // Handle view action
+        } else if (event.actionId === 'delete') {
+            const name = `${event.row.firstName ?? ''} ${event.row.lastName ?? ''}`.trim() || event.row.email;
+            const confirmed = window.confirm(`Delete request from "${name}"?`);
+            if (confirmed) {
+                console.log('Delete request', event.row);
+            }
         }
     }
 }

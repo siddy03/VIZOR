@@ -141,6 +141,13 @@ export class RoundtablesComponent {
         this.router.navigate(['/admin/roundtables/edit', roundtable.id]);
     }
 
+    deleteRoundtable(roundtable: Roundtable) {
+        const confirmed = window.confirm(`Delete roundtable "${roundtable.name}"?`);
+        if (confirmed) {
+            console.log('Delete roundtable', roundtable);
+        }
+    }
+
     addNewRoundtable() {
         this.router.navigate(['/admin/roundtables/add']);
     }

@@ -60,8 +60,11 @@
             [rows]="filteredRoundtables()"
             [columns]="roundtableColumns"
             [showEditAction]="true"
+            [showDeleteAction]="true"
             editAriaLabel="Edit roundtable"
-            (edit)="editRoundtable($event)">
+            deleteAriaLabel="Delete roundtable"
+            (edit)="editRoundtable($event)"
+            (delete)="deleteRoundtable($event)">
         </app-table1>
     </section>
 

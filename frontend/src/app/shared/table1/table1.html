@@ -12,7 +12,7 @@
                     {{ col.header }}
                     <p-sortIcon *ngIf="col.sortable" [field]="col.field"></p-sortIcon>
                 </th>
-                <th *ngIf="showEditAction || rowActions.length > 0" class="w-8rem text-center" scope="col">
+                <th *ngIf="showEditAction || showDeleteAction || rowActions.length > 0" class="w-8rem text-center" scope="col">
                     <span class="sr-only">Actions</span>
                 </th>
             </tr>
@@ -50,7 +50,7 @@
                     </ng-container>
                 </td>
                 
-                <td *ngIf="showEditAction || rowActions.length > 0" class="text-center">
+                <td *ngIf="showEditAction || showDeleteAction || rowActions.length > 0" class="text-center">
                     <div class="row-actions" role="group" aria-label="Row actions">
                         <!-- Dynamic Actions -->
                         <button *ngFor="let action of rowActions"
@@ -69,6 +69,15 @@
                             [attr.aria-label]="editAriaLabel"
                             (click)="onEditClick(row)">
                         </button>
+
+                        <!-- Delete Action (matches table2) -->
+                        <button *ngIf="showDeleteAction"
+                            type="button" pButton icon="pi pi-trash"
+                            class="p-button-text p-button-rounded p-button-plain action-btn delete-btn"
+                            title="Delete"
+                            [attr.aria-label]="deleteAriaLabel"
+                            (click)="onDeleteClick(row)">
+                        </button>
                     </div>
                 </td>
             </tr>
@@ -81,7 +90,7 @@
 
         <ng-template pTemplate="emptymessage">
             <tr>
-                <td [attr.colspan]="columns.length + (showEditAction || rowActions.length > 0 ? 1 : 0) + (expandableRows ? 1 : 0)" class="text-center p-5 border-none">
+                <td [attr.colspan]="columns.length + (showEditAction || showDeleteAction || rowActions.length > 0 ? 1 : 0) + (expandableRows ? 1 : 0)" class="text-center p-5 border-none">
                     <div class="table1-empty-state" role="status" aria-live="polite">
                         <img src="/assets/no-records.png" alt="" aria-hidden="true" />
                         <span>{{ emptyTitle }}</span>

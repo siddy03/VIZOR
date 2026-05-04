@@ -68,7 +68,8 @@ export class ProjectsComponent {
     ];
 
     projectActions: Table1Action[] = [
-        { id: 'edit', icon: 'icon-edit-svg', tooltip: 'Edit Project' }
+        { id: 'edit', icon: 'icon-edit-svg', tooltip: 'Edit Project' },
+        { id: 'delete', icon: 'pi pi-trash', tooltip: 'Delete Project', cssClass: 'p-button-danger' }
     ];
 
     // Local reactive state via Angular Signals
@@ -109,6 +110,15 @@ export class ProjectsComponent {
     onActionClick(event: Table1ActionEvent) {
         if (event.actionId === 'edit') {
             this.editProject(event.row);
+        } else if (event.actionId === 'delete') {
+            this.deleteProject(event.row);
+        }
+    }
+
+    deleteProject(project: Project) {
+        const confirmed = window.confirm(`Delete project "${project.name}"?`);
+        if (confirmed) {
+            console.log('Delete project', project);
         }
     }
 
