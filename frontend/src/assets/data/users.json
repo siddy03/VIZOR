@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "ar@ar.com",
+      "password": "ar123",
+      "role": "ar",
+      "name": "AR Admin"
+    },
+    {
+      "email": "user@user.com",
+      "password": "user123",
+      "role": "member",
+      "name": "Test User"
+    }
+  ]
+}

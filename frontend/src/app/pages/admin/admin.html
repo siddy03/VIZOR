@@ -1,0 +1,154 @@
+<main class="users-page-container" aria-label="Admin user management">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb-container" aria-label="Breadcrumb">
+        <span class="breadcrumb-item">Admin</span>
+        <i class="pi pi-angle-right breadcrumb-separator" aria-hidden="true"></i>
+        <span class="breadcrumb-item active" aria-current="page">Users</span>
+    </nav>
+
+    <!-- Main Content Card -->
+    <div class="main-card">
+        <!-- Tabs -->
+        <div class="tabs-header" role="tablist" aria-label="Admin tabs">
+            <div class="tab-item active"
+                 role="tab"
+                 tabindex="0"
+                 id="admin-tab-users"
+                 aria-controls="admin-panel-users"
+                 aria-selected="true">Users</div>
+            <div class="tab-item"
+                 role="tab"
+                 tabindex="-1"
+                 id="admin-tab-requests"
+                 aria-controls="admin-panel-requests"
+                 aria-selected="false">User Requests</div>
+        </div>
+
+        <div class="tab-content" role="tabpanel" id="admin-panel-users" aria-labelledby="admin-tab-users">
+            <!-- Filter Bar -->
+            <section class="filter-bar" role="search" aria-label="User filters">
+                <!-- User Status Dropdown (Using the new fieldset style for consistency if desired, or standard floating label) -->
+                <!-- The design shows a fieldset-like style for "User Status" -->
+                <div class="filter-item status-filter">
+                    <fieldset class="custom-fieldset">
+                        <legend class="custom-legend">User Status</legend>
+                        <label for="admin-user-status-wrap" class="sr-only">User Status</label>
+                        <p-select id="admin-user-status-wrap" inputId="admin-user-status" [options]="statusOptions" [(ngModel)]="selectedStatus" optionLabel="label"
+                            optionValue="value" styleClass="w-full border-none shadow-none bg-transparent"
+                            [filter]="false" appendTo="body"
+                            [attr.aria-label]="'Filter by user status'">
+                        </p-select>
+                    </fieldset>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="filter-item search-filter">
+                    <div class="p-inputgroup" role="search">
+                        <span class="p-inputgroup-addon bg-transparent border-right-0" aria-hidden="true">
+                            <i class="pi pi-search"></i>
+                        </span>
+                        <label for="admin-users-search" class="sr-only">Search users</label>
+                        <input id="admin-users-search" type="text" pInputText placeholder="Search" class="border-left-none"
+                            aria-label="Search users"
+                            autocomplete="off" />
+                        <button type="button" pButton icon="pi pi-angle-right" class="search-btn"
+                            aria-label="Submit search"></button>
+                    </div>
+                </div>
+
+                <!-- Add New User Button -->
+                <div class="action-item">
+                    <button pButton label="Add New User" class="add-user-btn" aria-label="Add new user"></button>
+                </div>
+            </section>
+
+            <!-- Users Table -->
+            <div class="table-container">
+                <p-table [value]="users" [paginator]="false" [rows]="10" styleClass="users-table" [rowHover]="true"
+                    dataKey="id" role="region" aria-label="Users list">
+                    <ng-template pTemplate="header">
+                        <tr role="row">
+                            <th style="width: 3rem" scope="col" role="columnheader">
+                                <span class="sr-only">Expand row</span>
+                            </th>
+                            <th pSortableColumn="email" scope="col" role="columnheader">Email <p-sortIcon field="email"></p-sortIcon></th>
+                            <th pSortableColumn="firstName" scope="col" role="columnheader">First Name <p-sortIcon field="firstName"></p-sortIcon></th>
+                            <th pSortableColumn="lastName" scope="col" role="columnheader">Last Name <p-sortIcon field="lastName"></p-sortIcon></th>
+                            <th pSortableColumn="role" scope="col" role="columnheader">Role <p-sortIcon field="role"></p-sortIcon></th>
+                            <th pSortableColumn="roundtables" scope="col" role="columnheader">Roundtable(s) <p-sortIcon
+                                    field="roundtables"></p-sortIcon></th>
+                            <th pSortableColumn="client" scope="col" role="columnheader">Client <p-sortIcon field="client"></p-sortIcon></th>
+                            <th pSortableColumn="status" scope="col" role="columnheader">Status</th>
+                            <th pSortableColumn="lastLoggedIn" scope="col" role="columnheader">Last Logged In <p-sortIcon
+                                    field="lastLoggedIn"></p-sortIcon></th>
+                            <th style="width: 8rem" scope="col" role="columnheader">
+                                <i class="pi pi-info-circle text-600" aria-hidden="true"></i>
+                                <span class="sr-only">Actions</span>
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-user let-expanded="expanded">
+                        <tr role="row">
+                            <td role="cell">
+                                <button type="button" pButton pRipple [pRowToggler]="user"
+                                    class="p-button-text p-button-rounded p-button-plain"
+                                    [attr.aria-expanded]="expanded"
+                                    [attr.aria-label]="(expanded ? 'Collapse details for ' : 'Expand details for ') + (user.firstName || '') + ' ' + (user.lastName || '')"
+                                    [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'">
+                                </button>
+                            </td>
+                            <td role="cell">{{user.email}}</td>
+                            <td role="cell">{{user.firstName}}</td>
+                            <td role="cell">{{user.lastName}}</td>
+                            <td role="cell">{{user.role}}</td>
+                            <td role="cell">{{user.roundtables}}</td>
+                            <td role="cell">{{user.client}}</td>
+                            <td role="cell">
+                                <span class="status-badge"
+                                    [ngClass]="{'active': user.status === 'Active', 'inactive': user.status === 'Inactive'}"
+                                    [attr.aria-label]="'Status: ' + user.status">
+                                    {{user.status}}
+                                </span>
+                            </td>
+                            <td role="cell">{{user.lastLoggedIn || '-'}}</td>
+                            <td role="cell">
+                                <div class="row-actions" role="group" [attr.aria-label]="'Actions for ' + (user.firstName || '') + ' ' + (user.lastName || '')">
+                                    <button pButton icon="pi pi-key"
+                                        class="p-button-text p-button-rounded p-button-secondary action-btn"
+                                        title="Mimic"
+                                        [attr.aria-label]="'Mimic user ' + (user.email || '')"></button>
+                                    <button pButton icon="pi pi-sitemap"
+                                        class="p-button-text p-button-rounded p-button-secondary action-btn"
+                                        title="Transfer"
+                                        [attr.aria-label]="'Transfer user ' + (user.email || '')"></button>
+                                    <button pButton icon="pi pi-envelope"
+                                        class="p-button-text p-button-rounded p-button-secondary action-btn"
+                                        title="Resend Invite"
+                                        [attr.aria-label]="'Resend invite to ' + (user.email || '')"></button>
+                                    <button pButton icon="icon-edit-svg"
+                                        class="p-button-text p-button-rounded p-button-secondary action-btn"
+                                        title="Edit"
+                                        [attr.aria-label]="'Edit user ' + (user.email || '')"></button>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="rowexpansion" let-user>
+                        <tr role="row">
+                            <td colspan="10" role="cell">
+                                <div class="p-3" role="region" [attr.aria-label]="'Expanded details for ' + (user.firstName || '')">
+                                    <p>Expanded details for {{user.firstName}}...</p>
+                                </div>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+
+            <div class="footer-note" role="note">
+                Note: Users highlighted in red indicate that their accounts have been expired & Users highlighted in
+                amber indicate that their accounts have been locked.
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,36 @@
+node_modules/
+dist/
+build/
+.next/
+out/
+coverage/
+.angular/
+
+# env / secrets
+.env
+.env.*
+!.env.example
+
+# logs and local junk
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+.cursor/
+.claude/
+
+# build artifacts
+backend/target/
+*.class
+
+# local databases
+backend/data/
+*.db
+*.mv.db
+*.trace.db

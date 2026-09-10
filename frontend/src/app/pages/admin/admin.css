@@ -1,0 +1,304 @@
+/* Page Container */
+.users-page-container {
+    padding: var(--space-5, 24px) var(--page-gutter, 32px);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Breadcrumb */
+.breadcrumb-container {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #5f6368;
+    /* Google Gray 700 */
+    margin-bottom: 24px;
+}
+
+.breadcrumb-item {
+    cursor: pointer;
+}
+
+.breadcrumb-item.active {
+    font-weight: 500;
+    color: #202124;
+    /* Google Gray 900 */
+}
+
+.breadcrumb-separator {
+    margin: 0 8px;
+    font-size: 12px;
+    color: #9aa0a6;
+}
+
+/* Main Card (white background usually, but here the design looks like tabs on a page) */
+.main-card {
+    background: transparent;
+}
+
+/* Tabs */
+.tabs-header {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 24px;
+}
+
+.tab-item {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #5f6368;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+
+.tab-item:hover {
+    color: #202124;
+    background-color: #f1f3f4;
+    border-radius: 4px 4px 0 0;
+}
+
+.tab-item.active {
+    color: #1a73e8;
+    /* Google Blue */
+    border-bottom-color: #1a73e8;
+}
+
+/* Tab Content Box */
+.tab-content {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 2px rgba(60, 64, 67, 0.1);
+}
+
+/* Filter Bar */
+.filter-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.filter-item {
+    display: flex;
+    align-items: center;
+}
+
+/* Custom Fieldset for Status (Matching Add Roundtable style) */
+.custom-fieldset {
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    height: 44px;
+    /* Standard Height */
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 300px;
+    max-width: 100%;
+    /* Fixed width for status filter */
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.custom-legend {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #5f6368;
+    z-index: 2;
+}
+
+/* PrimeNG Select Override inside Fieldset */
+:host ::ng-deep .custom-fieldset .p-select {
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+}
+
+:host ::ng-deep .custom-fieldset .p-select .p-select-label {
+    padding: 0 14px;
+    line-height: normal;
+}
+
+/* Search Box */
+.search-filter {
+    flex-grow: 1;
+    /* Takes available space */
+}
+
+:host ::ng-deep .search-filter .p-inputgroup {
+    height: 44px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+:host ::ng-deep .search-filter .p-inputgroup-addon {
+    background: #fff;
+    border: none;
+    color: #5f6368;
+    padding-left: 12px;
+}
+
+:host ::ng-deep .search-filter input {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.search-btn {
+    background: #1a73e8;
+    border: 1px solid #1a73e8;
+    color: #fff;
+    width: 44px;
+    border-radius: 0 !important;
+}
+
+/* Add User Button */
+.add-user-btn {
+    background: #1a73e8;
+    border: 1px solid #1a73e8;
+    height: 44px;
+    font-weight: 500;
+    padding: 0 24px;
+}
+
+/* Table Styling */
+:host ::ng-deep .users-table .p-datatable-header {
+    background: transparent;
+    border: none;
+}
+
+:host ::ng-deep .users-table .p-datatable-thead>tr>th {
+    background: #fff;
+    color: #202124;
+    font-weight: 600;
+    font-size: 12px;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: none;
+    padding: 12px 16px;
+    white-space: nowrap;
+}
+
+:host ::ng-deep .users-table .p-datatable-tbody>tr>td {
+    padding: 16px;
+    font-size: 13px;
+    color: #3c4043;
+    border-bottom: 1px solid #f1f3f4;
+}
+
+/* Sort Icons */
+:host ::ng-deep .p-sortable-column-icon {
+    font-size: 10px;
+    margin-left: 4px;
+    color: #9aa0a6;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 4px 0;
+    font-size: 13px;
+    color: #202124;
+}
+
+/* No colorful badges in the design, just text. But "Active" implies state. 
+   Wait, looking at screenshot: "Active" is just plain text. 
+   Let's keep it simple text as requested ("just like this").
+*/
+
+/* Actions */
+.row-actions {
+    display: flex;
+    gap: 4px;
+    justify-content: flex-end;
+}
+
+.action-btn {
+    width: 28px;
+    height: 28px;
+    color: #5f6368;
+}
+
+.action-btn:hover {
+    color: #202124;
+    background: #f1f3f4;
+}
+
+/* Footer Note */
+.footer-note {
+    margin-top: 16px;
+    font-size: 11px;
+    color: #202124;
+    font-style: italic;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 1024px) {
+    .filter-item .custom-fieldset {
+        width: 240px;
+    }
+
+    :host ::ng-deep .users-table .p-datatable-thead > tr > th,
+    :host ::ng-deep .users-table .p-datatable-tbody > tr > td {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .tabs-header {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .filter-bar {
+        gap: 12px;
+    }
+
+    .filter-item,
+    .filter-item .custom-fieldset {
+        width: 100%;
+    }
+
+    .search-filter {
+        flex: 1 1 100%;
+    }
+
+    .action-item {
+        width: 100%;
+    }
+
+    .add-user-btn {
+        width: 100%;
+    }
+
+    .table-container,
+    :host ::ng-deep .users-table {
+        overflow-x: auto;
+    }
+
+    :host ::ng-deep .users-table .p-datatable-table {
+        min-width: 720px;
+    }
+
+    .row-actions {
+        gap: 2px;
+    }
+
+    .footer-note {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+}

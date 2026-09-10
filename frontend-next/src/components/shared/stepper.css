@@ -1,0 +1,130 @@
+.vizor-stepper-root {
+  display: block;
+  width: 100%;
+  margin-bottom: 36px;
+}
+
+.vizor-stepper-root .p-stepper-separator {
+  flex: 1;
+  height: 2px;
+  background: #dce3eb;
+  min-width: 40px;
+  transition: background 0.3s ease;
+  /* Align the connector with the centre of the 18px dots:
+     list content top (20px padding) + 8px => 28px, centre at 29px. */
+  margin-top: 8px;
+  border: none;
+}
+
+.vizor-stepper-root .p-stepper-separator.p-stepper-separator-active {
+  background: #1a73e8;
+}
+
+.vizor-stepper .p-step-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+.vizor-stepper .p-step {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  min-width: 90px;
+  z-index: 2;
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+.vizor-stepper .p-step-header {
+  display: none !important;
+}
+
+.stepper-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stepper-step.clickable {
+  cursor: pointer;
+}
+
+/* All dots reserve the same 18px box so their centres line up on one row.
+   The inactive dot shows a 12px circle via a transparent 3px border +
+   padding-box background-clip, keeping it centred within the 18px box. */
+.step-dot {
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #b0b7c3;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.step-dot.active {
+  width: 18px;
+  height: 18px;
+  border: 5px solid #1a73e8;
+  background: #fff;
+  background-clip: border-box;
+}
+
+.step-dot.completed {
+  width: 18px;
+  height: 18px;
+  background: #1a73e8;
+  background-clip: border-box;
+  border: none;
+}
+
+.check-icon {
+  font-size: 12px;
+  line-height: 1;
+  color: #fff;
+}
+
+.step-text {
+  font-size: 13px;
+  color: #70757a;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.35;
+  white-space: pre-line;
+  margin-top: 8px;
+}
+
+.step-text.active {
+  color: #1a73e8;
+}
+
+.step-text.completed {
+  color: #1a73e8;
+}
+
+@media screen and (max-width: 960px) {
+  .vizor-stepper-root {
+    margin-bottom: 24px;
+  }
+  .vizor-stepper .p-step-list {
+    padding: 12px 0;
+  }
+  .vizor-stepper .p-step {
+    min-width: 60px;
+  }
+  .step-text {
+    font-size: 11px;
+  }
+  .vizor-stepper-root .p-stepper-separator {
+    min-width: 20px;
+  }
+}

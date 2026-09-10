@@ -1,0 +1,283 @@
+/* ===== LOGIN PAGE LAYOUT ===== */
+.login-page {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  font-family: var(--font-sans), 'Arial Nova', Arial, sans-serif;
+}
+
+/* ===== LEFT PANEL ===== */
+.login-left {
+  flex: 0 0 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  background: #ffffff;
+  padding: 48px 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.login-form-wrapper {
+  width: 100%;
+  max-width: 400px;
+}
+
+/* ===== VIZOR LOGO ===== */
+.login-logo {
+  margin-bottom: 32px;
+  margin-left: 40px;
+}
+
+.vizor-logo-img {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ===== TAGLINE ===== */
+.login-tagline {
+  font-size: 36px;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 36px;
+  margin-left: 40px;
+  letter-spacing: -0.4px;
+}
+
+.tagline-dark {
+  color: #1a1a2e;
+  font-weight: 450;
+}
+
+.tagline-blue {
+  color: #2196F3;
+  font-weight: 600;
+}
+
+.tagline-blue-dot {
+  color: #2196F3;
+  font-weight: 500;
+}
+
+/* ===== MEMBER LOGIN HEADING ===== */
+.member-login-heading {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+  margin-left: 40px;
+}
+
+/* ===== FORM ===== */
+.login-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 18px;
+  margin-left: 40px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #5f6368;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  font-size: 14px;
+  color: #202124;
+  background: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.form-input::placeholder {
+  color: #9e9e9e;
+}
+
+.form-input:focus {
+  border-color: #2196F3;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+  background: #fff;
+}
+
+/* ===== PASSWORD FIELD ===== */
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-input {
+  padding-right: 44px;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.15s;
+}
+
+.password-toggle-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.password-toggle-icon {
+  font-size: 18px;
+  color: #9e9e9e;
+}
+
+/* ===== FORGOT PASSWORD ===== */
+.forgot-password-row {
+  text-align: right;
+  margin-bottom: 24px;
+  margin-top: -6px;
+}
+
+.forgot-password-link {
+  font-size: 13px;
+  color: #2196F3;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.forgot-password-link:hover {
+  color: #1769aa;
+  text-decoration: underline;
+}
+
+/* ===== ERROR MESSAGE ===== */
+.error-message {
+  color: #d32f2f;
+  background-color: #ffebee;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ===== LOGIN BUTTON ===== */
+.login-btn {
+  width: 90%;
+  height: 44px;
+  background: #2196F3;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+  font-family: inherit;
+  margin-left: 40px;
+}
+
+.login-btn:hover {
+  background: #1976D2;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.35);
+}
+
+.login-btn:active {
+  transform: scale(0.98);
+  background: #1565C0;
+}
+
+/* ===== RIGHT PANEL (HERO IMAGE) ===== */
+.login-right {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* ===== AR LOGO (TOP-RIGHT) ===== */
+.ar-logo-wrapper {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  z-index: 3;
+}
+
+.ar-logo-img {
+  height: 28px;
+  width: auto;
+}
+
+/* ===== RESPONSIVE ===== */
+@media screen and (max-width: 1024px) {
+  .login-left {
+    flex: 0 0 50%;
+    padding: 40px 40px;
+  }
+  .login-tagline {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+  .login-left {
+    flex: none;
+    padding: 32px 24px;
+    min-height: auto;
+  }
+  .login-right {
+    flex: none;
+    height: 250px;
+    order: -1;
+  }
+  .login-tagline {
+    font-size: 26px;
+    margin-bottom: 24px;
+  }
+  .ar-logo-wrapper {
+    top: 16px;
+    right: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .login-left {
+    padding: 24px 16px;
+  }
+  .login-form-wrapper {
+    max-width: 100%;
+  }
+  .vizor-logo-img {
+    height: 48px;
+  }
+  .login-tagline {
+    font-size: 22px;
+  }
+}

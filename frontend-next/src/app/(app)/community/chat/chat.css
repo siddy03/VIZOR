@@ -1,0 +1,16 @@
+.community-page .panel-host {
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 200px);
+  background: white;
+}
+
+.community-page .chat-username-hint {
+  font-size: 12px;
+  color: #5f6368;
+  margin-top: 4px;
+}
+
+.community-page .chat-username-hint strong {
+  color: #1976d2;
+}

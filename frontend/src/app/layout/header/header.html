@@ -1,0 +1,35 @@
+<div class="header-container" role="toolbar" aria-label="Page header toolbar">
+
+  <h1 class="page-title" id="page-heading">{{ pageTitle }}</h1>
+
+  <div class="header-actions">
+
+    <div class="search-wrapper" role="search" aria-label="Global search">
+      <label for="global-search" class="sr-only">Global search</label>
+      <i class="pi pi-search search-icon" aria-hidden="true"></i>
+      <input id="global-search" type="text" pInputText placeholder="Search"
+        class="search-input-field" aria-label="Global search">
+    </div>
+
+    <button pButton type="button" class="p-button-text notification-btn"
+      aria-label="Notifications" title="Notifications">
+      <i class="pi pi-bell" aria-hidden="true"></i>
+      <span class="notification-dot" aria-hidden="true"></span>
+      <span class="sr-only">You have new notifications</span>
+    </button>
+
+    <div class="user-section" (click)="menu.toggle($event)"
+      role="button" tabindex="0" aria-haspopup="true"
+      [attr.aria-label]="'User menu, ' + displayName"
+      (keydown.enter)="menu.toggle($event)"
+      (keydown.space)="menu.toggle($event); $event.preventDefault()">
+      <p-avatar [label]="avatarLabel" shape="circle" class="user-avatar" aria-hidden="true"></p-avatar>
+      <span class="user-name">{{ displayName }}</span>
+    </div>
+
+    <p-menu #menu [popup]="true" [model]="userMenuItems" [appendTo]="'body'" [autoZIndex]="true" [baseZIndex]="2000"
+      styleClass="user-overlay-menu" aria-label="User menu"></p-menu>
+
+  </div>
+
+</div>

@@ -1,0 +1,71 @@
+<main class="roundtables-page-container" aria-label="Roundtables management">
+
+    <!-- Skip to main content link for keyboard users -->
+    <a class="skip-link" href="#roundtables-table" id="skip-to-content">Skip to roundtables table</a>
+
+    <!-- Breadcrumb -->
+    <app-breadcrumb [items]="breadcrumbItems"></app-breadcrumb>
+
+    <!-- Filters Section -->
+    <section class="filter-bar" aria-label="Roundtable filters" role="search">
+        <!-- Status Filter with Custom Fieldset -->
+        <div class="filter-item status-filter">
+            <app-shared-dropdown
+                label="Status"
+                id="status-filter-label"
+                [options]="statusOptions"
+                [value]="selectedStatus()"
+                (valueChange)="onStatusChange($event)"
+                optionLabel="label"
+                placeholder="All"
+                [attr.aria-label]="'Filter by status, currently showing ' + selectedStatus()">
+            </app-shared-dropdown>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="filter-item search-filter">
+            <app-shared-searchbar
+                placeholder="Search"
+                ariaLabel="Search roundtables"
+                id="roundtable-search"
+                [value]="searchText()"
+                (valueChange)="onSearchChange($event)">
+            </app-shared-searchbar>
+        </div>
+
+        <!-- Add Button -->
+        <div class="action-item">
+            <button pButton
+                type="button"
+                label="Add New Roundtable"
+                class="p-button-primary add-btn-custom"
+                aria-label="Add new roundtable"
+                (click)="addNewRoundtable()">
+            </button>
+        </div>
+    </section>
+
+    <!-- Live region for dynamic announcements -->
+    <div id="search-results-status"
+        class="sr-only"
+        aria-live="polite"
+        aria-atomic="true"
+        role="status">
+        {{ liveAnnouncement() }}
+    </div>
+
+    <!-- Roundtables Data Table -->
+    <section id="roundtables-table" aria-label="Roundtables data" tabindex="-1">
+        <app-table1
+            [rows]="filteredRoundtables()"
+            [columns]="roundtableColumns"
+            [showEditAction]="true"
+            [showDeleteAction]="true"
+            editAriaLabel="Edit roundtable"
+            deleteAriaLabel="Delete roundtable"
+            (edit)="editRoundtable($event)"
+            (delete)="deleteRoundtable($event)">
+        </app-table1>
+    </section>
+
+</main>

@@ -1,0 +1,89 @@
+:host {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+.custom-fieldset {
+    position: relative;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-fieldset:focus-within {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.custom-fieldset.invalid-field {
+    border-color: #dc3545;
+}
+
+.custom-legend {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #5f6368;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.custom-fieldset.invalid-field .custom-legend {
+    color: #dc3545;
+}
+
+/* PrimeNG Select inside fieldset */
+::ng-deep .custom-fieldset .p-select {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+::ng-deep .custom-fieldset .p-select .p-select-label {
+    padding: 0 14px !important;
+    line-height: normal !important;
+    font-size: 14px !important;
+    color: #202124 !important;
+}
+
+::ng-deep .custom-fieldset .p-select .p-select-label.p-placeholder {
+    color: #9aa0a6 !important;
+}
+
+/* Remove PrimeNG's inner blue focus ring on the select / input — outer fieldset border already indicates focus */
+::ng-deep .custom-fieldset .p-select,
+::ng-deep .custom-fieldset .p-select.p-focus,
+::ng-deep .custom-fieldset .p-select:focus,
+::ng-deep .custom-fieldset .p-select:focus-visible,
+::ng-deep .custom-fieldset .p-select:focus-within {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}
+
+::ng-deep .custom-fieldset .p-select .p-select-label,
+::ng-deep .custom-fieldset .p-select .p-select-label:focus,
+::ng-deep .custom-fieldset .p-select .p-select-label:focus-visible,
+::ng-deep .custom-fieldset .p-select .p-inputtext,
+::ng-deep .custom-fieldset .p-select .p-inputtext:focus,
+::ng-deep .custom-fieldset .p-select .p-inputtext:focus-visible {
+    outline: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+}

@@ -1,0 +1,102 @@
+.table2-host {
+  display: block;
+  width: 100%;
+}
+
+/* Sort Icons Custom Styling */
+.table2-host .sort-arrows {
+  display: inline-flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+  font-size: 0.6rem;
+  color: #a0a0a0;
+}
+
+.table2-host .sort-arrows i {
+  /* PrimeIcons base rule (.pi { font-size: 1rem }) targets the <i> directly
+     and would override the 0.6rem set on the container, blowing the arrows
+     up to 16px. Re-assert the intended small size here. */
+  font-size: 0.6rem !important;
+  line-height: 0.8;
+}
+
+.table2-host .sort-arrows i.active {
+  color: #202124;
+}
+
+.table2-host .p-datatable .p-sortable-column .p-sortable-column-icon {
+  display: none !important;
+}
+
+/* Action Buttons Styling */
+.table2-host .row-actions {
+  display: flex;
+  gap: 0.25rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.table2-host .action-btn {
+  width: 2rem !important;
+  height: 2rem !important;
+  padding: 0 !important;
+  color: #5f6368 !important;
+}
+
+.table2-host .action-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: #202124 !important;
+}
+
+.table2-host .delete-btn {
+  color: #dc3545 !important;
+}
+
+.table2-host .delete-btn:hover {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+  color: #c82333 !important;
+}
+
+.table2-host .whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.table2-host .p-datatable .p-datatable-thead > tr > th {
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #ffffff !important;
+}
+
+.table2-host .p-datatable-striped .p-datatable-tbody > tr {
+  background-color: #f8f9fa !important;
+}
+
+.table2-host .p-datatable-striped .p-datatable-tbody > tr > td {
+  background-color: #f8f9fa !important;
+  border-bottom: 1px solid #f8f9fa;
+}
+
+.table2-host .p-datatable {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table2-host .p-datatable-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (max-width: 768px) {
+  .table2-host .p-datatable .p-datatable-thead > tr > th,
+  .table2-host .p-datatable .p-datatable-tbody > tr > td {
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+    white-space: nowrap;
+  }
+  .table2-host .action-btn {
+    width: 1.6rem !important;
+    height: 1.6rem !important;
+  }
+  .table2-host .row-actions {
+    gap: 0 !important;
+  }
+}

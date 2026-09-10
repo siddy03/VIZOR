@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  overflow: hidden;
+  /* Prevent body overflow */
+  background: #f5f6f8;
+}
+
+/* Main Container */
+.app-container {
+  display: block;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: #f5f6f8;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+}
+
+/* Fixed Sidebar */
+.app-sidebar {
+  width: 240px;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: #f5f6f8;
+  overflow-y: auto;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+  margin: 0 !important;
+  padding: 0 !important;
+  border-right: none;
+  transition: width 0.3s ease;
+}
+
+.app-sidebar.collapsed {
+  width: 70px;
+
+}
+
+/* Main Content Area */
+.app-main {
+  position: absolute;
+  top: 0;
+  left: 230px;
+
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+  transition: left 0.3s ease;
+}
+
+.app-main.collapsed {
+  left: 70px;
+
+}
+
+/* Fixed Header */
+.app-header {
+  height: 64px;
+
+  width: 100%;
+  position: relative;
+
+  flex-shrink: 0;
+  background: white;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: 999;
+}
+
+/* Scrollable Content */
+.app-content {
+  flex: 1;
+  overflow-y: auto;
+  background: white;
+  padding: 24px;
+}
+
+/* Mobile Sidebar Overlay Backdrop */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
+
+.sidebar-backdrop.visible {
+  display: block;
+}
+
+/* ========================================================================== */
+/* TABLET BREAKPOINT (769px – 1024px): Sidebar collapses to icons-only        */
+/* ========================================================================== */
+@media screen and (max-width: 1024px) {
+  .app-sidebar {
+    width: 70px;
+  }
+
+  .app-main {
+    left: 70px;
+  }
+
+  .app-content {
+    padding: 16px;
+  }
+}
+
+/* ========================================================================== */
+/* MOBILE BREAKPOINT (≤768px): Sidebar stays collapsed at 70px,               */
+/* expands as overlay (240px) on click, auto-collapses on navigation          */
+/* ========================================================================== */
+@media screen and (max-width: 768px) {
+  .app-sidebar {
+    width: 70px;
+    z-index: 1100;
+    transition: width 0.3s ease;
+  }
+
+
+  .app-sidebar.mobile-open {
+    width: 240px;
+  }
+
+
+  .app-sidebar.collapsed {
+    width: 70px;
+  }
+
+  .app-sidebar.collapsed.mobile-open {
+    width: 240px;
+  }
+
+  .app-main {
+    left: 70px;
+  }
+
+  .app-main.collapsed {
+    left: 70px;
+  }
+
+  .app-content {
+    padding: 12px;
+  }
+}
+
+/* ========================================================================== */
+/* SMALL PHONE (≤480px): Slim sidebar to ~52px so content gets more room      */
+/* ========================================================================== */
+@media screen and (max-width: 480px) {
+  .app-sidebar,
+  .app-sidebar.collapsed {
+    width: 52px;
+  }
+
+  .app-sidebar.mobile-open,
+  .app-sidebar.collapsed.mobile-open {
+    width: 220px;
+  }
+
+  .app-main,
+  .app-main.collapsed {
+    left: 52px;
+  }
+
+  .app-content {
+    padding: 8px;
+  }
+
+  .app-header {
+    height: 56px;
+  }
+}

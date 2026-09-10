@@ -1,0 +1,15 @@
+.modify-response-page.page-container {
+    padding: 24px;
+}
+
+.modify-response-page h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #202124;
+    margin-bottom: 16px;
+}
+
+.modify-response-page p {
+    font-size: 14px;
+    color: #5f6368;
+}

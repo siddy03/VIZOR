@@ -1,0 +1,78 @@
+.shared-dropdown-host {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+.shared-dropdown-host .custom-fieldset {
+  position: relative;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 0;
+  margin: 0;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.shared-dropdown-host .custom-fieldset:focus-within {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.shared-dropdown-host .custom-fieldset.invalid-field {
+  border-color: #dc3545;
+}
+
+.shared-dropdown-host .custom-legend {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  background-color: #fff;
+  padding: 0 4px;
+  font-size: 12px;
+  color: #5f6368;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.shared-dropdown-host .custom-fieldset.invalid-field .custom-legend {
+  color: #dc3545;
+}
+
+.shared-dropdown-host .custom-fieldset .p-select,
+.shared-dropdown-host .custom-fieldset .p-dropdown {
+  width: 100% !important;
+  height: 100% !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.shared-dropdown-host .custom-fieldset .p-select .p-select-label,
+.shared-dropdown-host .custom-fieldset .p-dropdown .p-dropdown-label {
+  padding: 0 14px !important;
+  line-height: normal !important;
+  font-size: 14px !important;
+  color: #202124 !important;
+}
+
+.shared-dropdown-host .custom-fieldset .p-select .p-select-label.p-placeholder,
+.shared-dropdown-host .custom-fieldset .p-dropdown .p-dropdown-label.p-placeholder {
+  color: #9aa0a6 !important;
+}
+
+.shared-dropdown-host .custom-fieldset .p-select,
+.shared-dropdown-host .custom-fieldset .p-select.p-focus,
+.shared-dropdown-host .custom-fieldset .p-dropdown,
+.shared-dropdown-host .custom-fieldset .p-dropdown.p-focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: transparent !important;
+}

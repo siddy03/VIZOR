@@ -1,0 +1,176 @@
+.page-container {
+  padding: 24px;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: #202124;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 14px;
+  color: #5f6368;
+}
+
+.divider {
+  border: 0;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin: 32px 0;
+}
+
+/* --- API Demo Section Styles --- */
+.api-demo-section {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.demo-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.demo-header h3 {
+  font-size: 18px;
+  color: #1e293b;
+  margin: 0;
+}
+
+.viz-btn.primary {
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: opacity 0.2s;
+}
+
+.viz-btn.primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* --- Grid Layout --- */
+.demo-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .demo-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+h4 {
+  margin: 0 0 16px 0;
+  color: #334155;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.empty-state {
+  color: #94a3b8;
+  font-style: italic;
+  padding: 16px;
+  text-align: center;
+}
+
+/* --- Logs Panel --- */
+.logs-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-container {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 16px;
+  height: 400px;
+  overflow-y: auto;
+  font-family: monospace;
+}
+
+.log-entry {
+  padding: 6px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 13px;
+}
+
+.log-entry:last-child {
+  border-bottom: none;
+}
+
+.log-time {
+  color: #64748b;
+  margin-right: 8px;
+}
+
+.log-entry.info .log-message { color: #3b82f6; }
+.log-entry.success .log-message { color: #10b981; }
+.log-entry.error .log-message { color: #ef4444; font-weight: bold; }
+
+
+/* --- Results Panel --- */
+.results-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.results-container {
+  height: 400px;
+  overflow-y: auto;
+  padding-right: 8px; /* Room for scrollbar */
+}
+
+.post-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #3b82f6;
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.post-card:last-child {
+  margin-bottom: 0;
+}
+
+.post-id {
+  font-size: 12px;
+  font-weight: bold;
+  color: #64748b;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.post-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.post-body {
+  font-size: 14px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}

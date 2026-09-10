@@ -1,0 +1,100 @@
+.view-survey-page-container {
+    padding: 0 40px 32px 40px;
+    background: #ffffff;
+    min-height: 100vh;
+}
+
+.main-card {
+    background: transparent;
+    margin-top: 1rem;
+}
+
+/* Tab row */
+.tab-row {
+    display: flex;
+    gap: 0.25rem;
+    align-items: flex-start;
+    /* Both tabs align at the TOP — same position */
+    position: relative;
+    z-index: 1;
+}
+
+/* Base tab button (INACTIVE) — normal height, gap appears below it naturally */
+.tab-btn {
+    padding: 0.75rem 2rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    border-radius: 8px;
+    /* All corners rounded for inactive tab */
+    font-size: 14px;
+    font-weight: 600;
+    color: #5f6368;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.tab-btn:hover {
+    background-color: #eef0f2;
+}
+
+/* Active tab — taller, flat bottom corners to connect with content */
+.tab-btn.active {
+    color: #1a73e8;
+    padding-bottom: calc(0.75rem + 10px);
+    border-radius: 8px 8px 0 0;
+    /* Only top corners rounded — bottom connects to content */
+    border-bottom-color: #f8f9fa;
+    z-index: 2;
+}
+
+/* Content container — sits below, active tab overlaps its top border */
+.content-container {
+    background-color: #f8f9fa;
+    border: 1px solid #dadce0;
+    border-radius: 0 4px 4px 4px;
+    padding: 1.5rem;
+    margin-top: -1px;
+    position: relative;
+    z-index: 0;
+}
+
+/* Filters (Force White Backgrounds) */
+.filter-bar {
+    margin-bottom: 2rem;
+}
+
+.filter-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-end;
+    /* Align inputs to the bottom so labels sit above */
+}
+
+.dropdown-wrapper {
+    width: 250px;
+}
+
+/* No extra border needed — shared-dropdown's .custom-fieldset already provides it */
+
+/* Override search box background to be white */
+.filter-group .search-filter ::ng-deep .p-inputgroup {
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.filter-group .search-filter ::ng-deep .p-inputgroup-addon,
+.filter-group .search-filter ::ng-deep input {
+    background-color: #ffffff !important;
+    border: none !important;
+}
+
+.search-btn {
+    background-color: #1a73e8 !important;
+    /* Blue button */
+    color: white !important;
+    border: none !important;
+    border-radius: 0 !important;
+}

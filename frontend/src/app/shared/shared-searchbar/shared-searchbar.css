@@ -1,0 +1,42 @@
+:host {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+.search-container {
+    width: 100%;
+    min-width: 0;
+}
+
+.search-container .p-inputgroup {
+    background-color: #ffffff;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+    min-width: 0;
+}
+
+::ng-deep .search-container .p-inputgroup .p-inputtext {
+    min-width: 0;
+    width: 100%;
+}
+
+.search-container .p-inputgroup .search-addon {
+    background-color: #ffffff !important;
+    border: none !important;
+    color: #5f6368;
+}
+
+.search-container .p-inputgroup .search-input {
+    background-color: #ffffff !important;
+    border: none !important;
+}
+
+.search-container .p-inputgroup .search-btn {
+    background-color: #1a73e8 !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+}

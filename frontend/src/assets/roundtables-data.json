@@ -1,0 +1,66 @@
+[
+    {
+        "id": 1,
+        "name": "Global Strategy",
+        "clientsWithAccess": "TATA Consultancy Services",
+        "directors": "Ravi Shankar",
+        "associates": "Priya Sharma",
+        "status": "Active"
+    },
+    {
+        "id": 2,
+        "name": "Finance & Audit",
+        "clientsWithAccess": "Infosys Ltd",
+        "directors": "Amitabh Bachchan",
+        "associates": "Aishwarya Rai",
+        "status": "Active"
+    },
+    {
+        "id": 3,
+        "name": "HR Innovation",
+        "clientsWithAccess": "Wipro",
+        "directors": "Shahrukh Khan",
+        "associates": "Deepika Padukone",
+        "status": "Inactive"
+    },
+    {
+        "id": 4,
+        "name": "Tech Leadership",
+        "clientsWithAccess": "HCL Technologies",
+        "directors": "Sundar Pichai",
+        "associates": "Satya Nadella",
+        "status": "Active"
+    },
+    {
+        "id": 5,
+        "name": "Marketing Trends",
+        "clientsWithAccess": "Reliance Jio",
+        "directors": "Mukesh Ambani",
+        "associates": "Nita Ambani",
+        "status": "Active"
+    },
+    {
+        "id": 6,
+        "name": "Supply Chain",
+        "clientsWithAccess": "Mahindra & Mahindra",
+        "directors": "Anand Mahindra",
+        "associates": "Virat Kohli",
+        "status": "Inactive"
+    },
+    {
+        "id": 7,
+        "name": "Sustainability",
+        "clientsWithAccess": "Adani Green",
+        "directors": "Gautam Adani",
+        "associates": "Rohit Sharma",
+        "status": "Active"
+    },
+    {
+        "id": 8,
+        "name": "AI & Future Tech",
+        "clientsWithAccess": "Flipkart",
+        "directors": "Sachin Bansal",
+        "associates": "Binny Bansal",
+        "status": "Active"
+    }
+]

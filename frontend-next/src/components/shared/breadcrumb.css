@@ -1,0 +1,45 @@
+.breadcrumb-host {
+  display: block;
+  margin-bottom: 24px;
+  margin-top: -15px;
+}
+
+.vizor-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+.breadcrumb-item {
+  color: #5f6368;
+}
+
+.breadcrumb-item.active {
+  color: #202124;
+  font-weight: 600;
+}
+
+.breadcrumb-separator {
+  font-size: 12px;
+  color: #5f6368;
+}
+
+.breadcrumb-link {
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.breadcrumb-link:hover {
+  color: #1a73e8;
+  text-decoration: underline;
+}
+
+@media screen and (max-width: 480px) {
+  .vizor-breadcrumb {
+    font-size: 13px;
+    gap: 4px;
+  }
+}

@@ -1,0 +1,387 @@
+.add-client-container {
+    padding: 0 40px 32px 40px;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.form-container {
+    background: #fff;
+    padding: 0;
+    margin-top: 24px;
+}
+
+/* Form Rows */
+.form-row {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.form-row.three-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.form-row.two-column {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-row:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Form Fields */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+    margin-top: -20px;
+}
+
+.form-field label {
+    font-size: 13px;
+    color: #5f6368;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.form-field input[type="text"] {
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.form-field input[type="text"]:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.form-field input::placeholder {
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+/* PrimeNG Select/MultiSelect Styling */
+::ng-deep .form-field .p-select,
+::ng-deep p-select .p-select,
+::ng-deep .form-field .p-multiselect,
+::ng-deep p-multiselect .p-multiselect {
+    border: 1px solid #dadce0 !important;
+    border-radius: 4px !important;
+    min-height: 44px !important;
+    background: #fff !important;
+    width: 100% !important;
+    transition: border-color 0.2s;
+    box-sizing: border-box !important;
+}
+
+::ng-deep .form-field .p-select .p-select-label,
+::ng-deep .form-field .p-multiselect .p-multiselect-label {
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    color: #202124 !important;
+}
+
+::ng-deep .form-field .p-select .p-select-label.p-placeholder,
+::ng-deep .form-field .p-multiselect .p-multiselect-label.p-placeholder {
+    color: #9aa0a6 !important;
+}
+
+/* Checkbox and Radio Groups */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.checkbox-group label,
+.radio-item label {
+    font-size: 14px;
+    color: #3c4043;
+    cursor: pointer;
+}
+
+.identity-provider-section {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.identity-provider-label {
+    font-weight: 500;
+    margin-bottom: 16px;
+    display: block;
+    font-size: 13px;
+    color: #5f6368;
+}
+
+.radio-group {
+    display: flex;
+    gap: 24px;
+}
+
+.radio-item,
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Radio button sized to match stepper-active circle (18px, 5px blue ring, white center) */
+.radio-item ::ng-deep .p-radiobutton {
+    width: 18px;
+    height: 18px;
+}
+
+.radio-item ::ng-deep .p-radiobutton-box {
+    width: 18px !important;
+    height: 18px !important;
+    border: 2px solid #b0b7c3 !important;
+    background: #fff !important;
+    border-radius: 50% !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, border-width 0.2s ease;
+}
+
+.radio-item ::ng-deep .p-radiobutton-checked .p-radiobutton-box,
+.radio-item ::ng-deep .p-radiobutton.p-radiobutton-checked .p-radiobutton-box {
+    border: 5px solid #1a73e8 !important;
+    background: #fff !important;
+}
+
+.radio-item ::ng-deep .p-radiobutton-icon {
+    display: none !important;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.cancel-button {
+    background: #fff !important;
+    border: 1px solid #dadce0 !important;
+    color: #5f6368 !important;
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
+    height: 40px !important;
+}
+
+.cancel-button:hover {
+    background: #f8f9fa !important;
+    border-color: #b0b0b0 !important;
+}
+
+.save-button {
+    background: #1a73e8 !important;
+    border: none !important;
+    color: #fff !important;
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
+    height: 40px !important;
+}
+
+.save-button:hover {
+    background: #1557b0 !important;
+}
+
+/* Domain Input Field Styling */
+.domain-input-container {
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    min-height: 44px;
+    background: #fff;
+    align-items: center;
+}
+
+.domain-chip {
+    background-color: #e9ecef;
+    padding: 0.25rem 0.5rem;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.domain-chip i {
+    cursor: pointer;
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+.form-field input[type="text"].domain-input {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    padding: 0;
+    height: auto;
+    flex-grow: 1;
+    min-width: 150px;
+}
+
+/* ========================================================================= */
+/* CUSTOM CANCEL DIALOG STYLING                                               */
+/* ========================================================================= */
+::ng-deep .custom-cancel-dialog .p-dialog-header {
+    display: none !important;
+}
+
+::ng-deep .custom-cancel-dialog .p-dialog-content {
+    padding: 0 !important;
+    border-radius: 12px !important;
+}
+
+.cancel-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 32px 40px 32px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.dialog-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #ffe0b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    background: #ffffff;
+    position: relative;
+}
+
+.dialog-icon {
+    font-size: 40px;
+    color: #ff9800;
+}
+
+.dialog-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0 0 12px 0;
+}
+
+.dialog-message {
+    font-size: 15px;
+    color: #5f6368;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+.dialog-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+}
+
+.dialog-button-no {
+    min-width: 100px;
+    height: 40px;
+    background: #1a73e8 !important;
+    border: 1px solid #1a73e8 !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+}
+
+.dialog-button-no:hover {
+    background: #1557b0 !important;
+    border-color: #1557b0 !important;
+}
+
+.dialog-button-yes {
+    min-width: 100px;
+    height: 40px;
+    background: #fff !important;
+    border: 1px solid #dadce0 !important;
+    color: #5f6368 !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+}
+
+.dialog-button-yes:hover {
+    background: #f8f9fa !important;
+    border-color: #b0b0b0 !important;
+    color: #202124 !important;
+}
+
+::ng-deep .p-dialog-mask {
+    z-index: 11000 !important;
+}
+
+.error-text {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+/* Custom Fieldset for Dropdowns */
+.custom-fieldset {
+    position: relative;
+}
+
+.custom-legend {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #5f6368;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 960px) {
+    .add-client-container {
+        padding: 16px;
+    }
+
+    .form-row.three-column,
+    .form-row.two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-button,
+    .save-button {
+        width: 100%;
+    }
+}

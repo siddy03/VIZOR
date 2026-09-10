@@ -1,0 +1,22 @@
+<div class="search-container" role="search">
+    <div class="p-inputgroup">
+        <span class="p-inputgroup-addon search-addon" aria-hidden="true">
+            <i class="pi pi-search"></i>
+        </span>
+        <label [for]="id" class="sr-only">{{ ariaLabel }}</label>
+        <input
+            [id]="id"
+            type="text"
+            pInputText
+            [placeholder]="placeholder"
+            [attr.aria-label]="ariaLabel"
+            autocomplete="off"
+            [ngModel]="value"
+            (ngModelChange)="onInputChange($event)"
+            (keyup.enter)="submitSearch()"
+            class="search-input" />
+        <button type="button" pButton icon="pi pi-angle-right" class="search-btn"
+            [attr.aria-label]="'Submit ' + ariaLabel"
+            (click)="submitSearch()"></button>
+    </div>
+</div>

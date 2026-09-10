@@ -1,0 +1,102 @@
+/* Sort Icons Custom Styling */
+.sort-arrows {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 0.5rem;
+    font-size: 0.6rem;
+    color: #a0a0a0;
+}
+
+.sort-arrows i {
+    line-height: 0.8;
+}
+
+.sort-arrows i.active {
+    color: #202124;
+}
+
+::ng-deep .p-datatable .p-sortable-column .p-sortable-column-icon {
+    display: none !important;
+    /* Hide default primeNG sort icon to use our custom one */
+}
+
+/* Action Buttons Styling */
+.row-actions {
+    display: flex;
+    gap: 0.25rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn {
+    width: 2rem !important;
+    height: 2rem !important;
+    padding: 0 !important;
+    color: #5f6368 !important;
+}
+
+.action-btn:hover {
+    background-color: rgba(0, 0, 0, 0.04) !important;
+    color: #202124 !important;
+}
+
+.delete-btn {
+    color: #dc3545 !important;
+}
+
+.delete-btn:hover {
+    background-color: rgba(220, 53, 69, 0.1) !important;
+    color: #c82333 !important;
+}
+
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+
+::ng-deep .p-datatable .p-datatable-thead>tr>th {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #ffffff !important;
+}
+
+::ng-deep .p-datatable-striped .p-datatable-tbody>tr {
+    background-color: #f8f9fa !important;
+}
+
+::ng-deep .p-datatable-striped .p-datatable-tbody>tr>td {
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid #f8f9fa;
+}
+
+/* Horizontal scroll wrapper for mobile so the table never breaks the layout */
+:host {
+    display: block;
+    width: 100%;
+}
+
+::ng-deep .p-datatable {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+::ng-deep .p-datatable-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media screen and (max-width: 768px) {
+    ::ng-deep .p-datatable .p-datatable-thead>tr>th,
+    ::ng-deep .p-datatable .p-datatable-tbody>tr>td {
+        padding: 8px 10px !important;
+        font-size: 12px !important;
+        white-space: nowrap;
+    }
+
+    .action-btn {
+        width: 1.6rem !important;
+        height: 1.6rem !important;
+    }
+
+    ::ng-deep .row-actions {
+        gap: 0 !important;
+    }
+}

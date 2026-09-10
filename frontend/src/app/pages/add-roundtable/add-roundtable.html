@@ -1,0 +1,177 @@
+<main class="add-roundtable-container" aria-labelledby="add-roundtable-form-heading">
+    <!-- Breadcrumb -->
+    <app-breadcrumb [items]="breadcrumbItems()" (itemClick)="navigateToRoundtablesList()"></app-breadcrumb>
+
+    <h2 id="add-roundtable-form-heading" class="sr-only">{{ isEditMode() ? 'Edit Roundtable' : 'Add New Roundtable' }}</h2>
+
+    <!-- Form -->
+    <div class="form-container"
+         role="group"
+         aria-labelledby="add-roundtable-form-heading"
+         aria-describedby="add-roundtable-required-hint">
+        <p id="add-roundtable-required-hint" class="sr-only">Required fields are marked with an asterisk.</p>
+
+        <!-- Row 1: Roundtable Name, Abbreviation, Select Clients-->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <label for="roundtable-name" class="sr-only">Roundtable Name</label>
+                <input id="roundtable-name" type="text" pInputText [ngModel]="roundtableName()" (ngModelChange)="roundtableName.set($event)"
+                    placeholder="Roundtable Name*" name="roundtableName"
+                    aria-required="true"
+                    [attr.aria-invalid]="submitted() && !roundtableName() ? 'true' : null"
+                    [attr.aria-describedby]="submitted() && !roundtableName() ? 'roundtable-name-error' : null"
+                    [ngClass]="{'ng-invalid ng-dirty': submitted() && !roundtableName()}" />
+                <small id="roundtable-name-error" class="p-error" role="alert" aria-live="polite" style="display: block; margin-top: 4px; color: #dc3545;"
+                    *ngIf="submitted() && !roundtableName()">This field is required</small>
+            </div>
+
+            <div class="form-field">
+                <label for="roundtable-abbreviation" class="sr-only">Roundtable Abbreviation</label>
+                <input id="roundtable-abbreviation" type="text" pInputText [ngModel]="roundtableAbbreviation()" (ngModelChange)="roundtableAbbreviation.set($event)"
+                    placeholder="Roundtable Abbreviation*" name="roundtableAbbreviation"
+                    aria-required="true"
+                    [attr.aria-invalid]="submitted() && !roundtableAbbreviation() ? 'true' : null"
+                    [attr.aria-describedby]="submitted() && !roundtableAbbreviation() ? 'roundtable-abbreviation-error' : null"
+                    [ngClass]="{'ng-invalid ng-dirty': submitted() && !roundtableAbbreviation()}" />
+                <small id="roundtable-abbreviation-error" class="p-error" role="alert" aria-live="polite" style="display: block; margin-top: 4px; color: #dc3545;"
+                    *ngIf="submitted() && !roundtableAbbreviation()">This field is required</small>
+            </div>
+
+            <div class="form-field">
+                <div class="custom-fieldset" role="group" aria-labelledby="select-clients-label">
+                    <label class="custom-legend" id="select-clients-label" for="select-clients-wrap">Client(s)</label>
+                    <p-multiSelect id="select-clients-wrap" inputId="select-clients" [options]="clientOptions" [ngModel]="selectedClients()" (ngModelChange)="selectedClients.set($event)"
+                        styleClass="w-full border-none shadow-none bg-transparent" [showClear]="true" [filter]="true"
+                        optionValue="value" appendTo="body" placeholder="Select..."
+                        [attr.aria-label]="'Select clients'">
+                        <ng-template #dropdownicon>
+                            <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                        </ng-template>
+                    </p-multiSelect>
+                </div>
+            </div>
+        </div>
+
+        <!-- Row 2: Select Directors, Primary Director, -->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <div class="custom-fieldset" role="group" aria-labelledby="select-directors-label">
+                    <label class="custom-legend" id="select-directors-label" for="select-directors-wrap">Director(s)</label>
+                    <p-multiSelect id="select-directors-wrap" inputId="select-directors" [options]="directorOptions" [ngModel]="selectedDirectors()" (ngModelChange)="selectedDirectors.set($event)"
+                        styleClass="w-full border-none shadow-none bg-transparent" [showClear]="true" [filter]="true"
+                        (onChange)="onDirectorsChange()" optionValue="value" appendTo="body" placeholder="Select..."
+                        [attr.aria-label]="'Select directors'">
+                        <ng-template #dropdownicon>
+                            <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                        </ng-template>
+                    </p-multiSelect>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <app-shared-dropdown
+                    label="Primary Director"
+                    id="primary-director"
+                    [options]="primaryDirectorOptions()"
+                    [value]="primaryDirector()"
+                    (valueChange)="primaryDirector.set($event)"
+                    [filter]="true"
+                    placeholder="Select...">
+                </app-shared-dropdown>
+            </div>
+
+            <div class="form-field" aria-hidden="true"></div>
+        </div>
+
+        <!-- Row 3: Select Associates, Primary Associate  -->
+        <div class="form-row three-column">
+            <div class="form-field">
+                <div class="custom-fieldset" role="group" aria-labelledby="select-associates-label">
+                    <label class="custom-legend" id="select-associates-label" for="select-associates-wrap">Associate(s)</label>
+                    <p-multiSelect id="select-associates-wrap" inputId="select-associates" [options]="associateOptions" [ngModel]="selectedAssociates()" (ngModelChange)="selectedAssociates.set($event)"
+                        styleClass="w-full border-none shadow-none bg-transparent" [showClear]="true" [filter]="true"
+                        (onChange)="onAssociatesChange()" optionValue="value" appendTo="body" placeholder="Select..."
+                        [attr.aria-label]="'Select associates'">
+                        <ng-template #dropdownicon>
+                            <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                        </ng-template>
+                    </p-multiSelect>
+                </div>
+            </div>
+
+            <div class="form-field">
+                <app-shared-dropdown
+                    label="Primary Associate"
+                    id="primary-associate"
+                    [options]="primaryAssociateOptions()"
+                    [value]="primaryAssociate()"
+                    (valueChange)="primaryAssociate.set($event)"
+                    [filter]="true"
+                    placeholder="Select...">
+                </app-shared-dropdown>
+            </div>
+
+            <div class="form-field" aria-hidden="true"></div>
+        </div>
+
+        <!--  Description-->
+        <div class="form-row">
+            <div class="form-field full-width">
+                <label for="description" class="sr-only">Roundtable Description</label>
+                <textarea id="description" [ngModel]="description()" (ngModelChange)="description.set($event)" placeholder="Roundtable Description" rows="5"
+                    name="description"
+                    aria-label="Roundtable description">
+                </textarea>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="checkbox-group">
+                <p-checkbox [ngModel]="isActive()" (ngModelChange)="isActive.set($event)" [binary]="true" inputId="active-checkbox"
+                    name="isActive"
+                    [attr.aria-label]="'Set roundtable as active'">
+                </p-checkbox>
+                <label for="active-checkbox">Active</label>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons" role="group" aria-label="Form actions">
+            <button pButton type="button" label="Cancel" title="Cancel" class="p-button-secondary"
+                aria-label="Cancel and discard changes"
+                (click)="onCancel()"></button>
+            <button pButton type="button" [label]="isEditMode() ? 'Update' : 'Save'"
+                [title]="isEditMode() ? 'Update Roundtable' : 'Save Roundtable'" class="p-button-primary"
+                [attr.aria-label]="isEditMode() ? 'Update roundtable' : 'Save roundtable'"
+                [disabled]="!roundtableName() || !roundtableAbbreviation()"
+                (click)="onSave()"></button>
+        </div>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <!-- Custom Confirmation Dialog -->
+    @defer (when showCancelDialog()) {
+        <p-dialog [visible]="showCancelDialog()" (visibleChange)="showCancelDialog.set($event)" [modal]="true" [closable]="false" [resizable]="false" [draggable]="false"
+            styleClass="custom-cancel-dialog" [style]="{width: '560px', borderRadius: '12px', boxShadow: 'none'}"
+            appendTo="body"
+            role="alertdialog"
+            [attr.aria-labelledby]="'cancel-rt-dialog-title'"
+            [attr.aria-describedby]="'cancel-rt-dialog-message'">
+            <div class="cancel-dialog-content">
+                <div class="dialog-icon-container" aria-hidden="true">
+                    <i class="pi pi-exclamation-triangle dialog-icon"></i>
+                </div>
+                <h2 class="dialog-title" id="cancel-rt-dialog-title">Unsaved Changes</h2>
+                <p class="dialog-message" id="cancel-rt-dialog-message">You have unsaved changes, do you want to leave without saving?</p>
+                <div class="dialog-actions" role="group" aria-label="Confirmation actions">
+                    <button pButton type="button" label="No" class="dialog-button-no"
+                        aria-label="Stay and keep editing"
+                        (click)="onKeepEditing()"></button>
+                    <button pButton type="button" label="Yes" class="dialog-button-yes"
+                        aria-label="Leave without saving"
+                        (click)="onConfirmLeave()"></button>
+                </div>
+            </div>
+        </p-dialog>
+    }
+</main>

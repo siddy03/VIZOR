@@ -1,0 +1,56 @@
+.community-page {
+  max-width: 100%;
+  margin: 0;
+}
+
+.community-page .community-card {
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.community-page .community-card .p-card-body { padding: 0; }
+.community-page .community-card .p-card-content { padding: 0; }
+
+.community-page .tabs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #e0e0e0;
+  background: white;
+  padding: 0 24px;
+}
+
+.community-page .tabs-nav {
+  display: flex;
+}
+
+.community-page .tab-button {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  padding: 16px 24px;
+  color: #5f6368;
+  font-weight: 400;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  outline: none;
+  margin-bottom: -2px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.community-page .tab-button:hover {
+  color: #202124;
+}
+
+.community-page .tab-button.active {
+  color: #1976d2;
+  border-bottom-color: #1976d2;
+  font-weight: 500;
+}
+
+.community-page .tab-content {
+  background: white;
+}

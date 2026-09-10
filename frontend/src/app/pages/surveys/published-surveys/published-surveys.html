@@ -1,0 +1,53 @@
+<main class="published-surveys-page-container" aria-labelledby="published-surveys-heading">
+    <div class="header-row">
+        <h2 id="published-surveys-heading" class="text-xl font-semibold m-0 text-900">Published Surveys</h2>
+        <!-- Filters could go here -->
+    </div>
+
+    <p-table [value]="surveys" styleClass="p-datatable-striped" [tableStyle]="{'min-width': '60rem'}"
+        responsiveLayout="stack" breakpoint="960px"
+        role="region" aria-label="Published surveys list">
+        <ng-template pTemplate="header">
+            <tr role="row">
+                <th pSortableColumn="surveyName" scope="col" role="columnheader">Survey Name <p-sortIcon field="surveyName"></p-sortIcon></th>
+                <th pSortableColumn="datePublished" scope="col" role="columnheader">Date Published <p-sortIcon field="datePublished"></p-sortIcon></th>
+                <th pSortableColumn="participantsInvited" class="text-right" scope="col" role="columnheader">Invited <p-sortIcon
+                        field="participantsInvited"></p-sortIcon></th>
+                <th pSortableColumn="participantsResponded" class="text-right" scope="col" role="columnheader">Responded <p-sortIcon
+                        field="participantsResponded"></p-sortIcon></th>
+                <th pSortableColumn="responseRate" class="text-right" scope="col" role="columnheader">Response Rate <p-sortIcon
+                        field="responseRate"></p-sortIcon></th>
+                <th pSortableColumn="status" scope="col" role="columnheader">Status <p-sortIcon field="status"></p-sortIcon></th>
+                <th class="w-4rem" scope="col" role="columnheader">
+                    <span class="sr-only">Actions</span>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-survey>
+            <tr role="row">
+                <td role="cell"><span class="p-column-title" aria-hidden="true">Survey Name</span>{{ survey.surveyName }}</td>
+                <td role="cell"><span class="p-column-title" aria-hidden="true">Date Published</span>{{ survey.datePublished }}</td>
+                <td class="text-right" role="cell"><span class="p-column-title" aria-hidden="true">Invited</span>{{ survey.participantsInvited }}</td>
+                <td class="text-right" role="cell"><span class="p-column-title" aria-hidden="true">Responded</span>{{ survey.participantsResponded }}
+                </td>
+                <td class="text-right" role="cell"><span class="p-column-title" aria-hidden="true">Rate</span>{{ survey.responseRate }}</td>
+                <td role="cell">
+                    <span class="p-column-title" aria-hidden="true">Status</span>
+                    <p-tag [value]="survey.status" [severity]="getSeverity(survey.status)" [attr.aria-label]="'Status: ' + survey.status"></p-tag>
+                </td>
+                <td class="text-center" role="cell">
+                    <button pButton icon="pi pi-eye" class="p-button-text p-button-rounded p-button-secondary"
+                        title="View Results"
+                        [attr.aria-label]="'View results for ' + (survey.surveyName || 'this survey')"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr role="row">
+                <td colspan="7" class="text-center p-4" role="cell">
+                    <span role="status" aria-live="polite">No published surveys found.</span>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</main>

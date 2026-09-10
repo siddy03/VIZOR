@@ -1,0 +1,379 @@
+.add-project-page .add-project-container {
+    padding: 0 40px 32px 40px;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.add-project-page .form-container {
+    background: #fff;
+    padding: 0;
+}
+
+/* Form Rows */
+.add-project-page .form-row {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.add-project-page .form-row.three-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.add-project-page .form-row.two-column {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.add-project-page .form-row:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Form Fields */
+.add-project-page .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.add-project-page .form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.add-project-page .form-field label {
+    font-size: 13px;
+    color: #5f6368;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.add-project-page .form-field input[type="text"] {
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.add-project-page .form-field input[type="text"]:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.add-project-page .form-field input::placeholder {
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+.add-project-page .form-field textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.add-project-page .form-field textarea:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.add-project-page .form-field textarea::placeholder {
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+/* PrimeNG Select Styling */
+.add-project-page .form-field .p-select,
+.add-project-page .form-field .p-dropdown {
+    border: 1px solid #dadce0 !important;
+    border-radius: 4px !important;
+    height: 44px !important;
+    background: #fff !important;
+    width: 100% !important;
+    transition: border-color 0.2s;
+    box-sizing: border-box !important;
+}
+
+.add-project-page .form-field .p-select .p-select-label,
+.add-project-page .form-field .p-dropdown .p-dropdown-label {
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    color: #202124 !important;
+}
+
+.add-project-page .form-field .p-select .p-select-label.p-placeholder,
+.add-project-page .form-field .p-dropdown .p-dropdown-label.p-placeholder {
+    color: #9aa0a6 !important;
+}
+
+.add-project-page .form-field .p-select:not(.p-disabled):hover,
+.add-project-page .form-field .p-dropdown:not(.p-disabled):hover {
+    border-color: #b0b0b0 !important;
+}
+
+.add-project-page .form-field .p-select:not(.p-disabled).p-focus,
+.add-project-page .form-field .p-dropdown:not(.p-disabled).p-focus {
+    border-color: #1a73e8 !important;
+    box-shadow: 0 0 0 2px #bfdbfe !important;
+}
+
+
+/* PrimeNG MultiSelect Styling */
+.add-project-page .form-field .p-multiselect {
+    border: 1px solid #dadce0 !important;
+    border-radius: 4px !important;
+    min-height: 44px !important;
+    background: #fff !important;
+    width: 100% !important;
+    transition: border-color 0.2s;
+    box-sizing: border-box !important;
+}
+
+.add-project-page .form-field .p-multiselect .p-multiselect-label {
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    color: #202124 !important;
+}
+
+.add-project-page .form-field .p-multiselect .p-multiselect-label.p-placeholder {
+    color: #9aa0a6 !important;
+}
+
+.add-project-page .form-field .p-multiselect:not(.p-disabled):hover {
+    border-color: #b0b0b0 !important;
+}
+
+.add-project-page .form-field .p-multiselect:not(.p-disabled).p-focus {
+    border-color: #1a73e8 !important;
+    box-shadow: 0 0 0 2px #bfdbfe !important;
+}
+
+/* MultiSelect Overlay Panel */
+
+.add-project-page .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.add-project-page .checkbox-group label {
+    font-size: 14px;
+    color: #3c4043;
+    cursor: pointer;
+}
+
+/* Action Buttons */
+.add-project-page .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.add-project-page .cancel-button {
+    background: #fff !important;
+    border: 1px solid #dadce0 !important;
+    color: #5f6368 !important;
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
+    height: 40px !important;
+}
+
+.add-project-page .cancel-button:hover {
+    background: #f8f9fa !important;
+    border-color: #b0b0b0 !important;
+}
+
+.add-project-page .save-button {
+    background: #1a73e8 !important;
+    border: none !important;
+    color: #fff !important;
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
+    height: 40px !important;
+}
+
+.add-project-page .save-button:hover {
+    background: #1557b0 !important;
+}
+
+.add-project-page .save-button:disabled {
+    background: #e0e0e0 !important;
+    color: #9e9e9e !important;
+    border: none !important;
+    cursor: default !important;
+    box-shadow: none !important;
+}
+
+
+/* ========================================================================= */
+/* CUSTOM CANCEL DIALOG STYLING                                               */
+/* ========================================================================= */
+.custom-cancel-dialog .p-dialog-header {
+    display: none !important;
+}
+
+.custom-cancel-dialog .p-dialog-content {
+    padding: 0 !important;
+    border-radius: 12px !important;
+}
+
+.add-project-page .cancel-dialog-content,
+.custom-cancel-dialog .cancel-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 32px 40px 32px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.custom-cancel-dialog .dialog-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #ffe0b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    background: #ffffff;
+    position: relative;
+}
+
+.custom-cancel-dialog .dialog-icon {
+    font-size: 40px;
+    color: #ff9800;
+}
+
+.custom-cancel-dialog .dialog-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0 0 12px 0;
+}
+
+.custom-cancel-dialog .dialog-message {
+    font-size: 15px;
+    color: #5f6368;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+.custom-cancel-dialog .dialog-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+}
+
+.custom-cancel-dialog .dialog-button-no {
+    min-width: 100px;
+    height: 40px;
+    background: #1a73e8 !important;
+    border: 1px solid #1a73e8 !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+}
+
+.custom-cancel-dialog .dialog-button-no:hover {
+    background: #1557b0 !important;
+    border-color: #1557b0 !important;
+}
+
+.custom-cancel-dialog .dialog-button-yes {
+    min-width: 100px;
+    height: 40px;
+    background: #fff !important;
+    border: 1px solid #dadce0 !important;
+    color: #5f6368 !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+}
+
+.custom-cancel-dialog .dialog-button-yes:hover {
+    background: #f8f9fa !important;
+    border-color: #b0b0b0 !important;
+    color: #202124 !important;
+}
+
+.p-dialog-mask {
+    z-index: 11000 !important;
+}
+
+/* ========================================================================= */
+/* CUSTOM FIELDSET (Div-based for perfect sizing)                            */
+/* ========================================================================= */
+.add-project-page .custom-fieldset {
+    /* Inherits majority from _filters.scss */
+    position: relative;
+}
+
+.add-project-page .custom-legend {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #5f6368;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 960px) {
+    .add-project-page .add-project-container {
+        padding: 16px;
+    }
+
+    .add-project-page .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .add-project-page .form-row.three-column,
+    .add-project-page .form-row.two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .add-project-page .action-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .add-project-page .cancel-button,
+    .add-project-page .save-button {
+        width: 100%;
+    }
+
+    .custom-cancel-dialog {
+        width: 90vw !important;
+        max-width: 560px;
+    }
+}

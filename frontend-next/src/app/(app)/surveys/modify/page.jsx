@@ -1,0 +1,12 @@
+'use client';
+
+import './page.css';
+
+export default function ModifyResponsePage() {
+  return (
+    <main className="modify-response-page page-container" aria-labelledby="modify-response-heading">
+      <h2 id="modify-response-heading">Modify Survey Response</h2>
+      <p>This is the Modify Survey Response page. Content will be added here.</p>
+    </main>
+  );
+}

@@ -1,0 +1,58 @@
+/* PrimeNG Dialog Overrides */
+
+.p-dialog .p-dialog-header {
+    border-bottom: 1px solid #e5e7eb !important;
+    padding: 1.5rem !important;
+    background: #ffffff !important;
+    color: #1f2937 !important;
+    border-top-right-radius: 12px !important;
+    border-top-left-radius: 12px !important;
+}
+
+.p-dialog .p-dialog-content {
+    background: #ffffff !important;
+    color: #4b5563 !important;
+    padding: 1.5rem !important;
+    overflow: visible !important;
+}
+
+.p-dialog .p-dialog-footer {
+    border-top: 1px solid #e5e7eb !important;
+    padding: 1.5rem !important;
+    background: #ffffff !important;
+    border-bottom-right-radius: 12px !important;
+    border-bottom-left-radius: 12px !important;
+    text-align: right;
+}
+
+/* Custom Cancel Dialog Specifics (if needed generally) */
+.custom-cancel-dialog .dialog-icon-container {
+    background-color: #fee2e2;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+}
+
+.custom-cancel-dialog .dialog-icon {
+    color: #dc2626;
+    font-size: 24px;
+}
+
+.custom-cancel-dialog .dialog-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.custom-cancel-dialog .dialog-message {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 24px;
+    text-align: center;
+}

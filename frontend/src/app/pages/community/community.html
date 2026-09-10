@@ -1,0 +1,33 @@
+<main class="community-page" aria-label="Community">
+  <p-card styleClass="community-card">
+    <div class="tabs-header">
+      <nav class="tabs-nav" role="tablist" aria-label="Community sections">
+        <a class="tab-button"
+           role="tab"
+           routerLink="discussion"
+           routerLinkActive="active"
+           id="community-tab-discussion">
+          Discussion Board
+        </a>
+        <a class="tab-button"
+           role="tab"
+           routerLink="chat"
+           routerLinkActive="active"
+           id="community-tab-chat">
+          Chat
+        </a>
+        <a class="tab-button"
+           role="tab"
+           routerLink="poll"
+           routerLinkActive="active"
+           id="community-tab-poll">
+          Poll
+        </a>
+      </nav>
+    </div>
+
+    <div class="tab-content">
+      <router-outlet></router-outlet>
+    </div>
+  </p-card>
+</main>

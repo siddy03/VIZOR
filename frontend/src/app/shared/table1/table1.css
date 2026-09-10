@@ -1,0 +1,154 @@
+.table1-wrapper {
+  margin-top: 18px;
+  border: 1px solid #eceff4;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* PrimeNG p-table needs horizontal scrolling on small screens */
+:host {
+  display: block;
+  width: 100%;
+}
+
+:host ::ng-deep .p-datatable-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table1 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table1 th,
+.table1 td {
+  text-align: left;
+  padding: 5px 14px;
+  border-bottom: 1px solid #eef1f5;
+  font-size: 13px;
+  color: #202124;
+  vertical-align: middle;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th,
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  padding: 5px 14px !important;
+  font-size: 13px !important;
+  vertical-align: middle;
+  line-height: 1.5 !important;
+  height: 38px !important;
+  box-sizing: border-box !important;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  font-weight: 400 !important;
+}
+
+/* Shrink action buttons so they don't inflate the data row height */
+:host ::ng-deep .row-actions .p-button,
+:host ::ng-deep .row-actions .action-btn,
+:host ::ng-deep .row-actions .table1-edit-btn {
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  min-width: 1.75rem !important;
+  min-height: 1.75rem !important;
+  padding: 0 !important;
+}
+
+:host ::ng-deep .row-actions .p-button .p-button-icon,
+:host ::ng-deep .row-actions .p-button-icon-only .p-button-icon {
+  font-size: 0.875rem !important;
+}
+
+:host ::ng-deep .row-actions {
+  display: flex !important;
+  gap: 0.25rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+/* Red color for delete action (matches view-survey/table2 styling) */
+:host ::ng-deep .row-actions .p-button-danger,
+:host ::ng-deep .row-actions .p-button-danger .p-button-icon,
+:host ::ng-deep .row-actions .pi-trash {
+  color: #dc3545 !important;
+}
+
+:host ::ng-deep .row-actions .p-button-danger:hover {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+:host ::ng-deep .row-actions .p-button-danger:hover .p-button-icon,
+:host ::ng-deep .row-actions .p-button-danger:hover .pi-trash {
+  color: #c82333 !important;
+}
+
+.table1 th {
+  font-weight: 700;
+  background: #fff;
+  
+}
+
+.table1 td {
+  font-weight: 200;
+}
+
+.table1 tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.action-col {
+  width: 64px;
+  text-align: center !important;
+}
+
+.table1-edit-btn {
+  color: #6b7280 !important;
+}
+
+.table1-empty-state {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.table1-empty-state img {
+  width: 120px;
+  height: auto;
+}
+
+.table1-empty-state span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #202124;
+}
+
+@media screen and (max-width: 768px) {
+  :host ::ng-deep .p-datatable .p-datatable-thead > tr > th,
+  :host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
+
+  :host ::ng-deep .row-actions .p-button,
+  :host ::ng-deep .row-actions .action-btn,
+  :host ::ng-deep .row-actions .table1-edit-btn {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    min-width: 1.5rem !important;
+    min-height: 1.5rem !important;
+  }
+
+  .table1-empty-state img {
+    width: 90px;
+  }
+
+  .table1-empty-state span {
+    font-size: 14px;
+  }
+}

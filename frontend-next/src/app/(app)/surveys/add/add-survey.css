@@ -1,0 +1,1431 @@
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* ADD SURVEY CONTAINER                                                       */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.add-survey-container {
+    padding: 0 40px 32px 40px;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* FORM LAYOUT                                                                */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-container {
+    background: #fff;
+    padding: 0;
+}
+
+.form-row {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.form-row.three-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* .form-row.two-column {
+    grid-template-columns: repeat(2, 1fr);
+} */
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* TEXT INPUTS                                                                */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.form-field input[type="text"] {
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.form-field input[type="text"]:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.form-field input[type="text"]:disabled {
+    background: #f5f5f5;
+    color: #9aa0a6;
+    cursor: not-allowed;
+}
+
+.form-field input::placeholder {
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+.form-field input.input-invalid {
+    border-color: #dc3545;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* CUSTOM FIELDSET (Dropdown wrappers with floating label)                    */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.custom-fieldset {
+    position: relative;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-fieldset:focus-within {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.custom-fieldset.invalid-field {
+    border-color: #dc3545;
+}
+
+.custom-legend {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #5f6368;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.custom-fieldset.invalid-field .custom-legend {
+    color: #dc3545;
+}
+
+/* Plain text input inside a custom-fieldset (e.g. Decimals on Report) */
+.fieldset-input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    padding: 0 14px;
+    font-size: 14px;
+    color: #202124;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* PrimeNG Select inside fieldset */
+.add-survey-page .custom-fieldset .p-select,
+.add-survey-page .custom-fieldset .p-dropdown {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.add-survey-page .custom-fieldset .p-select .p-select-label,
+.add-survey-page .custom-fieldset .p-dropdown .p-dropdown-label {
+    padding: 0 14px !important;
+    line-height: normal !important;
+    font-size: 14px !important;
+    color: #202124 !important;
+}
+
+.add-survey-page .custom-fieldset .p-select .p-select-label.p-placeholder,
+.add-survey-page .custom-fieldset .p-dropdown .p-dropdown-label.p-placeholder {
+    color: #9aa0a6 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* DATE PICKER FIELDS                                                         */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.date-range-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-field {
+    flex: 1;
+    min-width: 0;
+}
+
+.date-separator {
+    font-size: 16px;
+    color: #5f6368;
+    padding: 0 2px;
+    flex-shrink: 0;
+}
+
+.date-fieldset {
+    height: 44px;
+}
+
+.add-survey-page .date-fieldset .p-datepicker,
+.add-survey-page .date-fieldset .p-calendar {
+    width: 100% !important;
+    height: 100% !important;
+    border: none !important;
+    background: transparent !important;
+}
+
+.add-survey-page .date-fieldset .p-datepicker .p-datepicker-input,
+.add-survey-page .date-fieldset .p-calendar .p-inputtext {
+    border: none !important;
+    background: transparent !important;
+    padding: 0 14px !important;
+    font-size: 14px !important;
+    color: #202124 !important;
+    height: 100% !important;
+    box-shadow: none !important;
+}
+
+.add-survey-page .date-fieldset .p-datepicker .p-datepicker-input::placeholder,
+.add-survey-page .date-fieldset .p-calendar .p-inputtext::placeholder {
+    color: #9aa0a6 !important;
+}
+
+.add-survey-page .date-fieldset .p-datepicker .p-datepicker-trigger,
+.add-survey-page .date-fieldset .p-calendar .p-datepicker-trigger,
+.add-survey-page .date-fieldset .p-calendar .p-datepicker-input-icon {
+    background: transparent !important;
+    border: none !important;
+    color: #5f6368 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* CHECKBOX                                                                   */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #3c4043;
+    cursor: pointer;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* VALIDATION ERROR MESSAGES                                                  */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.field-error {
+    display: block;
+    font-size: 12px;
+    color: #dc3545;
+    margin-top: 2px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* ACTION BUTTONS                                                             */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.action-buttons.form-actions-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+
+
+
+
+
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* STEP PLACEHOLDER PANELS (Steps 2-4)                                        */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.questions-step {
+    margin-top: 4px;
+}
+
+.questions-meta {
+    display: flex;
+    align-items: flex-start;
+    gap: 150px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.meta-label {
+    font-size: 12px;
+    color: #5f6368;
+}
+
+.meta-value {
+    font-size: 14px;
+    color: #202124;
+}
+
+.questions-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.toolbar-right {
+    display: flex;
+    gap: 10px;
+    margin-top: -55px;
+}
+
+
+
+
+
+.empty-sections-state {
+    border: 1px dashed #d7dce4;
+    border-radius: 6px;
+    padding: 18px;
+    color: #5f6368;
+    font-size: 13px;
+    text-align: center;
+    margin: 4px 0 0;
+}
+
+.question-section-card {
+    border: 1px solid #eef1f5;
+    border-radius: 6px;
+    margin-top: 8px;
+    overflow: hidden;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: #fff;
+}
+
+.section-toggle {
+    border: none;
+    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #202124;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+}
+
+.section-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.question-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.section-menu-icon,
+.question-menu-icon {
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+.section-questions {
+    padding: 2px 0;
+}
+
+.question-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 14px 12px;
+}
+
+.question-row-level-2 .question-row-left {
+    padding-left: 28px;
+}
+
+.question-row-level-3 .question-row-left {
+    padding-left: 64px;
+}
+
+.question-row-tabular {
+    align-items: flex-start;
+}
+
+.question-row-left-tabular {
+    min-width: 220px;
+}
+
+.question-row:last-child {
+    border-bottom: none;
+}
+
+.question-row-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 0 0 240px;
+    width: 240px;
+    min-width: 240px;
+    max-width: 240px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.question-prefix {
+    font-size: 13px;
+    color: #5f6368;
+    font-weight: 600;
+    min-width: 22px;
+    display: inline-block;
+}
+
+.question-text {
+    font-size: 13px;
+    color: #202124;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+    flex: 0 1 auto;
+}
+
+.question-row-menu-wrapper {
+    position: relative;
+}
+
+
+
+.question-context-menu {
+    display: flex;
+    flex-direction: column;
+    min-width: 120px;
+}
+
+.question-context-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    color: #202124;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.15s;
+}
+
+.question-context-item:hover {
+    background: #f1f3f4;
+}
+
+.question-context-delete {
+    color: #d93025;
+}
+
+.question-context-delete:hover {
+    background: #fce8e6;
+}
+
+.question-row-right {
+    display: grid;
+    grid-template-columns: 400px 200px;
+    column-gap: 12px;
+    align-items: center;
+    justify-items: start;
+    flex: 1;
+    min-width: 0;
+}
+
+.question-row-right-tabular {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    flex: 1;
+}
+
+.tabular-inner-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.tabular-inner-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 4px;
+}
+
+.tabular-inner-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.tabular-grid {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    background: transparent;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tabular-grid-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 200px;
+    column-gap: 10px;
+    align-items: center;
+    justify-content: start;
+}
+
+.tabular-grid-header {
+    background: transparent;
+    border-bottom: none;
+}
+
+.tabular-grid-inputs {
+    background: transparent;
+}
+
+.tabular-grid-cell {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0;
+    min-width: 0;
+    border-right: none;
+}
+
+.tabular-grid-cell-explanation {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #5f6368;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.tabular-grid-inline {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    column-gap: 12px;
+    align-items: start;
+    justify-content: start;
+}
+
+.tabular-grid-cell-inline {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+}
+
+.tabular-cell-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-height: 28px;
+    width: 100%;
+}
+
+.tabular-grid-cell-inline:has(.question-inline-checkbox-slot) .tabular-cell-header {
+    justify-content: flex-start;
+}
+
+.tabular-cell-header-spacer {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.tabular-cell-control {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.tabular-cell-control .question-inline-input,
+.tabular-cell-control .question-inline-explanation,
+.tabular-cell-control .question-inline-dropdown,
+.tabular-cell-control .question-inline-checkbox-slot {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.tabular-cell-control .question-inline-checkbox-slot {
+    justify-content: flex-start;
+}
+
+.tabular-grid-cell .question-inline-input,
+.tabular-grid-cell .question-inline-explanation,
+.tabular-grid-cell .question-inline-dropdown {
+    width: 100%;
+}
+
+.tabular-grid-header .tabular-grid-cell {
+    min-height: 24px;
+    align-items: center;
+}
+
+.tabular-grid-inputs .tabular-grid-cell {
+    min-height: 36px;
+    align-items: center;
+}
+
+.tabular-grid-explanation-box {
+    width: 100%;
+    min-height: 36px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 8px 10px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #9aa0a6;
+    background: #fff;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+
+.question-inline-input {
+    width: 200px;
+    height: 36px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #202124;
+    background: #fff;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.question-inline-input.entry-box-medium {
+    width: 300px;
+}
+
+.question-inline-input.entry-box-large {
+    width: 400px;
+}
+
+.question-inline-explanation {
+    width: 200px;
+    height: 36px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 13px;
+    color: #9aa0a6;
+    background: #fff;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+.question-inline-dropdown {
+    position: relative;
+    width: 200px;
+    height: 36px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    padding: 0 28px 0 10px;
+    font-size: 12px;
+    color: #202124;
+    background: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: default;
+}
+
+.question-inline-checkbox-slot {
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.question-inline-checkbox {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    cursor: default;
+}
+
+.question-inline-dropdown-label {
+    font-size: 10px;
+    color: #5f6368;
+    line-height: 1;
+}
+
+.question-inline-dropdown-value {
+    font-size: 13px;
+    color: #202124;
+    line-height: 1.3;
+}
+
+.question-inline-dropdown-icon {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #5f6368;
+}
+
+.empty-questions {
+    padding: 12px;
+    font-size: 13px;
+    color: #7a8088;
+}
+
+.questions-bottom-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+}
+
+.bottom-actions-right {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    color: #d93025;
+}
+
+
+
+
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* DIALOG STYLES (Add Section / Add Question)                               */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.dialog-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.dialog-question-form {
+    position: relative;
+    padding-top: 38px;
+}
+
+
+
+.dialog-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.dialog-label {
+    font-size: 12px;
+    color: #5f6368;
+    font-weight: 600;
+}
+
+.dialog-textarea {
+    width: 100%;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+    resize: vertical;
+    background: #fff;
+}
+
+.dialog-textarea:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.dialog-grid-two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.dialog-grid-three {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.dialog-grid-full {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.question-top-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.question-second-row {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 20px;
+}
+
+/* Keep "Sub Question Of" and "Question Text" control heights identical */
+.add-survey-page .question-second-row .p-select,
+.add-survey-page .question-second-row .p-dropdown {
+    height: 44px !important;
+    min-height: 44px !important;
+}
+
+.question-second-row input[pinputtext],
+.question-second-row input[pInputText] {
+    height: 44px !important;
+    min-height: 44px !important;
+}
+
+.question-third-row {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.question-third-row input[pInputText],
+.question-third-row input[pinputtext] 
+{
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+}
+
+.question-third-row input[pInputText]:focus,
+.question-third-row input[pinputtext]:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.readonly-display-text {
+    min-height: 22px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #2c3440;
+}
+
+.question-definition-textarea {
+    min-height: 120px;
+}
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+.checkbox-row-primary {
+    margin-top: 2px;
+}
+
+.checkbox-grid-four {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px 14px;
+    align-items: center;
+}
+
+.checkbox-grid-two {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px 14px;
+    align-items: center;
+}
+
+.checkbox-row-compact {
+    margin-top: 0;
+}
+
+.checkbox-text {
+    font-size: 13px;
+    color: #202124;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* DROP DOWN DYNAMIC SECTION                                                  */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.dropdown-dynamic-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 10px;
+
+}
+
+.dropdown-values-card {
+    background: #f0f4fa;
+    border-radius: 8px;
+    padding: 18px 20px;
+}
+
+.dropdown-values-title {
+    margin: 0 0 14px 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: #202124;
+}
+
+.dropdown-values-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.ddl-heading-input {
+    width: 280px;
+    height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ddl-heading-input:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.ddl-heading-input::placeholder {
+    color: #9aa0a6;
+}
+
+.ddl-values-textarea {
+    width: 100%;
+    max-width: 680px;
+    min-height: 70px;
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    box-sizing: border-box;
+    outline: none;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.4;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.ddl-values-textarea:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.dropdown-checkboxes-row {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.dialog-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 4px;
+}
+
+.dialog-footer-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.dialog-footer-question {
+    margin-top: 10px;
+    width: 100%;
+}
+
+.dynamic-block {
+    border: 1px solid #e6e9ef;
+    border-radius: 8px;
+    padding: 12px;
+    background: #fff;
+}
+
+.delete-dialog-content,
+.delete-dialog-content * {
+    box-sizing: border-box;
+}
+
+.delete-dialog-title {
+    margin: 0 0 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #202124;
+}
+
+.delete-dialog-message {
+    margin: 0 0 18px;
+    font-size: 14px;
+    color: #5f6368;
+    line-height: 1.5;
+}
+
+
+
+.add-survey-page .custom-section-dialog .p-dialog-content {
+    padding: 18px !important;
+}
+
+.add-survey-page .custom-question-dialog .p-dialog-content {
+    padding: 18px !important;
+}
+
+.add-survey-page .custom-delete-dialog .p-dialog-content {
+    padding: 18px !important;
+}
+
+/* Small icon buttons in section/question lists */
+.section-icon-btn,
+
+
+.confirm-clients-step {
+    margin-top: 10px;
+}
+
+.confirm-meta {
+    margin-bottom: 12px;
+}
+
+.confirm-actions-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+}
+
+.confirm-actions-left,
+.confirm-actions-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Ensure all buttons in confirm and bottom actions have consistent sizing */
+.add-survey-page .p-button.p-button-secondary {
+    height: 40px !important;
+    padding: 10px 24px !important;
+    border-radius: 4px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+}
+
+.confirm-actions-right .shared-action-btn {
+    white-space: nowrap !important;
+}
+
+.step-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    text-align: center;
+}
+
+.placeholder-icon {
+    font-size: 48px;
+    color: #dadce0;
+    margin-bottom: 16px;
+}
+
+.step-placeholder h3 {
+    font-size: 20px;
+    font-weight: 500;
+    color: #202124;
+    margin-bottom: 8px;
+}
+
+.step-placeholder p {
+    font-size: 14px;
+    color: #5f6368;
+    margin-bottom: 24px;
+}
+
+.placeholder-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.add-survey-page .custom-explanation-dialog .p-dialog-header {
+    display: none !important;
+}
+
+.add-survey-page .custom-explanation-dialog .p-dialog-content {
+    padding: 20px !important;
+}
+
+.explanation-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.explanation-title {
+    margin: 0;
+    font-size: 18px;
+    color: #202124;
+}
+
+.explanation-textarea {
+    width: 100%;
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    resize: vertical;
+    min-height: 130px;
+    padding: 10px 12px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.explanation-textarea:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.explanation-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* CANCEL DIALOG (same pattern as add-roundtable)                             */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.add-survey-page .custom-cancel-dialog .p-dialog-header {
+    display: none !important;
+}
+
+.add-survey-page .custom-cancel-dialog .p-dialog-content {
+    padding: 0 !important;
+    border-radius: 12px !important;
+}
+
+.cancel-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 32px 40px 32px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.dialog-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 4px solid #ffe0b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    background: #ffffff;
+}
+
+.dialog-icon {
+    font-size: 40px;
+    color: #ff9800;
+}
+
+.dialog-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0 0 12px 0;
+}
+
+.dialog-message {
+    font-size: 15px;
+    color: #5f6368;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+.dialog-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+.add-survey-page .p-dialog-mask {
+    z-index: 11000 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* STEP 4: REVIEW EMAIL                                                        */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+.review-email-step {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.review-email-meta {
+    margin-bottom: 0;
+}
+
+.review-email-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #fff;
+}
+
+.email-subject-input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: #202124;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+}
+
+.email-subject-input:focus {
+    border-color: #1a73e8;
+    outline: none;
+}
+
+.email-editor-wrapper {
+    width: 100%;
+}
+
+.add-survey-page .email-editor-wrapper .p-editor-container {
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.add-survey-page .email-editor-wrapper .p-editor-toolbar {
+    border: none;
+    border-bottom: 1px solid #dadce0;
+    background: #fff;
+    padding: 8px 12px;
+}
+
+.add-survey-page .email-editor-wrapper .p-editor-content {
+    border: none;
+}
+
+.email-bottom-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+}
+
+
+
+
+
+.bottom-actions-right {
+    display: flex;
+    gap: 12px;
+}
+
+.bottom-actions-right .shared-action-btn {
+    background: #73a9e6 !important;
+    border-color: #73a9e6 !important;
+    color: #fff !important;
+}
+
+.bottom-actions-right .shared-action-btn:hover {
+    background: #5d93d2 !important;
+    border-color: #5d93d2 !important;
+}
+
+
+
+
+
+/* ═══════════════════════════════════════════════════════════════════════════ */
+/* RESPONSIVE                                                                 */
+/* ═══════════════════════════════════════════════════════════════════════════ */
+
+@media screen and (max-width: 960px) {
+    .add-survey-container {
+        padding: 16px;
+    }
+
+    .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .form-row.three-column,
+    .form-row.two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .date-range-group {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .date-separator {
+        display: none;
+    }
+
+    .action-buttons {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .action-buttons-left,
+    .action-buttons-right {
+        width: 100%;
+    }
+
+    .action-buttons-left button,
+    .action-buttons-right button {
+        width: 100%;
+    }
+
+    .questions-meta {
+        gap: 10px;
+    }
+
+    .questions-toolbar,
+    .questions-bottom-actions,
+    .toolbar-right,
+    .bottom-actions-right,
+    .confirm-actions-row,
+    .confirm-actions-left,
+    .confirm-actions-right {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .section-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .question-top-row,
+    .question-second-row,
+    .question-third-row,
+    .checkbox-grid-four,
+    .checkbox-grid-two {
+        grid-template-columns: 1fr;
+    }
+
+    .add-survey-page .custom-cancel-dialog {
+        width: 90vw !important;
+        max-width: 560px;
+    }
+}
+
+/* Add Question dialog padding (aligned with screenshot) */
+.add-survey-page .custom-question-dialog .p-dialog-content {
+    padding: 14px 36px 18px 36px !important;
+    border-radius: 16px !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+}
+
+.add-survey-page .custom-question-dialog .p-dialog {
+    border-radius: 16px !important;
+    max-height: 90vh !important;
+}

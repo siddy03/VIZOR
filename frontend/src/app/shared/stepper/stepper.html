@@ -1,0 +1,35 @@
+<p-stepper [value]="currentStep + 1" class="vizor-stepper-root">
+  <p-step-list class="vizor-stepper" role="list" aria-label="Progress steps">
+    @for (step of steps; track step.label; let i = $index) {
+      <p-step [value]="i + 1">
+        <ng-template #content let-activateCallback="activateCallback">
+          <div class="stepper-step"
+               [class.clickable]="allowFreeNavigation || i < currentStep"
+               [attr.role]="(allowFreeNavigation || i < currentStep) ? 'button' : 'listitem'"
+               [attr.tabindex]="(allowFreeNavigation || i < currentStep) ? 0 : null"
+               [attr.aria-current]="currentStep === i ? 'step' : null"
+               [attr.aria-disabled]="!(allowFreeNavigation || i < currentStep) && currentStep !== i ? 'true' : null"
+               [attr.aria-label]="'Step ' + (i + 1) + ' of ' + steps.length + ': ' + step.label + (currentStep === i ? ' (current)' : currentStep > i ? ' (completed)' : '')"
+               (click)="onStepClick(i)"
+               (keydown.enter)="onStepClick(i)"
+               (keydown.space)="onStepClick(i); $event.preventDefault()">
+            <div class="step-dot"
+                 [class.active]="currentStep === i"
+                 [class.completed]="currentStep > i"
+                 aria-hidden="true">
+              @if (currentStep > i) 
+              {
+                <i class="pi pi-check check-icon" aria-hidden="true"></i>
+              }
+            </div>
+            <span class="step-text"
+                  [class.active]="currentStep === i"
+                  [class.completed]="currentStep > i"
+                  [innerHTML]="step.label.replace(' & ', ' &amp;<br/>')">
+            </span>
+          </div>
+        </ng-template>
+      </p-step>
+    }
+  </p-step-list>
+</p-stepper>

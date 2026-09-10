@@ -1,0 +1,12 @@
+'use client';
+
+import './page.css';
+
+export default function ManageReportPage() {
+  return (
+    <main className="manage-report-page page-container" aria-labelledby="manage-report-heading">
+      <h2 id="manage-report-heading">Manage Report Builder</h2>
+      <p>This is the Manage Report Builder page. Content will be added here.</p>
+    </main>
+  );
+}

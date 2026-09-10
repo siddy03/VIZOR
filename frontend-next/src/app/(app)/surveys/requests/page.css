@@ -1,0 +1,15 @@
+.ad-hoc-request-page.page-container {
+    padding: 24px;
+}
+
+.ad-hoc-request-page h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #202124;
+    margin-bottom: 16px;
+}
+
+.ad-hoc-request-page p {
+    font-size: 14px;
+    color: #5f6368;
+}

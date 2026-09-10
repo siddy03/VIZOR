@@ -1,0 +1,15 @@
+.manage-report-page.page-container {
+    padding: 24px;
+}
+
+.manage-report-page h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: #202124;
+    margin-bottom: 16px;
+}
+
+.manage-report-page p {
+    font-size: 14px;
+    color: #5f6368;
+}

@@ -1,0 +1,264 @@
+/* Page Container */
+.users-page-container {
+    padding: 0 40px 32px 40px;
+    background: #fff;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* Main Card */
+.main-card {
+    background: transparent;
+}
+
+/* Tabs */
+.tabs-header {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 24px;
+    border-bottom: none;
+}
+
+.tab-item {
+    padding: 10px 24px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s;
+    background: #f8f9fa;
+    color: #5f6368;
+    border: 1px solid #dadce0;
+}
+
+.tab-item.active {
+    background: #fff;
+    color: #1a73e8;
+    border-color: #d2e3fc;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Tab Content Box */
+.tab-content {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+
+
+/* Filter Bar */
+/* Filter Bar - Uses Global Grid Layout from styles.css */
+
+/* Custom Fieldset for Status */
+
+/* Status Text (No Badge) */
+.status-text {
+    font-size: 13px;
+    color: #3c4043;
+}
+
+/* Actions */
+.row-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.action-btn {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.action-btn ::ng-deep .p-button-icon {
+    font-size: 14px;
+}
+
+.btn-mimic {
+    color: #5f6368;
+}
+
+.btn-transfer {
+    color: #1a73e8;
+    /* Blue */
+}
+
+.btn-resend {
+    color: #202124;
+}
+
+.btn-edit {
+    color: #202124;
+}
+
+.action-btn:hover {
+    background: transparent !important;
+    opacity: 0.7;
+}
+
+/* Footer Note */
+.footer-note {
+    margin-top: 16px;
+    font-size: 11px;
+    color: #202124;
+    font-style: italic;
+    white-space: normal;
+    /* Allow wrapping */
+}
+
+/* Table Styling */
+:host ::ng-deep .users-table .p-datatable-header {
+    background: transparent;
+    border: none;
+}
+
+:host ::ng-deep .users-table .p-datatable-wrapper {
+    width: 100%;
+}
+
+:host ::ng-deep .users-table .p-datatable-table {
+    min-width: 1280px;
+}
+
+:host ::ng-deep .users-table .p-datatable-thead>tr>th {
+    background: #fff;
+    color: #202124;
+    font-weight: 600;
+    font-size: 13px;
+    border-bottom: 1px solid #e0e0e0;
+    border-top: none;
+    padding: 16px 32px;
+    white-space: nowrap;
+}
+
+:host ::ng-deep .users-table .p-datatable-tbody>tr>td {
+    padding: 16px 32px;
+    font-size: 13px;
+    color: #3c4043;
+    border-bottom: 1px solid #f1f3f4;
+    white-space: nowrap;
+}
+
+/* Sort Icons */
+:host ::ng-deep .p-sortable-column-icon {
+    font-size: 10px;
+    margin-left: 4px;
+    color: #9aa0a6;
+}
+
+/* Table Container for scrolling */
+.table-container {
+    overflow-x: auto;
+}
+
+/* User Requests Filter Bar Specifics */
+.requests-filter-bar {
+    width: 100%;
+    gap: 40px;
+    padding-top: 24px;
+    align-items: flex-end;
+}
+
+.requests-filter-bar .filter-item {
+    flex: 0 0 220px;
+    /* Fixed smaller width for dropdowns */
+    max-width: 220px;
+    position: relative;
+    overflow: visible;
+}
+
+.requests-filter-bar .filter-group-right {
+    display: contents;
+}
+
+
+/* Make Search Filter fixed width */
+.requests-filter-bar .search-filter {
+    flex: 1;
+    /* Allow search to grow */
+    max-width: none;
+    /* Remove max-width restriction */
+    min-width: 200px;
+}
+
+/* ========================================================================== */
+/* TABLET                                                                     */
+/* ========================================================================== */
+@media screen and (max-width: 1024px) {
+    .users-page-container {
+        padding: 0 20px 24px 20px;
+    }
+
+    :host ::ng-deep .users-table .p-datatable-table {
+        min-width: 800px;
+    }
+
+    :host ::ng-deep .users-table .p-datatable-thead>tr>th,
+    :host ::ng-deep .users-table .p-datatable-tbody>tr>td {
+        padding: 12px 16px;
+    }
+
+    .requests-filter-bar .filter-item {
+        flex: 0 0 180px;
+        max-width: 180px;
+    }
+}
+
+/* ========================================================================== */
+/* MOBILE                                                                     */
+/* ========================================================================== */
+@media screen and (max-width: 768px) {
+    .users-page-container {
+        padding: 0 12px 16px 12px;
+    }
+
+    .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        margin-top: 0;
+    }
+
+    .tabs-header {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .tab-item {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+
+    .tab-content {
+        padding: 16px;
+    }
+
+    :host ::ng-deep .users-table .p-datatable-table {
+        min-width: 600px;
+    }
+
+    :host ::ng-deep .users-table .p-datatable-thead>tr>th,
+    :host ::ng-deep .users-table .p-datatable-tbody>tr>td {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .requests-filter-bar {
+        gap: 16px;
+    }
+
+    .requests-filter-bar .filter-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .requests-filter-bar .search-filter {
+        min-width: 0;
+    }
+}

@@ -1,0 +1,198 @@
+.add-user-page .add-user-container {
+    padding: 0 40px 32px 40px;
+    background: #fff;
+    min-height: 100vh;
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+.add-user-page .page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0 0 32px 0;
+}
+
+/* Form Layout */
+.add-user-page .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.add-user-page .form-row.three-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+}
+
+.add-user-page .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.add-user-page .form-field label {
+    font-size: 13px;
+    color: #5f6368;
+    font-weight: 500;
+}
+
+/* Phone Group (Country + Phone) */
+.add-user-page .phone-group {
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.add-user-page .country-select {
+    flex: 0 0 100px;
+    /* Fixed width for country code */
+}
+
+.add-user-page .country-select label,
+.add-user-page .phone-input label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.add-user-page .phone-input {
+    flex: 1;
+}
+
+/* Status Row */
+.add-user-page .form-row.status-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-top: 8px;
+}
+
+.add-user-page .status-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: #202124;
+}
+
+.add-user-page .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.add-user-page .checkbox-group label {
+    font-size: 14px;
+    color: #3c4043;
+    cursor: pointer;
+}
+
+/* Permissions Section */
+.add-user-page .permissions-section {
+    margin-top: 24px;
+    background: #f8f9fa;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.add-user-page .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.add-user-page .section-header h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0;
+}
+
+.add-user-page .permission-table .p-datatable-header,
+.add-user-page .permission-table .p-datatable-thead>tr>th {
+    background: transparent;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #202124;
+    padding: 12px 16px;
+}
+
+.add-user-page .permission-table .p-datatable-tbody>tr>td {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #3c4043;
+    border-bottom: 1px solid #f1f3f4;
+    background: #fff;
+}
+
+/* Buttons */
+.add-user-page .action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+.add-user-page .action-buttons button {
+    width: 120px;
+}
+
+/* PrimeNG Overrides */
+.add-user-page .p-inputtext,
+.add-user-page .p-select,
+.add-user-page .p-dropdown,
+.add-user-page .p-calendar,
+.add-user-page .p-datepicker {
+    width: 100%;
+    height: 44px;
+    box-sizing: border-box;
+}
+
+.add-user-page .p-select .p-select-trigger,
+.add-user-page .p-dropdown .p-dropdown-trigger,
+.add-user-page .p-datepicker .p-datepicker-trigger {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 960px) {
+    .add-user-page .add-user-container {
+        padding: 16px;
+    }
+
+    .add-user-page .top-row {
+        margin-top: 0;
+    }
+
+    .add-user-page .form-row.three-column {
+        grid-template-columns: 1fr;
+    }
+
+    .add-user-page .phone-group {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-user-page .country-select {
+        flex: 1 1 100%;
+    }
+
+    .add-user-page .form-row.status-row {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .add-user-page .permissions-section {
+        padding: 16px;
+    }
+
+    .add-user-page .action-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .add-user-page .action-buttons button {
+        width: 100%;
+    }
+}

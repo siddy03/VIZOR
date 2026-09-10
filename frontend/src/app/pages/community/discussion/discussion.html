@@ -1,0 +1,53 @@
+<section class="panel-host" aria-label="Community discussion">
+  <div class="panel-header">
+    <span class="ws-status" [attr.data-status]="status()" aria-live="polite">
+      <span class="ws-dot"></span>
+      {{ status() === 'open' ? 'Live' : status() === 'connecting' ? 'Connecting...' : 'Offline' }}
+    </span>
+    <div class="participants-badge" role="status" [attr.aria-label]="'Participants: ' + participants">
+      <i class="pi pi-users" aria-hidden="true"></i>
+      <span>Participants ({{ participants }})</span>
+    </div>
+  </div>
+
+  <div class="tab-panel" role="tabpanel" tabindex="0">
+    <div *ngIf="messages().length === 0" class="empty-state" role="status">
+      <i class="pi pi-comments" style="font-size: 3rem; color: #dee2e6;" aria-hidden="true"></i>
+      <p>No discussions yet. Start a conversation!</p>
+    </div>
+
+    <div *ngIf="messages().length > 0" class="message-list" #messageList>
+      <div *ngFor="let m of messages(); trackBy: trackById"
+           class="message-bubble"
+           [class.from-me]="m.sender === 'me'"
+           [class.from-server]="m.sender === 'server'">
+        <div class="message-meta">
+          <span class="message-sender">{{ m.sender === 'me' ? 'You' : 'Echo Server' }}</span>
+          <span class="message-time">{{ m.timestamp | date:'shortTime' }}</span>
+        </div>
+        <div class="message-text">{{ m.text }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="message-input-section" role="form" aria-label="Send a message">
+    <p-inputGroup styleClass="message-input-group">
+      <label for="discussion-message-input" class="sr-only">Message</label>
+      <input id="discussion-message-input"
+             type="text"
+             pInputText
+             placeholder="Send a message"
+             class="message-input"
+             aria-label="Type a message"
+             [(ngModel)]="draft"
+             (keyup.enter)="sendMessage()" />
+      <p-button icon="pi pi-send"
+                styleClass="send-button"
+                [rounded]="true"
+                [disabled]="!draft.trim()"
+                (onClick)="sendMessage()"
+                [attr.aria-label]="'Send message'">
+      </p-button>
+    </p-inputGroup>
+  </div>
+</section>

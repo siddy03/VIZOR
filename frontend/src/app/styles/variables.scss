@@ -1,0 +1,70 @@
+/* colors */
+$color__primary: #0078D4;
+$color__white: #FFFFFF;
+$color__dark__grey: #262626;
+$color__bold__breadcrumb: #0D0D0D;
+$color__normal__brudcrumb: #64748B;
+$color__green: #009A2C;
+$color__warning: #FFAE00;
+$color__red: #FB2727FB;
+$color__red__validation: #AF0A29;
+$color__secondary: #000000;
+$hover__color: #E6EFF6;
+$bg__grey: #EAE9ED;
+$hover__list__light__color: #E6EFF6;
+$disable__bg: #E5E5E5;
+$warning__bg: #FFF3CD;
+$chat__status: #92400E;
+
+/* background colors */
+$bg__light__color: #F4F8FB;
+$bg__white: #ffffff;
+$bg__chat: #FFF6EA;
+
+/* border radius */
+$border__radius__dialog: 10px;
+$border__radius__circle: 20px;
+$border__radius__submit__btn: 5px;
+$border__radius__6: 6px;
+$border__radius__form__fields: 4px;
+$border__radius__header__search: 200px;
+
+/* border colors */
+$border__btn__secondary: #CBCBCB;
+$border__primary: #0078D4;
+$border__secondary: #EAE9ED;
+
+/* Export as CSS custom properties for use in CSS files */
+:root {
+    --color-primary: #{$color__primary};
+    --color-white: #{$color__white};
+    --color-dark-grey: #{$color__dark__grey};
+    --color-bold-breadcrumb: #{$color__bold__breadcrumb};
+    --color-normal-breadcrumb: #{$color__normal__brudcrumb};
+    --color-green: #{$color__green};
+    --color-warning: #{$color__warning};
+    --color-red: #{$color__red};
+    --color-red-validation: #{$color__red__validation};
+    --color-secondary: #{$color__secondary};
+    --hover-color: #{$hover__color};
+    --bg-grey: #{$bg__grey};
+    --hover-list-light-color: #{$hover__list__light__color};
+    --disable-bg: #{$disable__bg};
+    --warning-bg: #{$warning__bg};
+    --chat-status: #{$chat__status};
+
+    --bg-light-color: #{$bg__light__color};
+    --bg-white: #{$bg__white};
+    --bg-chat: #{$bg__chat};
+
+    --border-radius-dialog: #{$border__radius__dialog};
+    --border-radius-circle: #{$border__radius__circle};
+    --border-radius-submit-btn: #{$border__radius__submit__btn};
+    --border-radius-6: #{$border__radius__6};
+    --border-radius-form-fields: #{$border__radius__form__fields};
+    --border-radius-header-search: #{$border__radius__header__search};
+
+    --border-btn-secondary: #{$border__btn__secondary};
+    --border-primary: #{$border__primary};
+    --border-secondary: #{$border__secondary};
+}

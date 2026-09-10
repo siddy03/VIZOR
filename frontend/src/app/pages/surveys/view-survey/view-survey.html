@@ -1,0 +1,96 @@
+<main class="view-survey-page-container" aria-label="View surveys">
+    <a class="skip-link" href="#view-surveys-table">Skip to surveys table</a>
+
+    <!-- Breadcrumb -->
+    <app-breadcrumb [items]="breadcrumbItems"></app-breadcrumb>
+
+    <!-- Main Content Card -->
+    <div class="main-card">
+    <!-- Tabs -->
+    <div class="tab-row" role="tablist" aria-label="Survey source tabs">
+        <button class="tab-btn"
+                role="tab"
+                id="view-survey-tab-roundtables"
+                aria-controls="view-survey-panel-roundtables"
+                [attr.aria-selected]="activeTab === 'roundtables'"
+                [attr.tabindex]="activeTab === 'roundtables' ? 0 : -1"
+                [class.active]="activeTab === 'roundtables'"
+                (click)="switchTab('roundtables')">
+            Roundtables
+        </button>
+        <button class="tab-btn"
+                role="tab"
+                id="view-survey-tab-projects"
+                aria-controls="view-survey-panel-projects"
+                [attr.aria-selected]="activeTab === 'projects'"
+                [attr.tabindex]="activeTab === 'projects' ? 0 : -1"
+                [class.active]="activeTab === 'projects'"
+                (click)="switchTab('projects')">
+            Projects
+        </button>
+    </div>
+
+    <!-- Main Content Container -->
+    <div class="content-container"
+         role="tabpanel"
+         [id]="activeTab === 'roundtables' ? 'view-survey-panel-roundtables' : 'view-survey-panel-projects'"
+         [attr.aria-labelledby]="activeTab === 'roundtables' ? 'view-survey-tab-roundtables' : 'view-survey-tab-projects'"
+         tabindex="0">
+        
+        <!-- Filter Bar -->
+        <section class="filter-bar" role="search" aria-label="Survey filters">
+            <div class="filter-group">
+                <!-- Dynamic Context Dropdown (Roundtables or Projects) -->
+                <div class="dropdown-wrapper">
+                    <app-shared-dropdown
+                        [label]="activeTab === 'roundtables' ? 'Roundtables' : 'Projects'"
+                        [options]="contextOptions"
+                        [value]="selectedContext"
+                        (valueChange)="onContextChange($event)"
+                        optionLabel="label"
+                        placeholder="All">
+                    </app-shared-dropdown>
+                </div>
+
+                <!-- Survey Type Dropdown -->
+                <div class="dropdown-wrapper">
+                    <app-shared-dropdown
+                        label="Survey Type"
+                        [options]="surveyTypeOptions"
+                        [value]="selectedSurveyType"
+                        (valueChange)="onSurveyTypeChange($event)"
+                        optionLabel="label"
+                        placeholder="All">
+                    </app-shared-dropdown>
+                </div>
+
+                <!-- Search -->
+                <div class="filter-item search-filter">
+                    <app-shared-searchbar
+                        placeholder="Search"
+                        ariaLabel="Search surveys"
+                        id="view-survey-search"
+                        [(value)]="searchQuery"
+                        (onSearch)="onSearch()">
+                    </app-shared-searchbar>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reusable Table Component -->
+        <div id="view-surveys-table" class="table-container">
+            <app-table2 
+                [data]="surveyData" 
+                [cols]="surveyCols"
+                [showEdit]="true"
+                [showCopy]="true"
+                [showDelete]="true"
+                (onEdit)="handleEdit($event)"
+                (onCopy)="handleCopy($event)"
+                (onDelete)="handleDelete($event)">
+            </app-table2>
+        </div>
+
+        </div>
+    </div>
+</main>

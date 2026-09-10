@@ -1,0 +1,175 @@
+<main class="add-client-container" aria-label="Add new client form">
+    <!-- Breadcrumb -->
+    <app-breadcrumb [items]="breadcrumbItems" (itemClick)="handleBreadcrumbClick($event)"></app-breadcrumb>
+
+    <div class="form-container">
+        <form [formGroup]="clientForm" (ngSubmit)="onSubmit()" aria-label="Client details form">
+            
+            <!-- Row 1: Client Name | Client Abbreviation | Parent Client -->
+            <div class="form-row three-column">
+                <div class="form-field">
+                    <label for="clientName" class="sr-only">Client Name*</label>
+                    <input id="clientName" type="text" pInputText formControlName="name" placeholder="Client Name*"
+                        aria-required="true" 
+                        [ngClass]="{'ng-invalid ng-dirty': clientForm.get('name')?.invalid && clientForm.get('name')?.touched}" />
+                    <div class="error-text" *ngIf="clientForm.get('name')?.invalid && clientForm.get('name')?.touched" role="alert">
+                        Client Name is required.
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <label for="clientAbbreviation" class="sr-only">Client Abbreviation*</label>
+                    <input id="clientAbbreviation" type="text" pInputText formControlName="abbreviation" placeholder="Client Abbreviation*"
+                        aria-required="true" 
+                        [ngClass]="{'ng-invalid ng-dirty': clientForm.get('abbreviation')?.invalid && clientForm.get('abbreviation')?.touched}" />
+                    <div class="error-text" *ngIf="clientForm.get('abbreviation')?.invalid && clientForm.get('abbreviation')?.touched" role="alert">
+                        Client Abbreviation is required.
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <app-shared-dropdown
+                        label="Parent Client"
+                        id="parentClient"
+                        [options]="parentClientOptions"
+                        [value]="clientForm.get('parentClient')?.value"
+                        (valueChange)="clientForm.get('parentClient')?.setValue($event)"
+                        placeholder="Select Parent Client">
+                    </app-shared-dropdown>
+                </div>
+            </div>
+
+            <!-- Row 2: Peer Group(s) | Roundtable(s) | Project(s) -->
+            <div class="form-row three-column">
+                <div class="form-field">
+                    <div class="custom-fieldset" role="group" aria-labelledby="peerGroups-label">
+                        <label class="custom-legend" id="peerGroups-label" for="peerGroups-wrap">Peer Group(s) - Member of</label>
+                        <p-multiSelect id="peerGroups-wrap" inputId="peerGroups" [options]="peerGroupOptions" formControlName="peerGroupIds"
+                            optionLabel="label" optionValue="value" placeholder="Select..."
+                            [showClear]="true" [filter]="true" appendTo="body"
+                            styleClass="w-full border-none shadow-none bg-transparent">
+                            <ng-template #dropdownicon>
+                                <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                            </ng-template>
+                        </p-multiSelect>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <div class="custom-fieldset" role="group" aria-labelledby="roundtables-label">
+                        <label class="custom-legend" id="roundtables-label" for="roundtables-wrap">Roundtable(s)*</label>
+                        <p-multiSelect id="roundtables-wrap" inputId="roundtables" [options]="roundtableOptions" formControlName="roundtableIds"
+                            optionLabel="label" optionValue="value" placeholder="Select..."
+                            [showClear]="true" [filter]="true" appendTo="body"
+                            styleClass="w-full border-none shadow-none bg-transparent"
+                            [ngClass]="{'ng-invalid ng-dirty': clientForm.hasError('missingProjectOrRoundtable') && (clientForm.get('roundtableIds')?.touched || clientForm.get('projectIds')?.touched)}">
+                            <ng-template #dropdownicon>
+                                <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                            </ng-template>
+                        </p-multiSelect>
+                    </div>
+                </div>
+
+                <div class="form-field">
+                    <div class="custom-fieldset" role="group" aria-labelledby="projects-label">
+                        <label class="custom-legend" id="projects-label" for="projects-wrap">Project(s)*</label>
+                        <p-multiSelect id="projects-wrap" inputId="projects" [options]="projectOptions" formControlName="projectIds"
+                            optionLabel="label" optionValue="value" placeholder="Select..."
+                            [showClear]="true" [filter]="true" appendTo="body"
+                            styleClass="w-full border-none shadow-none bg-transparent"
+                            [ngClass]="{'ng-invalid ng-dirty': clientForm.hasError('missingProjectOrRoundtable') && (clientForm.get('roundtableIds')?.touched || clientForm.get('projectIds')?.touched)}">
+                            <ng-template #dropdownicon>
+                                <i class="pi pi-sort-down-fill" aria-hidden="true"></i>
+                            </ng-template>
+                        </p-multiSelect>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Cross-field Validation Error -->
+            <div class="form-row">
+                <div class="form-field full-width">
+                    <div class="error-text" *ngIf="clientForm.hasError('missingProjectOrRoundtable') && (clientForm.get('roundtableIds')?.touched || clientForm.get('projectIds')?.touched)" role="alert">
+                        At least one selection between Roundtable(s) or Project(s) is required.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 3: Domains (Full Width) -->
+            <div class="form-row">
+                <div class="form-field full-width">
+                    <label for="domainInput" class="sr-only">Domains*</label>
+                    <div class="domain-input-container" [ngClass]="{'ng-invalid ng-dirty': domains.length === 0 && clientForm.get('domainInput')?.touched}">
+                        <div class="domain-chip" *ngFor="let domain of domains; let i = index">
+                            {{ domain }}
+                            <i class="pi pi-times" (click)="removeDomain(i)" [attr.aria-label]="'Remove domain ' + domain" role="button" tabindex="0" (keydown.enter)="removeDomain(i)" (keydown.space)="removeDomain(i); $event.preventDefault()"></i>
+                        </div>
+                        <input id="domainInput" type="text" class="domain-input" formControlName="domainInput"
+                            placeholder="Domains*" (keydown)="onDomainKeyDown($event)" />
+                    </div>
+                    <small class="text-color-secondary mt-1">Note: Press enter after typing the domain</small>
+                    <div class="error-text" *ngIf="domains.length === 0 && clientForm.get('domainInput')?.touched" role="alert">
+                        At least one domain is required.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Identity Provider -->
+            <div class="identity-provider-section">
+                <span class="identity-provider-label" id="identityProvider">Identity Provider:</span>
+                <div class="radio-group" role="radiogroup" aria-labelledby="identityProvider">
+                    <div class="radio-item">
+                        <p-radioButton name="identityProvider" value="Client Identity Provider" formControlName="identityProvider" inputId="idpClient"></p-radioButton>
+                        <label for="idpClient">Client Identity Provider</label>
+                    </div>
+                    <div class="radio-item">
+                        <p-radioButton name="identityProvider" value="AR Identity Provider" formControlName="identityProvider" inputId="idpAR"></p-radioButton>
+                        <label for="idpAR">AR Identity Provider</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Checkboxes -->
+            <div class="checkbox-group">
+                <div class="checkbox-item">
+                    <p-checkbox formControlName="active" [binary]="true" inputId="activeCheck"></p-checkbox>
+                    <label for="activeCheck">Active</label>
+                </div>
+                <div class="checkbox-item">
+                    <p-checkbox formControlName="selfDatabase" [binary]="true" inputId="selfDatabaseCheck"></p-checkbox>
+                    <label for="selfDatabaseCheck">Self Database</label>
+                </div>
+            </div>
+
+            <!-- Form Actions -->
+            <div class="action-buttons">
+                <button type="button" pButton label="Cancel" class="cancel-button" aria-label="Cancel and go back"
+                    (click)="onCancel()"></button>
+                <button type="submit" pButton [label]="isEditMode ? 'Update' : 'Save'" class="save-button"
+                    [attr.aria-label]="isEditMode ? 'Update client' : 'Save new client'"></button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Confirmation Dialog -->
+    <p-dialog [visible]="showCancelDialog()" (visibleChange)="showCancelDialog.set($event)" [modal]="true" [closable]="false" [resizable]="false" [draggable]="false"
+        styleClass="custom-cancel-dialog" [style]="{width: '560px', borderRadius: '12px', boxShadow: 'none'}"
+        appendTo="body"
+        [attr.aria-labelledby]="'cancel-dialog-title'"
+        [attr.aria-describedby]="'cancel-dialog-message'"
+        role="alertdialog">
+        <div class="cancel-dialog-content">
+            <div class="dialog-icon-container" aria-hidden="true">
+                <i class="pi pi-exclamation-triangle dialog-icon"></i>
+            </div>
+            <h2 class="dialog-title" id="cancel-dialog-title">Unsaved Changes</h2>
+            <p class="dialog-message" id="cancel-dialog-message">You have unsaved changes, do you want to leave without saving?</p>
+            <div class="dialog-actions" role="group" aria-label="Confirmation actions">
+                <button pButton type="button" label="No" class="dialog-button-no"
+                    aria-label="Stay and keep editing" (click)="onKeepEditing()"></button>
+                <button pButton type="button" label="Yes" class="dialog-button-yes"
+                    aria-label="Leave without saving" (click)="onConfirmLeave()"></button>
+            </div>
+        </div>
+    </p-dialog>
+</main>

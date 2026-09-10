@@ -1,0 +1,114 @@
+.table1-host {
+  display: block;
+  width: 100%;
+}
+
+.table1-wrapper {
+  margin-top: 18px;
+  border: 1px solid #eceff4;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.table1-host .p-datatable-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table1-host .p-datatable .p-datatable-thead > tr > th,
+.table1-host .p-datatable .p-datatable-tbody > tr > td {
+  padding: 5px 14px !important;
+  font-size: 13px !important;
+  vertical-align: middle;
+  line-height: 1.5 !important;
+  height: 38px !important;
+  box-sizing: border-box !important;
+}
+
+.table1-host .p-datatable .p-datatable-tbody > tr > td {
+  font-weight: 400 !important;
+}
+
+.table1-host .row-actions .p-button,
+.table1-host .row-actions .action-btn,
+.table1-host .row-actions .table1-edit-btn {
+  width: 1.75rem !important;
+  height: 1.75rem !important;
+  min-width: 1.75rem !important;
+  min-height: 1.75rem !important;
+  padding: 0 !important;
+}
+
+.table1-host .row-actions .p-button .p-button-icon,
+.table1-host .row-actions .p-button-icon-only .p-button-icon {
+  font-size: 0.875rem !important;
+}
+
+.table1-host .row-actions {
+  display: flex !important;
+  gap: 0.25rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.table1-host .row-actions .p-button-danger,
+.table1-host .row-actions .p-button-danger .p-button-icon,
+.table1-host .row-actions .pi-trash {
+  color: #dc3545 !important;
+}
+
+.table1-host .row-actions .p-button-danger:hover {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+}
+
+.table1-host .row-actions .p-button-danger:hover .p-button-icon,
+.table1-host .row-actions .p-button-danger:hover .pi-trash {
+  color: #c82333 !important;
+}
+
+.table1-host .table1-edit-btn {
+  color: #6b7280 !important;
+}
+
+.table1-empty-state {
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.table1-empty-state img {
+  width: 120px;
+  height: auto;
+}
+
+.table1-empty-state span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #202124;
+}
+
+@media screen and (max-width: 768px) {
+  .table1-host .p-datatable .p-datatable-thead > tr > th,
+  .table1-host .p-datatable .p-datatable-tbody > tr > td {
+    padding: 5px 10px !important;
+    font-size: 12px !important;
+  }
+  .table1-host .row-actions .p-button,
+  .table1-host .row-actions .action-btn,
+  .table1-host .row-actions .table1-edit-btn {
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    min-width: 1.5rem !important;
+    min-height: 1.5rem !important;
+  }
+  .table1-empty-state img {
+    width: 90px;
+  }
+  .table1-empty-state span {
+    font-size: 14px;
+  }
+}

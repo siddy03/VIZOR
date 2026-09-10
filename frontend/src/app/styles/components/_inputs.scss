@@ -1,0 +1,60 @@
+/* PrimeNG Input Overrides */
+
+/* Text Inputs */
+.p-inputtext {
+    font-size: 0.875rem !important;
+    padding: 0.5rem 0.75rem !important;
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.p-inputtext:enabled:hover {
+    border-color: #9ca3af !important;
+}
+
+.p-inputtext:enabled:focus {
+    border-color: #1a73e8 !important;
+    box-shadow:  #bfdbfe !important;    
+    outline: none !important;
+}
+
+/* Dropdowns (p-select / p-dropdown) */
+.p-dropdown,
+.p-multiselect,
+.p-select {
+    border: 1px solid #d1d5db !important;
+    border-radius: 6px !important;
+    transition: border-color 0.2s, box-shadow 0.2s !important;
+}
+
+.p-dropdown:not(.p-disabled):hover,
+.p-multiselect:not(.p-disabled):hover,
+.p-select:not(.p-disabled):hover {
+    border-color: #1a73e8 !important;
+}
+
+.p-dropdown.p-focus,
+.p-multiselect.p-focus,
+.p-select.p-focus {
+    border-color: #1a73e8 !important;
+    box-shadow: 0 0 0 2px #bfdbfe !important;
+}
+
+/* Checkboxes */
+.p-checkbox .p-checkbox-box {
+    border: 2px solid #d1d5db !important;
+    border-radius: 4px !important;
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+    border-color: #1a73e8 !important;
+    background: #1a73e8 !important;
+}
+
+.p-checkbox:not(.p-checkbox-disabled) .p-checkbox-box:hover {
+    border-color: #1a73e8 !important;
+}
+

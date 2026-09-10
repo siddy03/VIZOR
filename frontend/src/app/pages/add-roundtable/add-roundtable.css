@@ -1,0 +1,440 @@
+.add-roundtable-container {
+    padding: 0 40px 32px 40px;
+    background: #fff;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.form-container {
+    background: #fff;
+    padding: 0;
+}
+
+/* Form Rows */
+.form-row {
+    display: grid;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.form-row.three-column {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.form-row.two-column {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form-row:last-of-type {
+    margin-bottom: 0;
+}
+
+/* Form Fields */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-field.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-field label {
+    font-size: 13px;
+    color: #5f6368;
+    font-weight: 400;
+    margin-bottom: 0;
+}
+
+.form-field input[type="text"] {
+    width: 100%;
+    height: 44px;
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
+}
+
+.form-field input[type="text"]:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.form-field input::placeholder {
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+.form-field textarea {
+    width: 100%;
+    height: 100px;
+    /* Restore correct height */
+    padding: 10px 14px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #202124;
+    background: #fff;
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-field textarea:focus {
+    border-color: #1a73e8;
+    outline: none;
+    box-shadow: 0 0 0 2px #bfdbfe;
+}
+
+.form-field textarea::placeholder {
+    color: #9aa0a6;
+    font-size: 14px;
+}
+
+
+::ng-deep .form-select {
+    width: 100%;
+}
+
+::ng-deep .form-select .p-select,
+::ng-deep .form-field .p-select,
+::ng-deep p-select .p-select {
+    border: 1px solid #dadce0 !important;
+    border-radius: 4px !important;
+    height: 44px !important;
+    
+    background: #fff !important;
+   
+    width: 100% !important;
+    transition: border-color 0.2s;
+    box-sizing: border-box !important;
+}
+
+::ng-deep .form-select .p-select .p-select-label,
+::ng-deep .form-field .p-select .p-select-label,
+::ng-deep p-select .p-select .p-select-label {
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    color: #202124 !important;
+}
+
+::ng-deep .form-select .p-select .p-select-label.p-placeholder,
+::ng-deep .form-field .p-select .p-select-label.p-placeholder,
+::ng-deep p-select .p-select .p-select-label.p-placeholder {
+    color: #9aa0a6 !important;
+}
+
+::ng-deep .form-select .p-select:not(.p-disabled):hover,
+::ng-deep .form-field .p-select:not(.p-disabled):hover,
+::ng-deep p-select .p-select:not(.p-disabled):hover {
+    border-color: #b0b0b0 !important;
+}
+
+::ng-deep .form-select .p-select:not(.p-disabled).p-focus,
+::ng-deep .form-field .p-select:not(.p-disabled).p-focus,
+::ng-deep p-select .p-select:not(.p-disabled).p-focus {
+    border-color: #1a73e8 !important;
+    box-shadow: 0 0 0 2px #bfdbfe !important;
+}
+
+
+/* PrimeNG MultiSelect Styling */
+::ng-deep .form-multiselect {
+    width: 100%;
+}
+
+::ng-deep .form-multiselect .p-multiselect,
+::ng-deep .form-field .p-multiselect,
+::ng-deep p-multiselect .p-multiselect {
+    border: 1px solid #dadce0 !important;
+    border-radius: 4px !important;
+    min-height: 44px !important;
+    background: #fff !important;
+    width: 100% !important;
+    transition: border-color 0.2s;
+    box-sizing: border-box !important;
+}
+
+::ng-deep .form-multiselect .p-multiselect .p-multiselect-label,
+::ng-deep .form-field .p-multiselect .p-multiselect-label,
+::ng-deep p-multiselect .p-multiselect .p-multiselect-label {
+    padding: 10px 14px !important;
+    font-size: 14px !important;
+    color: #202124 !important;
+}
+
+::ng-deep .form-multiselect .p-multiselect .p-multiselect-label.p-placeholder,
+::ng-deep .form-field .p-multiselect .p-multiselect-label.p-placeholder,
+::ng-deep p-multiselect .p-multiselect .p-multiselect-label.p-placeholder {
+    color: #9aa0a6 !important;
+}
+
+::ng-deep .form-multiselect .p-multiselect:not(.p-disabled):hover,
+::ng-deep .form-field .p-multiselect:not(.p-disabled):hover,
+::ng-deep p-multiselect .p-multiselect:not(.p-disabled):hover {
+    border-color: #b0b0b0 !important;
+}
+
+::ng-deep .form-multiselect .p-multiselect:not(.p-disabled).p-focus,
+::ng-deep .form-field .p-multiselect:not(.p-disabled).p-focus,
+::ng-deep p-multiselect .p-multiselect:not(.p-disabled).p-focus {
+    border-color: #1a73e8 !important;
+    box-shadow: 0 0 0 2px #bfdbfe !important;
+}
+
+/* MultiSelect Overlay Panel */
+
+/* MultiSelect Token (Selected Items Display) */
+::ng-deep .p-multiselect .p-multiselect-label-container .p-multiselect-chip {
+    background: #e8f0fe !important;
+    color: #1a73e8 !important;
+    padding: 2px 8px !important;
+    margin: 2px 4px 2px 0 !important;
+    border-radius: 12px !important;
+    font-size: 13px !important;
+}
+
+::ng-deep .p-multiselect .p-multiselect-label-container .p-multiselect-chip .p-multiselect-chip-icon {
+    color: #1a73e8 !important;
+    margin-left: 4px !important;
+    font-size: 12px !important;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.checkbox-group label {
+    font-size: 14px;
+    color: #3c4043;
+    cursor: pointer;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.cancel-button {
+    background: #fff !important;
+    border: 1px solid #dadce0 !important;
+    color: #5f6368 !important;
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
+    height: 40px !important;
+}
+
+.cancel-button:hover {
+    background: #f8f9fa !important;
+    border-color: #b0b0b0 !important;
+}
+
+.save-button {
+    background: #1a73e8 !important;
+    border: none !important;
+    color: #fff !important;
+    padding: 10px 24px !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    border-radius: 4px !important;
+    height: 40px !important;
+}
+
+.save-button:hover {
+    background: #1557b0 !important;
+}
+
+.save-button:disabled {
+    background: #e0e0e0 !important;
+    color: #9e9e9e !important;
+    border: none !important;
+    cursor: default !important;
+    box-shadow: none !important;
+}
+
+
+
+/* ========================================================================= */
+/* CUSTOM CANCEL DIALOG STYLING */
+/* ========================================================================= */
+
+::ng-deep .custom-cancel-dialog .p-dialog-header {
+    display: none !important;
+}
+
+::ng-deep .custom-cancel-dialog .p-dialog-content {
+    padding: 0 !important;
+    border-radius: 12px !important;
+}
+
+.cancel-dialog-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px 32px 40px 32px;
+    background: #fff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* Orange Circle Container for Icon */
+.dialog-icon-container {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    /* Light orange border */
+    border: 4px solid #ffe0b2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 24px;
+    background: #ffffff;
+    position: relative;
+    /* Optional: Outer subtle glow/ring if needed, otherwise just the border */
+}
+
+/* The Exclamation Icon */
+.dialog-icon {
+    font-size: 40px;
+    color: #ff9800;
+    /* Main Orange */
+    /* Remove 'content' if it was a pseudo-element, we are using <i> */
+}
+
+.dialog-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #202124;
+    margin: 0 0 12px 0;
+}
+
+.dialog-message {
+    font-size: 15px;
+    color: #5f6368;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+    max-width: 320px;
+}
+
+.dialog-actions {
+    display: flex;
+    gap: 12px;
+    /* Close gap */
+    justify-content: center;
+    width: 100%;
+}
+
+/* NO Button - Blue */
+.dialog-button-no {
+    min-width: 100px;
+    height: 40px;
+    background: #1a73e8 !important;
+    border: 1px solid #1a73e8 !important;
+    color: #fff !important;
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+}
+
+.dialog-button-no:hover {
+    background: #1557b0 !important;
+    border-color: #1557b0 !important;
+}
+
+/* YES Button - White/Gray */
+.dialog-button-yes {
+    min-width: 100px;
+    height: 40px;
+    background: #fff !important;
+    border: 1px solid #dadce0 !important;
+    color: #5f6368 !important;
+    /* Text color greyish */
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    border-radius: 4px !important;
+}
+
+.dialog-button-yes:hover {
+    background: #f8f9fa !important;
+    border-color: #b0b0b0 !important;
+    color: #202124 !important;
+}
+
+/* Force the mask to be on top of everything including sidebar */
+::ng-deep .p-dialog-mask {
+    z-index: 11000 !important;
+    /* Higher than sidebar usually 9999 or 10000 */
+}
+
+/* ========================================================================= */
+/* FIELDSET WRAPPED DROPDOWN FIXES (Strict Enforcement)                      */
+/* ========================================================================= */
+
+/* ========================================================================= */
+/* CUSTOM FIELDSET IMPLEMENTATION (Div-based for perfect sizing)             */
+/* ========================================================================= */
+
+.custom-fieldset {
+    /* Inherits majority from _filters.scss */
+    position: relative;
+}
+
+.custom-legend {
+    position: absolute;
+    top: -9px;
+    left: 10px;
+    background-color: #fff;
+    padding: 0 4px;
+    font-size: 12px;
+    color: #5f6368;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 960px) {
+    .add-roundtable-container {
+        padding: 16px;
+    }
+
+    .top-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        margin-top: 0;
+    }
+
+    .form-row.three-column,
+    .form-row.two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons {
+        flex-direction: column-reverse;
+    }
+
+    .cancel-button,
+    .save-button {
+        width: 100%;
+    }
+
+    ::ng-deep .custom-cancel-dialog {
+        width: 90vw !important;
+        max-width: 560px;
+    }
+}

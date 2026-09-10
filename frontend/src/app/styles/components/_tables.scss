@@ -1,0 +1,95 @@
+/* PrimeNG Table Overrides */
+
+/* Table Header */
+.p-datatable .p-datatable-thead>tr>th {
+    background: #f8f9fa !important;
+    color: #374151 !important;
+    padding: 0.375rem 1rem !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    border-top: 1px solid #e5e7eb !important;
+    font-weight: 600 !important;
+    text-transform: none !important;
+    font-size: 0.75rem !important;
+    letter-spacing: normal !important;
+}
+
+/* Table Body Cells */
+.p-datatable .p-datatable-tbody>tr>td {
+    padding: 0.375rem 1rem !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    color: #4b5563 !important;
+    font-size: 0.875rem !important;
+}
+
+/* Striped Rows */
+.p-datatable-striped .p-datatable-tbody>tr:nth-child(even) {
+    background: #ffffff !important;
+}
+
+.p-datatable-striped .p-datatable-tbody>tr:nth-child(odd) {
+    background: #ffffff !important;
+}
+
+/* Hover Effect */
+.p-datatable .p-datatable-tbody>tr:hover {
+    background: #f3f4f6 !important;
+}
+
+/* Sort Icons */
+.p-sortable-column-icon {
+    color: #9ca3af !important;
+    width: 14px !important;
+    height: 14px !important;
+    margin-left: 0.5rem !important;
+}
+
+.p-datatable .p-sortable-column.p-highlight {
+    background: #f3f4f6 !important;
+    color: #111827 !important;
+}
+
+.p-datatable .p-sortable-column.p-highlight .p-sortable-column-icon {
+    color: #111827 !important;
+}
+
+/* Empty Message */
+.p-datatable .p-datatable-emptymessage td {
+    border: none !important;
+    padding: 0 !important;
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+.p-datatable .p-datatable-emptymessage td>* {
+    min-height: 260px;
+    width: 100%;
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 960px) {
+    .p-datatable {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .p-datatable .p-datatable-table {
+        min-width: 700px;
+    }
+
+    .p-datatable .p-datatable-thead>tr>th {
+        white-space: nowrap;
+        padding: 0.375rem 0.75rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    .p-datatable .p-datatable-tbody>tr>td {
+        white-space: nowrap;
+        padding: 0.375rem 0.75rem !important;
+        font-size: 0.8rem !important;
+    }
+}
